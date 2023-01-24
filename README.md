@@ -1,6 +1,6 @@
-# classic-games
+## Classic Games Suite
 
-# Team Members
+# Team Members:
   * John G
   * Nicole F
   * Ben T
