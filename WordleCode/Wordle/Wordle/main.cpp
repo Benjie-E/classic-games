@@ -1,14 +1,10 @@
 #include <iostream>
+#include <Windows.h>
 #include "GameManager.h"
 
 int main()
 {
-    GameManager gameManager;
-    const int NUM_WORDS = 270;
-    string words[NUM_WORDS];
-
-    gameManager.importWords(words);
-
+    GameManager gameManager();
 
     return 0;
 }

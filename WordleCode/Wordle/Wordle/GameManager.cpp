@@ -2,15 +2,22 @@
 
 GameManager::GameManager()
 {
+	importWords(mWords);
+
+	mCurrentWord = getWord(mWords);
 }
 
 GameManager::~GameManager()
 {
 }
 
-string GameManager::getWord()
+string GameManager::getWord(string words[])
 {
-	return string();
+	srand(time(NULL));
+	int ranNum = rand() % 270 + 1;
+
+	string word = words[ranNum];
+	return word;
 }
 
 void GameManager::importWords(string words[])
@@ -31,4 +38,9 @@ void GameManager::importWords(string words[])
 		fin >> words[counter];
 		counter++;
 	}	
+}
+
+void GameManager::changeCurrentWord()
+{
+	mCurrentWord = getWord(mWords);
 }
