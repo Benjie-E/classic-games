@@ -56,7 +56,8 @@ ScreenManager::ScreenManager()
 {
     initscr();
     currentPhase = -1;
-    hangmanPos.y,hangmanPos.x = 0;
+    hangmanPos.y = 0;
+    hangmanPos.x = 0;
     letterPos.y = 20;
     letterPos.x = 0;
 
