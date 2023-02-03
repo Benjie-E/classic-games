@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
-
+#include "ScreenManager.h"
 class GameManager
 {
 public:
@@ -14,9 +14,12 @@ public:
 	std::string getWord();
 	int getNumWords() { return numberOfWords; }
 	void importWords(std::string words[]);
-
-	char getLetter;
-
+	char getLetter();
+	void gameLoop();
+	std::string* words;
+	std::string word;
+	void start();
+	ScreenManager screen;
 
 private:
 	int numberOfWords = 854;
