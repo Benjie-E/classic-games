@@ -19,10 +19,14 @@ public:
 	void changeCurrentWord(int randNum);
 	void introMessage();
 
+	void runGameLoop();
+
 private:
 	string mCurrentWord;
 	string mWords[270];
 	void importWords(string words[]);
+	int mNumTries;
+	string mInput;
 	
 };
 

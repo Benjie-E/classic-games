@@ -11,33 +11,11 @@ int main()
     GameManager gameManager(randNum);
     gameManager.introMessage();
 
-    string test = gameManager.getCurrentWord();
-
-    //variables for later use
-    string input;
-    int numTries = 5;
-    int i;
-    string currentWord = gameManager.getCurrentWord();
+    cout << gameManager.getCurrentWord() << endl;
 
     //game loop
-    while (true)
-    {
-        cout << "enter guess or exit to quit game" << endl;
-        cin >> input;
-
-        if (input == gameManager.getCurrentWord())
-        {
-            
-        }
-
-        for (i = 0; i <= 5; i++)
-        {
-            
-        }
-        
-
-
-    }
+    gameManager.runGameLoop();
+    
 
     return 0;
 }
