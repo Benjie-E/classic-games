@@ -9,19 +9,20 @@ using namespace std;
 class GameManager
 {
 public:
-	GameManager();
+	GameManager(int randNum);
 	~GameManager();
 
 	const string WORD_FILENAME = "words.txt";
 
-	string getWord(string words[]);
+	string getWord(string words[], int RandNum);
 	string getCurrentWord() { return mCurrentWord; }
-	void importWords(string words[]);
-	void changeCurrentWord();
+	void changeCurrentWord(int randNum);
+	void introMessage();
 
 private:
 	string mCurrentWord;
 	string mWords[270];
+	void importWords(string words[]);
 	
 };
 

@@ -1,22 +1,19 @@
 #include "GameManager.h"
 
-GameManager::GameManager()
+GameManager::GameManager(int randNum)
 {
 	importWords(mWords);
 
-	mCurrentWord = getWord(mWords);
+	mCurrentWord = getWord(mWords, randNum);
 }
 
 GameManager::~GameManager()
 {
 }
 
-string GameManager::getWord(string words[])
+string GameManager::getWord(string words[], int randNum)
 {
-	srand(time(NULL));
-	int ranNum = rand() % 270 + 1;
-
-	string word = words[ranNum];
+	string word = words[randNum];
 	return word;
 }
 
@@ -40,7 +37,15 @@ void GameManager::importWords(string words[])
 	}	
 }
 
-void GameManager::changeCurrentWord()
+void GameManager::changeCurrentWord(int randNum)
 {
-	mCurrentWord = getWord(mWords);
+	mCurrentWord = getWord(mWords, randNum);
+}
+
+void GameManager::introMessage()
+{
+	cout << "Welcome to Wordle!" << endl;
+	cout << "A random 5 letter word will be selected and it's your job to guess what it is" << endl;
+	cout << "You will have 5 tries and will be told what letters and right and if they are in the right position or not" << endl;
+	cout << "Good luck!" << endl;
 }
