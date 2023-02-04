@@ -13,27 +13,36 @@ using namespace std;
 int main()
 {
 	Board ttt;
-	int player = 1;
+	int player = 0;
 	bool gameWon = false, moveMade = false;
 	char pMove;
 
+	ttt.printBoard();
+
 	do
 	{
-		do
+		//players move
+		while(moveMade == false)
 		{
-			ttt.printBoard();
-			pMove = ttt.getMove();
+			pMove = ttt.getMove(player);
 			moveMade = ttt.setChar(pMove, player);
+			ttt.printBoard();
 			if (moveMade == false)
 			{
-				cout << "Invald Move! Please enter a valid move." << endl;
+				cout << "\tInvald Move! Please enter a valid move." << endl;
 			}
-		} while (moveMade = false);
+			system("cls");
+			ttt.printBoard();
+		}
 
+		//checking results of player move
 		moveMade = false;
-		gameWon = ttt.winCheck();
+		gameWon = ttt.finishedCheck();
+		player++;
+		player = player % 2;
 	} while (gameWon == false);
 
-	cout << "Congratulations Player " << player << "! You have won!" << endl;
+	//congrats to win and exits program
+	cout << "\tCongratulations Player " << player << "! You have won!" << endl;
 	return 0;
 }
