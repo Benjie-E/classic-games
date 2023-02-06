@@ -11,11 +11,12 @@ int main()
     GameManager gameManager(randNum);
     gameManager.introMessage();
 
-    cout << gameManager.getCurrentWord() << endl;
-
     //game loop
-    gameManager.runGameLoop();
-    
+    bool shouldQuit = false;
+    while (!shouldQuit)
+    {
+        gameManager.runGameLoop(shouldQuit);
+    }
 
     return 0;
 }

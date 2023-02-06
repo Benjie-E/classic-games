@@ -19,7 +19,11 @@ public:
 	void changeCurrentWord(int randNum);
 	void introMessage();
 
-	void runGameLoop();
+	string checkLetters(string input, string currentWord);
+	string checkOrder(string input, string currentWord);
+
+	void runGameLoop(bool &shouldQuit);
+	void resetGame();
 
 private:
 	string mCurrentWord;
@@ -27,6 +31,7 @@ private:
 	void importWords(string words[]);
 	int mNumTries;
 	string mInput;
+	int mRandNum;
 	
 };
 

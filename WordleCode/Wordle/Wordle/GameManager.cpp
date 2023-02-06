@@ -5,6 +5,7 @@ GameManager::GameManager(int randNum)
 	importWords(mWords);
 	mNumTries = 5;
 	mCurrentWord = getWord(mWords, randNum);
+	mRandNum = randNum;
 }
 
 GameManager::~GameManager()
@@ -50,27 +51,119 @@ void GameManager::introMessage()
 	cout << "Good luck!" << endl;
 }
 
-void GameManager::runGameLoop()
+void GameManager::runGameLoop(bool &shouldQuit)
 {
 	while (true)
 	{
+		cout << endl;
 		cout << "Please enter guess or exit to quit game" << endl;
 		cin >> mInput;
 
 		if (mInput == "exit" || mInput == "Exit")
+		{
+			cout << endl;
+			cout << "quiting game" << endl;
+			shouldQuit = true;
 			break;
+		}
+			
 
 		if (mInput.length() != 5)
-			break;
+		{ 
+			cout << endl;
+			cout << "This word is not five letters long please try again" << endl;
+			continue;
+		}
+			
 
 		if (mInput == mCurrentWord)
 		{
+			cout << endl;
+			string input;
 			cout << "Correct!!!" << endl;
+			cout << "would you like to play again (y for yes n for no)" << endl;
+			cin >> input;
+
+			if (input == "y")
+			{
+				resetGame();
+			}
+			else
+			{
+				shouldQuit = true;
+				break;
+			}
 		}
 		else
 		{
-
+			cout << endl;
+			cout << "incorrect guess" << endl;
+			cout << "These letters were right: " << checkLetters(mInput, mCurrentWord) << endl;
+			cout << "These letter were in the right order: " << checkOrder(mInput, mCurrentWord) << endl;
+			cout << endl;
+			mNumTries--;
 		}
 
+		if (mNumTries <= 0)
+		{
+			cout << endl;
+			string input;
+			cout << "out of tries" << endl;
+			cout << "the correct word was " << getCurrentWord() << endl;
+			cout << endl;
+			cout << "would you like to play again (y for yes n for no)" << endl;
+			cin >> input;
+
+			if (input == "y")
+			{
+				resetGame();
+			}
+			else
+			{
+				shouldQuit = true;
+				break;
+			}
+		}
 	}
+}
+
+string GameManager::checkLetters(string input, string currentWord)
+{
+	string returnLetters = "";
+
+	for (int i = 0; i <= 5; i++)
+	{
+		for (int j = 0; j <= 5; j++)
+		{
+			if (currentWord[i] == input[j])
+			{
+				returnLetters += input[j];
+			}
+		}
+	}
+	return returnLetters;
+}
+
+string GameManager::checkOrder(string input, string currentWord)
+{
+	string returnLetters = "";
+
+	for (int i = 0; i <= 5; i++)
+	{
+		for (int j = 0; j <= 5; j++)
+		{
+			if (currentWord[i] == input[j] && i == j)
+			{
+				returnLetters += input[j];
+			}
+		}
+	}
+	return returnLetters;
+}
+
+void GameManager::resetGame()
+{
+	mRandNum++;
+	mNumTries = 5;
+	changeCurrentWord(mRandNum);
 }
