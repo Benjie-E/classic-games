@@ -3,6 +3,11 @@
 #include <fstream>
 #include <cstdlib>
 #include "ScreenManager.h"
+#include <vector>
+#include <direct.h>
+#include <curses.h>
+#include <time.h>
+
 class GameManager
 {
 public:
@@ -20,7 +25,13 @@ public:
 	std::string word;
 	void start();
 	ScreenManager screen;
-
+	void lost();
+	void won();
+	int currentPhase;
+	void updateWord(int index);
+	std::vector<int> validateLetter(char letter);
+	std::string usedChars;
+	bool isDone();
 private:
 	int numberOfWords = 854;
 	std::string* wordList = nullptr;

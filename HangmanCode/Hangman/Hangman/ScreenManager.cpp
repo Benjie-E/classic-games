@@ -54,13 +54,15 @@ const char* HANGMANPICS[7] = {R"(
 ========= )"};
 ScreenManager::ScreenManager()
 {
-    initscr();
-    currentPhase = -1;
+    WINDOW *window = initscr();
+    curs_set(0);
+    noecho();
     hangmanPos.y = 0;
     hangmanPos.x = 0;
     letterPos.y = 20;
     letterPos.x = 0;
-
+    wordPos.y = 22;
+    wordPos.x = 10;
 }
 
 ScreenManager::~ScreenManager()
@@ -68,22 +70,40 @@ ScreenManager::~ScreenManager()
     endwin();
 }
 
-void ScreenManager::updateHangedMan()
+void ScreenManager::updateHangedMan(int phase)
 {
     refresh();
     move(hangmanPos.y,hangmanPos.x);
-    currentPhase++;
-    printw(HANGMANPICS[currentPhase]);
+    printw(HANGMANPICS[phase]);
 }
 
 void ScreenManager::reset()
 {
-    currentPhase = -1;
 
+}
+
+int ScreenManager::letterToIndex(char letter)
+{
+    return int(letter) - 0x41;
 }
 
 void ScreenManager::updateLetter(char letter)
 {
-    move(letterPos.y, letterPos.x);
-    
+    int index = letterToIndex(letter);
+    std::cout << index;
+    refresh();
+    mvaddch(letterPos.y, letterPos.x+index,letter);
+}
+void ScreenManager::start(int length) {
+    move(wordPos.y, wordPos.x);
+    for (int i = 0;i < length;i++) {
+        addstr("_ j");
+    }
+    refresh();
+
+}
+void ScreenManager::updateWord(int index, char letter)
+{
+    mvaddch(wordPos.y,wordPos.x+index*2,letter);
+    refresh();
 }
