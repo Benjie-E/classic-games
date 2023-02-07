@@ -38,7 +38,7 @@ int Board::getWinStatus()
 {
 	int winStatus;
 
-		//If one of the players wins
+		//Checks if one of the players wins
 	if (tiles[1] == tiles[2] && tiles[2] == tiles[3] || tiles[4] == tiles[5] && tiles[5] == tiles[6] ||
 		tiles[7] == tiles[8] && tiles[8] == tiles[9] || tiles[1] == tiles[4] && tiles[4] == tiles[7] ||
 		tiles[2] == tiles[5] && tiles[5] == tiles[8] || tiles[3] == tiles[6] && tiles[6] == tiles[9] ||
@@ -46,14 +46,14 @@ int Board::getWinStatus()
 	{
 		winStatus = 1;
 	}
-	// if no one wins
+	// checks if no one can win (board is fully placed) 
 	else if (charPlaced[0] == true && charPlaced[1] == true && charPlaced[2] == true && charPlaced[3] == true &&
 		charPlaced[4] == true && charPlaced[5] == true && charPlaced[6] == true && charPlaced[7] == true &&
 		charPlaced[8] == true && charPlaced[9] == true)
 	{
 		winStatus = 2;
 	}
-	else //game is still going
+	else //game is still going or the conditions above are not met
 	{
 		winStatus = 3;
 	}
