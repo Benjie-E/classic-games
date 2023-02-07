@@ -8,17 +8,28 @@ void DisplayManager::showBoard(const GameManager& game)
 	{
 		for (int j = 0; j < COLUMNS; j++)
 		{
-			cout << game.gameBoard[i][j] << "  ";
+			attron(COLOR_PAIR(game.gameBoard[i][j]));
+			//cout << game.gameBoard[i][j] << "  ";
+			//printw("%d  ", game.gameBoard[i][j]);
+			printw("[]");
+			attroff(COLOR_PAIR(game.gameBoard[i][j]));
+			printw("   ");
 		}
-		cout << endl;
+		//cout << endl;
+		printw("\n\n");
 	}
+	refresh();
 }
 
 int DisplayManager::getDecision()
 {
 	int column = 0;
-	cout << "\nWhich column would you like to place your piece in? (1-7) ";
-	cin >> column;
+	//cout << "\nWhich column would you like to place your piece in? (1-7) ";
+	printw("\nWhich column would you like to place your piece in? (1-7) ");
+	refresh();
+	//cin >> column;
+	scanw("%d", &column);
+	refresh();
 
 	return column - 1; // adjust for zero-indexed array
 }

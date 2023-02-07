@@ -7,8 +7,8 @@ const int BOARD_SIZE = COLUMNS * ROWS;
 enum SlotFills
 {
 	EMPTY=0,
-	PIECE1,		
-	PIECE2
+	RED_PIECE,	
+	YELLOW_PIECE
 };
 
 class GameManager
@@ -20,6 +20,6 @@ public:
 	void placePiece(int column);
 
 	int gameBoard[ROWS][COLUMNS];
-	bool isPlayer1Turn;
+	bool isRedTurn;
 	bool isWin;
 };

@@ -12,7 +12,7 @@ GameManager::GameManager()
 		}
 	}
 	
-	isPlayer1Turn = true;
+	isRedTurn = true;
 	isWin = false;
 }
 
@@ -28,12 +28,12 @@ void GameManager::placePiece(int column)
 		i++;
 	}
 
-	if (isPlayer1Turn)
-		gameBoard[i][column] = PIECE1;
+	if (isRedTurn)
+		gameBoard[i][column] = RED_PIECE;
 	else
-		gameBoard[i][column] = PIECE2;
+		gameBoard[i][column] = YELLOW_PIECE;
 
-	isPlayer1Turn = !isPlayer1Turn;
+	isRedTurn = !isRedTurn;
 
 	return;
 }
