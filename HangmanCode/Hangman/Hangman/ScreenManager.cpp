@@ -97,7 +97,7 @@ void ScreenManager::updateLetter(char letter)
 void ScreenManager::start(int length) {
     move(wordPos.y, wordPos.x);
     for (int i = 0;i < length;i++) {
-        addstr("_ j");
+        addstr("_ ");
     }
     refresh();
 
