@@ -10,13 +10,15 @@ int main()
     int randNum = rand() % 270 + 1;
     GameManager gameManager(randNum);
     gameManager.introMessage();
-
+    
     //game loop
     bool shouldQuit = false;
     while (!shouldQuit)
     {
         gameManager.runGameLoop(shouldQuit);
     }
+
+
 
     return 0;
 }

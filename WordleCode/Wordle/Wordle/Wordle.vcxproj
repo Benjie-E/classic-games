@@ -135,9 +135,11 @@
   <ItemGroup>
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ScreenManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="ScreenManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="words.txt" />
