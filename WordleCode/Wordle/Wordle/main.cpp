@@ -2,6 +2,7 @@
 #include <Windows.h>
 #include <time.h>
 #include "GameManager.h"
+#include "ScreenManager.h"s
 
 int main()
 {
@@ -9,6 +10,7 @@ int main()
     srand(time(NULL));
     int randNum = rand() % 270 + 1;
     GameManager gameManager(randNum);
+    ScreenManager screenManager;
     gameManager.introMessage();
     
     //game loop
