@@ -5,12 +5,13 @@ class ScreenManager
 public:
 	ScreenManager();
 	~ScreenManager();
-	int currentPhase;
-	void updateHangedMan();
+	void updateHangedMan(int phase);
 	void reset();
+	int letterToIndex(char letter);
 	void updateLetter(char letter);
-	
+	void start(int length);
+	void updateWord(int index,char letter);
 	POINT hangmanPos;
 	POINT letterPos;
+	POINT wordPos;
 };
-

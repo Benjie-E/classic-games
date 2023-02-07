@@ -1,12 +1,13 @@
 #include "GameManager.h"
-#include <direct.h>
-#include <curses.h>
-#include <time.h>
+#include <cstring>
+
 GameManager::GameManager()
 {
 	srand(time(NULL));
 	words = new std::string[numberOfWords];
 	importWords(words);
+	currentPhase = 0;
+	
 }
 
 GameManager::~GameManager()
@@ -16,12 +17,44 @@ GameManager::~GameManager()
 void GameManager::start()
 {
 	word = getWord();
+	screen.start(word.size());
 	gameLoop();
+	
 }
+void GameManager::lost()
+{
+}
+void GameManager::won()
+{
+}
+void GameManager::updateWord(int index)
+{
+
+}
+std::vector<int> GameManager::validateLetter(char letter)
+{
+	std::vector<int> correctIndexes;
+	for (int i = 0;i < word.size();i++) {
+		if (word[i] == letter) {
+			correctIndexes.push_back(i);
+		}
+	}
+	return correctIndexes;
+}
+
+bool GameManager::isDone()
+{
+	return false;
+}
+
 std::string GameManager::getWord()
 {
 	int wordIndex = (rand()%numberOfWords);
-	return wordList[wordIndex];
+	std::string word = "";
+	for (char c: wordList[wordIndex]) {
+		word+=toupper(c);
+	}
+	return word;
 }
 
 void GameManager::importWords(std::string words[])
@@ -43,7 +76,7 @@ void GameManager::importWords(std::string words[])
 		counter++;
 	}
 	wordList = words;
-
+	numberOfWords = counter;
 }
 
 char GameManager::getLetter()
@@ -52,15 +85,28 @@ char GameManager::getLetter()
 	while (!isalpha(letter)) {
 		letter = getch();
 	}
-	return letter;
+	return toupper(letter);
 }
 
 void GameManager::gameLoop()
 {
-	while (true) {
-		getch();
-		screen.updateHangedMan();
+	while (currentPhase<=6) {
+		char letter= getLetter();
+		if (usedChars.find(letter)!=-1) {
+			continue;
+		}
+		usedChars+=letter;
+		if (validateLetter(letter).empty()) {
+			screen.updateHangedMan(currentPhase);
+			currentPhase++;
+		}
+		else {
+			for (int i : validateLetter(letter))
+				screen.updateWord(i,letter);
+		}
+		isDone();
+		screen.updateLetter(letter);
 	}
-	
-	
+	lost();
 }
+
