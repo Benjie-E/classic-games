@@ -57,14 +57,14 @@ void GameManager::runGameLoop(bool &shouldQuit)
 {
 	while (true)
 	{
-		printw(" \n");
+		printw("\n");
 		printw("Please enter guess or exit to quit game\n");
 		refresh();
-		getstr(mInput);
+		scanw("%s", mInput);
 
-		if (mInput == "exit" || mInput == "Exit")
+		if (mInput == "exit " || mInput == "Exit ")
 		{
-			printw(" ");
+			printw("\n");
 			printw("quiting game\n");
 			refresh();
 			shouldQuit = true;
@@ -72,9 +72,9 @@ void GameManager::runGameLoop(bool &shouldQuit)
 		}
 		
 
-		if (sizeof(mInput) != 5)
+		if (mInput.size() != 5)
 		{ 
-			printw(" \n");
+			printw("\n");
 			printw("This word is not five letters long please try again\n");
 			refresh();
 			continue;
@@ -83,14 +83,13 @@ void GameManager::runGameLoop(bool &shouldQuit)
 
 		if (mInput == mCurrentWord)
 		{
-			printw(" \n");
+			printw("\n");
 			printw("Correct!!!\n");
 			printw("would you like to play again (y for yes n for no)\n");
 			refresh();
-			getstr(mInput);
-			mString = mInput;
+			scanw("%s", &mInput);
 
-			if (mString == "y")
+			if (mInput == "y")
 			{
 				resetGame();
 			}
@@ -104,25 +103,25 @@ void GameManager::runGameLoop(bool &shouldQuit)
 		{
 			printw("\n");
 			printw("incorrect guess\n");
-			printw(checkLetters(mInput, mCurrentWord).c_str());
+			// printw(checkLetters(mInput, mCurrentWord).c_str());
+			printw("%s", checkLetters(mInput, mCurrentWord));
 			printw(checkOrder(mInput, mCurrentWord).c_str());
-			printw(" ");
+			printw("\n");
 			refresh();
 			mNumTries--;
 		}
 
 		if (mNumTries <= 0)
 		{
-			printw(" ");
+			printw("\n");
 			printw("out of tries\n");
 			printw(getCurrentWord().c_str());
-			printw(" ");
+			printw("\n");
 			printw("would you like to play again(y for yes n for no\n");
 			refresh();
-			getstr(mInput);
-			mString = mInput;
+			scanw("%s", &mInput);
 
-			if (mString == "y")
+			if (mInput == "y")
 			{
 				resetGame();
 			}

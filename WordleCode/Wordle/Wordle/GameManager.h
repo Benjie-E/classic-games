@@ -31,8 +31,7 @@ private:
 	string mWords[270];
 	void importWords(string words[]);
 	int mNumTries;
-	char* mInput;
-	string mString;
+	string mInput;
 	int mRandNum;
 	
 };
