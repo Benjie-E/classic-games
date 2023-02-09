@@ -25,7 +25,8 @@ void GameManager::importWords(string words[])
 
 	if (!fin.is_open())
 	{
-		cout << "failed to import words file" << endl;
+		printw("failed to import words file\n");
+		refresh();
 		return;
 	}
 
@@ -45,46 +46,51 @@ void GameManager::changeCurrentWord(int randNum)
 
 void GameManager::introMessage()
 {
-	cout << "Welcome to Wordle!" << endl;
-	cout << "A random 5 letter word will be selected and it's your job to guess what it is" << endl;
-	cout << "You will have 5 tries and will be told what letters and right and if they are in the right position or not" << endl;
-	cout << "Good luck!" << endl;
+	printw("Welcome to Wordle!\n");
+	printw("A random 5 letter word will be selected and it's your job to guess what it is\n");
+	printw("You will have 5 tries and will be told what letters and right and if they are in the right position or not\n");
+	printw("Good luck!\n");
+	refresh();
 }
 
 void GameManager::runGameLoop(bool &shouldQuit)
 {
 	while (true)
 	{
-		cout << endl;
-		cout << "Please enter guess or exit to quit game" << endl;
-		cin >> mInput;
+		printw(" \n");
+		printw("Please enter guess or exit to quit game\n");
+		refresh();
+		getstr(mInput);
 
 		if (mInput == "exit" || mInput == "Exit")
 		{
-			cout << endl;
-			cout << "quiting game" << endl;
+			printw(" ");
+			printw("quiting game\n");
+			refresh();
 			shouldQuit = true;
 			break;
 		}
-			
+		
 
-		if (mInput.length() != 5)
+		if (sizeof(mInput) != 5)
 		{ 
-			cout << endl;
-			cout << "This word is not five letters long please try again" << endl;
+			printw(" \n");
+			printw("This word is not five letters long please try again\n");
+			refresh();
 			continue;
 		}
 			
 
 		if (mInput == mCurrentWord)
 		{
-			cout << endl;
-			string input;
-			cout << "Correct!!!" << endl;
-			cout << "would you like to play again (y for yes n for no)" << endl;
-			cin >> input;
+			printw(" \n");
+			printw("Correct!!!\n");
+			printw("would you like to play again (y for yes n for no)\n");
+			refresh();
+			getstr(mInput);
+			mString = mInput;
 
-			if (input == "y")
+			if (mString == "y")
 			{
 				resetGame();
 			}
@@ -96,25 +102,27 @@ void GameManager::runGameLoop(bool &shouldQuit)
 		}
 		else
 		{
-			cout << endl;
-			cout << "incorrect guess" << endl;
-			cout << "These letters were right: " << checkLetters(mInput, mCurrentWord) << endl;
-			cout << "These letter were in the right order: " << checkOrder(mInput, mCurrentWord) << endl;
-			cout << endl;
+			printw("\n");
+			printw("incorrect guess\n");
+			printw(checkLetters(mInput, mCurrentWord).c_str());
+			printw(checkOrder(mInput, mCurrentWord).c_str());
+			printw(" ");
+			refresh();
 			mNumTries--;
 		}
 
 		if (mNumTries <= 0)
 		{
-			cout << endl;
-			string input;
-			cout << "out of tries" << endl;
-			cout << "the correct word was " << getCurrentWord() << endl;
-			cout << endl;
-			cout << "would you like to play again (y for yes n for no)" << endl;
-			cin >> input;
+			printw(" ");
+			printw("out of tries\n");
+			printw(getCurrentWord().c_str());
+			printw(" ");
+			printw("would you like to play again(y for yes n for no\n");
+			refresh();
+			getstr(mInput);
+			mString = mInput;
 
-			if (input == "y")
+			if (mString == "y")
 			{
 				resetGame();
 			}
@@ -129,7 +137,7 @@ void GameManager::runGameLoop(bool &shouldQuit)
 
 string GameManager::checkLetters(string input, string currentWord)
 {
-	string returnLetters = "";
+	string returnLetters = "Correct letters are: ";
 
 	for (int i = 0; i <= 5; i++)
 	{
@@ -141,12 +149,13 @@ string GameManager::checkLetters(string input, string currentWord)
 			}
 		}
 	}
+	returnLetters += " \n";
 	return returnLetters;
 }
 
 string GameManager::checkOrder(string input, string currentWord)
 {
-	string returnLetters = "";
+	string returnLetters = "Letter in right order: ";
 
 	for (int i = 0; i <= 5; i++)
 	{
@@ -158,6 +167,7 @@ string GameManager::checkOrder(string input, string currentWord)
 			}
 		}
 	}
+	returnLetters += " \n";
 	return returnLetters;
 }
 
