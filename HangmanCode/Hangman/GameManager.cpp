@@ -51,7 +51,7 @@ std::string GameManager::getWord()
 {
 	int wordIndex = (rand()%numberOfWords);
 	std::string word = "";
-	for (char c: wordList[wordIndex]) {
+	for (char c: words[wordIndex]) {
 		word+=toupper(c);
 	}
 	return word;
@@ -60,7 +60,7 @@ std::string GameManager::getWord()
 void GameManager::importWords(std::string words[])
 {
 	std::ifstream fin;
-	fin.open(".\\"+this->WORD_FILENAME);
+	fin.open(".\\HangmanCode\\Hangman\\"+this->WORD_FILENAME);
 	
 	if (!fin.is_open())
 	{
@@ -75,7 +75,7 @@ void GameManager::importWords(std::string words[])
 		fin >> words[counter];
 		counter++;
 	}
-	wordList = words;
+	words;
 	numberOfWords = counter;
 }
 
@@ -90,15 +90,16 @@ char GameManager::getLetter()
 
 void GameManager::gameLoop()
 {
-	while (currentPhase<=6) {
+	screen.updateHangedMan(currentPhase);
+	while (currentPhase<6) {
 		char letter= getLetter();
 		if (usedChars.find(letter)!=-1) {
 			continue;
 		}
 		usedChars+=letter;
 		if (validateLetter(letter).empty()) {
-			screen.updateHangedMan(currentPhase);
 			currentPhase++;
+			screen.updateHangedMan(currentPhase);
 		}
 		else {
 			for (int i : validateLetter(letter))

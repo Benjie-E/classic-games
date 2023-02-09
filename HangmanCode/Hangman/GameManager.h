@@ -34,5 +34,4 @@ public:
 	bool isDone();
 private:
 	int numberOfWords = 854;
-	std::string* wordList = nullptr;
 };

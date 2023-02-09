@@ -67,7 +67,8 @@ ScreenManager::ScreenManager()
 
 ScreenManager::~ScreenManager()
 {
-    endwin();
+    clear();
+    refresh();
 }
 
 void ScreenManager::updateHangedMan(int phase)
@@ -99,6 +100,7 @@ void ScreenManager::start(int length) {
     for (int i = 0;i < length;i++) {
         addstr("_ ");
     }
+
     refresh();
 
 }
