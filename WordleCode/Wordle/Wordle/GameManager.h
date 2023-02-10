@@ -7,6 +7,8 @@
 
 using namespace std;
 
+class ScreenManager;
+
 class GameManager
 {
 public:
@@ -33,6 +35,7 @@ private:
 	int mNumTries;
 	string mInput;
 	int mRandNum;
+	ScreenManager* mScreenManager;
 	
 };
 

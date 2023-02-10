@@ -1,4 +1,5 @@
 #include "GameManager.h"
+#include "ScreenManager.h"
 
 GameManager::GameManager(int randNum)
 {
@@ -58,11 +59,11 @@ void GameManager::runGameLoop(bool &shouldQuit)
 	while (true)
 	{
 		printw("\n");
-		printw("Please enter guess or exit to quit game\n");
+		printw("Please enter guess or exit! to quit game\n");
 		refresh();
-		scanw("%s", mInput);
+		mInput = mScreenManager->getInput(mNumTries);
 
-		if (mInput == "exit " || mInput == "Exit ")
+		if (mInput == "exit!" || mInput == "Exit!")
 		{
 			printw("\n");
 			printw("quiting game\n");
@@ -103,8 +104,8 @@ void GameManager::runGameLoop(bool &shouldQuit)
 		{
 			printw("\n");
 			printw("incorrect guess\n");
-			// printw(checkLetters(mInput, mCurrentWord).c_str());
-			printw("%s", checkLetters(mInput, mCurrentWord));
+			printw(checkLetters(mInput, mCurrentWord).c_str());
+			printw("\n");
 			printw(checkOrder(mInput, mCurrentWord).c_str());
 			printw("\n");
 			refresh();
@@ -136,8 +137,7 @@ void GameManager::runGameLoop(bool &shouldQuit)
 
 string GameManager::checkLetters(string input, string currentWord)
 {
-	string returnLetters = "Correct letters are: ";
-
+	string returnLetters;
 	for (int i = 0; i <= 5; i++)
 	{
 		for (int j = 0; j <= 5; j++)
@@ -148,13 +148,12 @@ string GameManager::checkLetters(string input, string currentWord)
 			}
 		}
 	}
-	returnLetters += " \n";
 	return returnLetters;
 }
 
 string GameManager::checkOrder(string input, string currentWord)
 {
-	string returnLetters = "Letter in right order: ";
+	string returnLetters;
 
 	for (int i = 0; i <= 5; i++)
 	{
@@ -166,7 +165,6 @@ string GameManager::checkOrder(string input, string currentWord)
 			}
 		}
 	}
-	returnLetters += " \n";
 	return returnLetters;
 }
 
