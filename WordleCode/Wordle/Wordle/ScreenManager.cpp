@@ -5,6 +5,10 @@ ScreenManager::ScreenManager()
 	initscr();
 	start_color();
 	noecho();
+
+	init_pair(RIGHT_ORDER, COLOR_BLACK, COLOR_GREEN);
+	init_pair(RIGHT_LETTER, COLOR_BLACK, COLOR_YELLOW);
+	mCurrentDepth = 5;
 }
 
 ScreenManager::~ScreenManager()
@@ -13,12 +17,12 @@ ScreenManager::~ScreenManager()
 
 void ScreenManager::makeWordleBox()
 {
-	printw("--------------------------\n");
-	printw("|    |    |    |    |    |\n");
-	printw("|    |    |    |    |    |\n");
-	printw("|    |    |    |    |    |\n");
-	printw("--------------------------\n");
+	
+	printw("-----------\n");
+	printw("| | | | | |\n");
+	printw("-----------\n");
 	refresh();
+	
 }
 
 string ScreenManager::getInput(int numTries)
@@ -28,7 +32,7 @@ string ScreenManager::getInput(int numTries)
 	for (int i = 1; i < 6; i++)
 	{
 		builder = getch();
-		move(15 - numTries * 2, i * 4);
+		move(mCurrentDepth, i);
 		addch(builder);
 		input += builder;
 	}
@@ -40,9 +44,23 @@ void ScreenManager::proccesGuess(string guess, string currentWord, int numTries)
 	int answer;
 	for (int i = 0; i < 5; i++)
 	{
+		attron(COLOR_PAIRS);
 		answer = checkLetter(guess[i], currentWord, i);
-		move(15 - numTries * 2, i + 1 * 4);
 
+		if (answer == 0)
+		{
+			attron(COLOR_PAIR(RIGHT_ORDER));
+			mvaddch(5 , i+1,guess[i]);
+			attroff(COLOR_PAIR(RIGHT_ORDER));
+		}
+		else if (answer == 1)
+		{
+
+		}
+		else
+		{
+
+		}
 
 	}
 }

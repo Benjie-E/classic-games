@@ -22,5 +22,6 @@ private:
 	const int RIGHT_LETTER = 0;
 	const int RIGHT_ORDER = 1;
 	const int WRONG_LETTER = 2;
+	int mCurrentDepth;
 };
 

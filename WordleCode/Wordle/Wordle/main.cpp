@@ -14,6 +14,7 @@ int main()
     gameManager.introMessage();
     screenManager.makeWordleBox();
     
+    printw(gameManager.getCurrentWord().c_str());
 
     //game loop
     bool shouldQuit = false;

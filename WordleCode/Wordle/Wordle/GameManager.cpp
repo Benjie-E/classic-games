@@ -7,6 +7,8 @@ GameManager::GameManager(int randNum)
 	mNumTries = 5;
 	mCurrentWord = getWord(mWords, randNum);
 	mRandNum = randNum;
+
+	mScreenManager = new ScreenManager;
 }
 
 GameManager::~GameManager()
@@ -102,13 +104,7 @@ void GameManager::runGameLoop(bool &shouldQuit)
 		}
 		else
 		{
-			printw("\n");
-			printw("incorrect guess\n");
-			printw(checkLetters(mInput, mCurrentWord).c_str());
-			printw("\n");
-			printw(checkOrder(mInput, mCurrentWord).c_str());
-			printw("\n");
-			refresh();
+			mScreenManager->proccesGuess(mInput, mCurrentWord, mNumTries);
 			mNumTries--;
 		}
 
