@@ -16,12 +16,12 @@ GameManager::GameManager()
 	isWin = false;
 }
 
+
 void GameManager::placePiece(int column)
 {
 	bool placed = false;
 	
 	int i = 0;
-	//int* tmp;
 
 	while (gameBoard[i + 1][column] == EMPTY && i < ROWS)
 	{

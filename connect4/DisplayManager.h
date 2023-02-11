@@ -6,9 +6,15 @@
 class DisplayManager
 {
 public:
-	DisplayManager() {};
+	DisplayManager();
 	~DisplayManager() {};
 
 	void showBoard(const GameManager& game);
-	int getDecision();
+	//int getDecision();
+	int manageCursor();
+
+private:
+	int mCursorRow;
+	int mCursorCol;
+	int mGameboardCol;
 };
