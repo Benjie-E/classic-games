@@ -9,9 +9,16 @@ public:
 	DisplayManager();
 	~DisplayManager() {};
 
-	void showBoard(const GameManager& game);
-	//int getDecision();
-	int manageCursor();
+	void updateScreen(const GameManager &game);
+	void manageCursor(const GameManager &game);
+
+	// accessors/mutators
+	int getCursorRow();
+	int getCursorCol();
+	int getGameboardCol();
+	void setCursorRow(int row);
+	void setCursorCol(int col);
+	void setGameboardCol(int col);
 
 private:
 	int mCursorRow;

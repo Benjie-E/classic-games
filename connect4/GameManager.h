@@ -18,6 +18,7 @@ public:
 	~GameManager() {};
 	
 	void placePiece(int column);
+	void checkWin();
 
 	int gameBoard[ROWS][COLUMNS];
 	bool isRedTurn;

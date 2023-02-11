@@ -9,7 +9,8 @@ int main()
 	initscr();
 	keypad(stdscr, true); // get arrow keys
 	noecho(); // don't output anything from user
-	raw();
+	raw(); // handle keyboard inputs directly
+	curs_set(0); // hide terminal cursor
 	start_color();
 	init_pair(EMPTY, COLOR_WHITE, COLOR_BLACK);
 	init_pair(RED_PIECE, COLOR_RED, COLOR_RED);
@@ -19,13 +20,13 @@ int main()
 	GameManager game;
 	DisplayManager screen;
 	int column;
+	screen.updateScreen(game);
 
-	while (true)
+	while (!game.isWin)
 	{
-		screen.showBoard(game);
-		column = screen.manageCursor();
-		game.placePiece(column);
-		clear();
+		screen.updateScreen(game);
+		screen.manageCursor(game);
+		game.placePiece(screen.getGameboardCol());
 	}
 
 	return 0;

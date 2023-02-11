@@ -37,3 +37,12 @@ void GameManager::placePiece(int column)
 
 	return;
 }
+
+
+void GameManager::checkWin()
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+
+	}
+}
