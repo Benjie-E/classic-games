@@ -60,8 +60,7 @@ void GameManager::runGameLoop(bool &shouldQuit)
 {
 	while (true)
 	{
-		printw("\n");
-		printw("Please enter guess or exit! to quit game\n");
+		mScreenManager->makeWordleBox();
 		refresh();
 		mInput = mScreenManager->getInput(mNumTries);
 
@@ -90,9 +89,9 @@ void GameManager::runGameLoop(bool &shouldQuit)
 			printw("Correct!!!\n");
 			printw("would you like to play again (y for yes n for no)\n");
 			refresh();
-			scanw("%s", &mInput);
+			char input = getch();
 
-			if (mInput == "y")
+			if (input == 'y')
 			{
 				resetGame();
 			}
@@ -116,9 +115,9 @@ void GameManager::runGameLoop(bool &shouldQuit)
 			printw("\n");
 			printw("would you like to play again(y for yes n for no\n");
 			refresh();
-			scanw("%s", &mInput);
+			char input = getch();
 
-			if (mInput == "y")
+			if (input == 'y')
 			{
 				resetGame();
 			}
@@ -169,4 +168,6 @@ void GameManager::resetGame()
 	mRandNum++;
 	mNumTries = 5;
 	changeCurrentWord(mRandNum);
+	mScreenManager->reset();
+	clear();
 }

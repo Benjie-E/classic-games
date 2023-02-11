@@ -6,8 +6,9 @@ ScreenManager::ScreenManager()
 	start_color();
 	noecho();
 
-	init_pair(RIGHT_ORDER, COLOR_BLACK, COLOR_GREEN);
 	init_pair(RIGHT_LETTER, COLOR_BLACK, COLOR_YELLOW);
+	init_pair(ORDER, COLOR_BLACK, COLOR_GREEN);
+
 	mCurrentDepth = 5;
 }
 
@@ -17,19 +18,32 @@ ScreenManager::~ScreenManager()
 
 void ScreenManager::makeWordleBox()
 {
+	for (int i = 1; i < 11; i++)
+	{
+		move(mCurrentDepth - 1, i);
+		addch('-');
+	}
+
+	for (int i = 0; i < 12; i += 2)
+	{
+		move(mCurrentDepth, i);
+		addch('|');
+	}
+
+	for (int i = 1; i < 11; i++)
+	{
+		move(mCurrentDepth + 1, i);
+		addch('-');
+	}
 	
-	printw("-----------\n");
-	printw("| | | | | |\n");
-	printw("-----------\n");
 	refresh();
-	
 }
 
 string ScreenManager::getInput(int numTries)
 {
 	char builder = ' ';
 	string input;
-	for (int i = 1; i < 6; i++)
+	for (int i = 1; i < 11; i+=2)
 	{
 		builder = getch();
 		move(mCurrentDepth, i);
@@ -41,28 +55,38 @@ string ScreenManager::getInput(int numTries)
 
 void ScreenManager::proccesGuess(string guess, string currentWord, int numTries)
 {
+	int j = 0;
 	int answer;
-	for (int i = 0; i < 5; i++)
+	makeWordleBox();
+	for (int i = 1; i < 11; i+=2)
 	{
-		attron(COLOR_PAIRS);
-		answer = checkLetter(guess[i], currentWord, i);
+		answer = checkLetter(guess[j], currentWord, j);
 
-		if (answer == 0)
+		if (answer == 3)
 		{
-			attron(COLOR_PAIR(RIGHT_ORDER));
-			mvaddch(5 , i+1,guess[i]);
-			attroff(COLOR_PAIR(RIGHT_ORDER));
+			attron(COLOR_PAIR(ORDER));
+			move(mCurrentDepth, i);
+			addch(guess[j]);
+			attroff(COLOR_PAIR(ORDER));
+			refresh();
 		}
 		else if (answer == 1)
 		{
-
+			attron(COLOR_PAIR(RIGHT_LETTER));
+			move(mCurrentDepth, i);
+			addch(guess[j]);
+			attroff(COLOR_PAIR(RIGHT_LETTER));
+			refresh();
 		}
 		else
 		{
-
+			move(mCurrentDepth, i);
+			addch(guess[j]);
+			refresh();
 		}
-
+		j++;
 	}
+	mCurrentDepth += 4;
 }
 
 int ScreenManager::checkLetter(char charToCheck, string currentWord, int i)
@@ -70,7 +94,7 @@ int ScreenManager::checkLetter(char charToCheck, string currentWord, int i)
 	//if it is right letter in right place retrun right order
 	if (currentWord[i] == charToCheck)
 	{
-		return RIGHT_ORDER;
+		return ORDER;
 	}
 	
 	//if it is right letter in wrong place return right letter
@@ -84,5 +108,10 @@ int ScreenManager::checkLetter(char charToCheck, string currentWord, int i)
 
 	//if it is the wrong letter in the wrong place return wrong letter
 	return WRONG_LETTER;
+}
+
+void ScreenManager::reset()
+{
+	mCurrentDepth = 5;
 }
 
