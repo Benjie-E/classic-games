@@ -7,6 +7,7 @@ Description:
 */
 
 #include "ttt_functions.h"
+#include <curses.h>
 
 using namespace std;
 
@@ -16,23 +17,27 @@ int main()
 	int player = 0;
 	bool gameWon = false, moveMade = false;
 	char pMove;
+	initscr();
 
 	ttt.printBoard();
+	refresh();
 
 	do
 	{
 		//players move
 		while(moveMade == false)
 		{
+			ttt.printBoard();
 			pMove = ttt.getMove(player);
 			moveMade = ttt.setChar(pMove, player);
-			ttt.printBoard();
 			if (moveMade == false)
 			{
-				cout << "\tInvald Move! Please enter a valid move." << endl;
+				move(8, 5);
+				printw("Invald Move! Please enter a valid move.");
+				refresh();
+				getch();
+				clear();
 			}
-			system("cls");
-			ttt.printBoard();
 		}
 
 		//checking results of player move
@@ -43,6 +48,19 @@ int main()
 	} while (gameWon == false);
 
 	//congrats to win and exits program
-	cout << "\tCongratulations Player " << player << "! You have won!" << endl;
+	clear();
+	ttt.printBoard();
+	move(8, 5);
+	printw("Congratulations Player ");
+	if (player == 1)
+		printw("1");
+	else
+		printw("2");
+	printw("! You have won!");
+
+	refresh;
+	getch();
+	endwin();
+
 	return 0;
 }

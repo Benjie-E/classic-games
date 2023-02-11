@@ -7,6 +7,7 @@ Description:
 */
 
 #include "ttt_functions.h"
+#include <curses.h>
 
 using namespace std;
 
@@ -67,12 +68,31 @@ int Board::getWinStatus()
  *********************************************************************/
 void Board::printBoard()
 {
-	cout << "\t " << tiles[1] << " | " << tiles[2] << " | " << tiles[3] << endl;
-	cout << "\t----------" << endl;
-	cout << "\t " << tiles[4] << " | " << tiles[5] << " | " << tiles[6] << endl;
-	cout << "\t----------" << endl;
-	cout << "\t " << tiles[7] << " | " << tiles[8] << " | " << tiles[9] << endl;
-	cout << endl;
+	move(2, 8);
+	printw(" ");
+	addch(tiles[1]);
+	printw(" | ");
+	addch(tiles[2]);
+	printw(" | ");
+	addch(tiles[3]);
+	move(3, 8);
+	printw("-----------");
+	move(4, 8);
+	printw(" ");
+	addch(tiles[4]);
+	printw(" | ");
+	addch(tiles[5]);
+	printw(" | ");
+	addch(tiles[6]);
+	move(5, 8);
+	printw("-----------");
+	move(6, 8);
+	printw(" ");
+	addch(tiles[7]);
+	printw(" | ");
+	addch(tiles[8]);
+	printw(" | ");
+	addch(tiles[9]);
 }
 
 /*      Pre:  Player needs to enter where to try and place their piece
@@ -82,11 +102,14 @@ void Board::printBoard()
 char Board::getMove(int playerNum)
 {
 	char playerChoice;
+	
+	move(8, 5);
+	printw("Place your ");
+	addch(PLAYER[playerNum]);
+	printw(" in square: ");
 
-	cout << "\n\tWhere would you like to place your " << PLAYER[playerNum] << "? : ";
-
+	refresh();
 	cin >> playerChoice;
-
 	return playerChoice;
 }
 
@@ -103,12 +126,12 @@ bool Board::finishedCheck()
 		return true;
 	}
 
-	if (winStatus == 2)
+	else if (winStatus == 2)
 	{
 		return true;
 	}
 	
-	if (winStatus == 3)
+	else
 	{
 		return false;
 	}
