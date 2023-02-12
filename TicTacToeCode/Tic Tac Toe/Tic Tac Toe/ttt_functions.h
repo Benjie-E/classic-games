@@ -16,13 +16,18 @@ using namespace std;
 
 const char PLAYER[2]{ 'X','O' };
 
-class Board {
+class TTTManager {
 public:
-	bool setChar(char tile, int player);
+	int player = 0;
+
+	bool setChar(char tile);
 	bool finishedCheck();
 	int getWinStatus();
-	void printBoard();
-	char getMove(int playerNum);
+	void updateBoard();
+	char getMove();
+	void printVictory();
+	bool goAgain();
+	void boardReset();
 
 private:
 	char tiles[10]{'1','1','2','3','4','5','6','7','8','9' };

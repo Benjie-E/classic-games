@@ -15,7 +15,7 @@ using namespace std;
  *     Post:  Piece has been placed or user has been informed of error
  *  Purpose:  To place a players piece on the board
  *********************************************************************/
-bool Board::setChar(char tile, int player)
+bool TTTManager::setChar(char tile)
 {
 	int tileNum = int(tile) - 48;
 
@@ -35,7 +35,7 @@ bool Board::setChar(char tile, int player)
  *     Post:  victory status is known (victory, tie, or ongoing)
  *  Purpose:  return the game status to the program
  *********************************************************************/
-int Board::getWinStatus()
+int TTTManager::getWinStatus()
 {
 	int winStatus;
 
@@ -62,50 +62,148 @@ int Board::getWinStatus()
 	return winStatus;
 }
 
-/*      Pre:  Board has been updated and needs to be printed
- *     Post:  Board has been printed to the screen
+/*      Pre:  Update board to current game state
+ *     Post:  Board has updated and is ready to print
  *  Purpose:  Show players the current game status
  *********************************************************************/
-void Board::printBoard()
+void TTTManager::updateBoard()
 {
-	move(2, 8);
-	printw(" ");
-	addch(tiles[1]);
-	printw(" | ");
-	addch(tiles[2]);
-	printw(" | ");
-	addch(tiles[3]);
-	move(3, 8);
-	printw("-----------");
-	move(4, 8);
-	printw(" ");
-	addch(tiles[4]);
-	printw(" | ");
-	addch(tiles[5]);
-	printw(" | ");
-	addch(tiles[6]);
-	move(5, 8);
-	printw("-----------");
-	move(6, 8);
-	printw(" ");
-	addch(tiles[7]);
-	printw(" | ");
-	addch(tiles[8]);
-	printw(" | ");
-	addch(tiles[9]);
+	move(0, 5);
+	printw("Tic-Tac-Toe in C++");
+	WINDOW* gameWindow = newwin(7, 13, 1, 7);
+	refresh();
+
+	box(gameWindow, 0, 0);
+
+	wmove(gameWindow, 1, 1);
+	wprintw(gameWindow, " ");
+
+	if (tiles[1] == 'X')
+		wattron(gameWindow, COLOR_PAIR(1));
+	else if (tiles[1] == 'O')
+		wattron(gameWindow, COLOR_PAIR(2));
+	waddch(gameWindow, tiles[1]);
+	if (tiles[1] == 'X')
+		wattroff(gameWindow, COLOR_PAIR(1));
+	else if (tiles[1] == 'O')
+		wattroff(gameWindow, COLOR_PAIR(2));
+
+	wprintw(gameWindow, " | ");
+
+	if (tiles[2] == 'X')
+		wattron(gameWindow, COLOR_PAIR(1));
+	else if (tiles[2] == 'O')
+		wattron(gameWindow, COLOR_PAIR(2));
+	waddch(gameWindow, tiles[2]);
+	if (tiles[2] == 'X')
+		wattroff(gameWindow, COLOR_PAIR(1));
+	else if (tiles[2] == 'O')
+		wattroff(gameWindow, COLOR_PAIR(2));
+
+	wprintw(gameWindow, " | ");
+
+	if (tiles[3] == 'X')
+		wattron(gameWindow, COLOR_PAIR(1));
+	else if (tiles[3] == 'O')
+		wattron(gameWindow, COLOR_PAIR(2));
+	waddch(gameWindow, tiles[3]);
+	if (tiles[3] == 'X')
+		wattroff(gameWindow, COLOR_PAIR(1));
+	else if (tiles[3] == 'O')
+		wattroff(gameWindow, COLOR_PAIR(2));
+
+	wmove(gameWindow, 2, 1);
+	wprintw(gameWindow,"-----------");
+	wmove(gameWindow, 3, 1);
+	wprintw(gameWindow, " ");
+
+	if (tiles[4] == 'X')
+		wattron(gameWindow, COLOR_PAIR(1));
+	else if (tiles[4] == 'O')
+		wattron(gameWindow, COLOR_PAIR(2));
+	waddch(gameWindow, tiles[4]);
+	if (tiles[4] == 'X')
+		wattroff(gameWindow, COLOR_PAIR(1));
+	else if (tiles[4] == 'O')
+		wattroff(gameWindow, COLOR_PAIR(2));
+
+	wprintw(gameWindow, " | ");
+
+	if (tiles[5] == 'X')
+		wattron(gameWindow, COLOR_PAIR(1));
+	else if (tiles[5] == 'O')
+		wattron(gameWindow, COLOR_PAIR(2));
+	waddch(gameWindow, tiles[5]);
+	if (tiles[5] == 'X')
+		wattroff(gameWindow, COLOR_PAIR(1));
+	else if (tiles[5] == 'O')
+		wattroff(gameWindow, COLOR_PAIR(2));
+
+	wprintw(gameWindow, " | ");
+
+	if (tiles[6] == 'X')
+		wattron(gameWindow, COLOR_PAIR(1));
+	else if (tiles[6] == 'O')
+		wattron(gameWindow, COLOR_PAIR(2));
+	waddch(gameWindow, tiles[6]);
+	if (tiles[6] == 'X')
+		wattroff(gameWindow, COLOR_PAIR(1));
+	else if (tiles[6] == 'O')
+		wattroff(gameWindow, COLOR_PAIR(2));
+
+	wmove(gameWindow, 4, 1);
+	wprintw(gameWindow, "-----------");
+	wmove(gameWindow, 5, 1);
+	wprintw(gameWindow, " ");
+
+	if (tiles[7] == 'X')
+		wattron(gameWindow, COLOR_PAIR(1));
+	else if (tiles[7] == 'O')
+		wattron(gameWindow, COLOR_PAIR(2));
+	waddch(gameWindow, tiles[7]);
+	if (tiles[7] == 'X')
+		wattroff(gameWindow, COLOR_PAIR(1));
+	else if (tiles[7] == 'O')
+		wattroff(gameWindow, COLOR_PAIR(2));
+
+	wprintw(gameWindow, " | ");
+
+	if (tiles[8] == 'X')
+		wattron(gameWindow, COLOR_PAIR(1));
+	else if (tiles[8] == 'O')
+		wattron(gameWindow, COLOR_PAIR(2));
+	waddch(gameWindow, tiles[8]);
+	if (tiles[8] == 'X')
+		wattroff(gameWindow, COLOR_PAIR(1));
+	else if (tiles[8] == 'O')
+		wattroff(gameWindow, COLOR_PAIR(2));
+
+	wprintw(gameWindow, " | ");
+
+	if (tiles[9] == 'X')
+		wattron(gameWindow, COLOR_PAIR(1));
+	else if (tiles[9] == 'O')
+		wattron(gameWindow, COLOR_PAIR(2));
+	waddch(gameWindow, tiles[9]);
+	if (tiles[9] == 'X')
+		wattroff(gameWindow, COLOR_PAIR(1));
+	else if (tiles[9] == 'O')
+		wattroff(gameWindow, COLOR_PAIR(2));
+
+	wrefresh(gameWindow);
 }
 
 /*      Pre:  Player needs to enter where to try and place their piece
  *     Post:  Player has entered a possible location to place their piece
  *  Purpose:  get the location that the player wants to put their piece
  *********************************************************************/
-char Board::getMove(int playerNum)
+char TTTManager::getMove()
 {
 	char playerChoice;
 	
-	move(8, 5);
+	move(9, 5);
 	printw("Place your ");
-	addch(PLAYER[playerNum]);
+	addch(PLAYER[player]);
 	printw(" in square: ");
 
 	refresh();
@@ -117,7 +215,7 @@ char Board::getMove(int playerNum)
  *     Post:  game has either been completed or not
  *  Purpose:  To see if the game is over or not
  *********************************************************************/
-bool Board::finishedCheck()
+bool TTTManager::finishedCheck()
 {
 	int winStatus = getWinStatus();
 
@@ -135,4 +233,72 @@ bool Board::finishedCheck()
 	{
 		return false;
 	}
+}
+
+/*      Pre:  Has the game been completed
+ *     Post:  game has either been completed or not
+ *  Purpose:  To see if the game is over or not
+ *********************************************************************/
+void TTTManager::printVictory()
+{
+	clear();
+	updateBoard();
+	move(9, 5);
+	int vicCon = getWinStatus();
+
+	if (vicCon == 1)
+	{
+		printw("Congratulations Player ");
+		if (player == 1)
+			printw("1 (X's)");
+		else if (player == 0)
+			printw("2 (O's)");
+		printw("! You have won!");
+	}
+	else
+	{
+		printw("Game has resulted in a tie.");
+		move(10, 5);
+		printw("Neither player wins!");
+	}
+
+	refresh;
+	getch();
+}
+
+/*      Pre:  Game has been completed
+ *     Post:  Program knows if the user wants to play again or not
+ *  Purpose:  To either prep the program for exiting or restarting to game
+ *********************************************************************/
+bool TTTManager::goAgain()
+{
+	char anotherGame = 'P';
+	while (anotherGame != 'Y' && anotherGame != 'N')
+	{
+		clear();
+		move(2, 5);
+		printw("Would you like to go again? (Y or N)");
+		anotherGame = getch();
+		anotherGame = toupper(anotherGame);
+	}
+
+	if (anotherGame == 'Y')
+		return true;
+	else
+		return false;
+}
+
+/*      Pre:  Player wants to play again but old values are stored
+ *     Post:  Old values had been reset to default
+ *  Purpose:  To reset the board and get the program ready for the next game
+ *********************************************************************/
+void TTTManager::boardReset()
+{
+	for (int i = 1; i <= 9; i++)
+	{
+		tiles[i] = char(i + 48);
+		charPlaced[i] = false;
+	}
+
+	player = 0;
 }

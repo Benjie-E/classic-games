@@ -13,54 +13,60 @@ using namespace std;
 
 int main()
 {
-	Board ttt;
-	int player = 0;
-	bool gameWon = false, moveMade = false;
+	TTTManager ttt;
+	int vicCon;
+	bool gameWon = false, moveMade = false, goAgain = false;
 	char pMove;
-	initscr();
 
-	ttt.printBoard();
-	refresh();
+	//Initializing various variables for PDCurses
+	initscr();
+	start_color();
+	init_pair(1, COLOR_RED, COLOR_BLACK);
+	init_pair(2, COLOR_BLUE, COLOR_BLACK);
+	init_pair(3, COLOR_WHITE, COLOR_BLACK);
 
 	do
 	{
-		//players move
-		while(moveMade == false)
+		clear();
+		ttt.updateBoard();
+		refresh();
+
+		do
 		{
-			ttt.printBoard();
-			pMove = ttt.getMove(player);
-			moveMade = ttt.setChar(pMove, player);
-			if (moveMade == false)
+			//players move
+			while (moveMade == false)
 			{
-				move(8, 5);
-				printw("Invald Move! Please enter a valid move.");
-				refresh();
-				getch();
-				clear();
+				ttt.updateBoard();
+				pMove = ttt.getMove();
+				moveMade = ttt.setChar(pMove);
+				if (moveMade == false)
+				{
+					move(9, 5);
+					printw("Invald Move! Please enter a valid move.");
+					refresh();
+					getch();
+					clear();
+				}
 			}
-		}
 
-		//checking results of player move
-		moveMade = false;
-		gameWon = ttt.finishedCheck();
-		player++;
-		player = player % 2;
-	} while (gameWon == false);
+			//checking results of player move
+			moveMade = false;
+			gameWon = ttt.finishedCheck();
+			ttt.player++;
+			ttt.player = ttt.player % 2;
+		} while (gameWon == false);
 
-	//congrats to win and exits program
-	clear();
-	ttt.printBoard();
-	move(8, 5);
-	printw("Congratulations Player ");
-	if (player == 1)
-		printw("1");
-	else
-		printw("2");
-	printw("! You have won!");
 
-	refresh;
-	getch();
+		//checks if how game ended and then displays the results
+		//congrats to win and checks if they want to exit the program
+		ttt.printVictory();
+
+		goAgain = ttt.goAgain();
+		if (goAgain == true)
+			ttt.boardReset();
+
+	} while (goAgain == true);
+
 	endwin();
-
 	return 0;
 }
