@@ -23,10 +23,18 @@ void DisplayManager::updateScreen(const GameManager &game)
 			attroff(COLOR_PAIR(game.gameBoard[i][j]));
 			printw("   ");
 		}
-		//cout << endl;
 		printw("\n\n");
 	}
 	mvprintw(mCursorRow, mCursorCol, "^^");
+	move(mCursorRow + 1, 0);
+	if (game.isRedTurn)
+	{
+		printw("RED's turn.");
+	}
+	else
+	{
+		printw("YELLOW's turn.");
+	}
 	refresh();
 }
 
@@ -44,13 +52,14 @@ void DisplayManager::manageCursor(const GameManager &game)
 		switch (keypress)
 		{
 		case KEY_RIGHT:
-			mCursorCol = (mCursorCol + 5) % 35;
-			mGameboardCol = (mGameboardCol + 1) % 7;
+			// use modulus for screen wrapping
+			mCursorCol = (mCursorCol + COL_SPACING) % BOARD_WIDTH;
+			mGameboardCol = (mGameboardCol + 1) % COLUMNS;
 			updateScreen(game);
 			break;
 		case KEY_LEFT:
-			mCursorCol = (mCursorCol + 30) % 35;
-			mGameboardCol = (mGameboardCol - 1) % 7;
+			mCursorCol = (mCursorCol + COL_SPACING_WRAPAROUND) % BOARD_WIDTH;
+			mGameboardCol = (mGameboardCol - 1) % COLUMNS;
 			updateScreen(game);
 			break;
 		case KEY_ENTER: // a few possible ENTER keys, need to capture all
@@ -63,6 +72,16 @@ void DisplayManager::manageCursor(const GameManager &game)
 			break;
 		}
 	}
+}
+
+
+void DisplayManager::winMessage(int winner)
+{
+	move(mCursorRow, 0);
+	if (winner == RED)
+		printw("\nRed wins!\n");
+	else // if (gameEnding == YELLOW)
+		printw("\nYellow wins!\n");
 }
 
 

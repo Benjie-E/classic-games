@@ -2,13 +2,13 @@
 
 const int COLUMNS = 7;
 const int ROWS = 6;
-const int BOARD_SIZE = COLUMNS * ROWS;
+const int GRID_SIZE = COLUMNS * ROWS;
 
-enum SlotFills
+const enum SlotFills
 {
-	EMPTY=0,
-	RED_PIECE,	
-	YELLOW_PIECE
+	NONE=0,
+	RED,	
+	YELLOW
 };
 
 class GameManager
@@ -22,5 +22,11 @@ public:
 
 	int gameBoard[ROWS][COLUMNS];
 	bool isRedTurn;
-	bool isWin;
+
+	// accessors and mutators
+	int getWinner();
+	void setWinner(int winner);
+
+private:
+	int mWinner;
 };
