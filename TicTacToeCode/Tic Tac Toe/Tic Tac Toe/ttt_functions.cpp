@@ -39,7 +39,7 @@ int TTTManager::getWinStatus()
 {
 	int winStatus;
 
-		//Checks if one of the players wins
+		//Checks if one of the players wins. Does this by checking if any of the characters that make a win match.
 	if (tiles[1] == tiles[2] && tiles[2] == tiles[3] || tiles[4] == tiles[5] && tiles[5] == tiles[6] ||
 		tiles[7] == tiles[8] && tiles[8] == tiles[9] || tiles[1] == tiles[4] && tiles[4] == tiles[7] ||
 		tiles[2] == tiles[5] && tiles[5] == tiles[8] || tiles[3] == tiles[6] && tiles[6] == tiles[9] ||
@@ -47,7 +47,7 @@ int TTTManager::getWinStatus()
 	{
 		winStatus = 1;
 	}
-	// checks if no one can win (board is fully placed) 
+	// checks if no one can win (board is fully placed)
 	else if (charPlaced[0] == true && charPlaced[1] == true && charPlaced[2] == true && charPlaced[3] == true &&
 		charPlaced[4] == true && charPlaced[5] == true && charPlaced[6] == true && charPlaced[7] == true &&
 		charPlaced[8] == true && charPlaced[9] == true)
@@ -78,6 +78,7 @@ void TTTManager::updateBoard()
 	wmove(gameWindow, 1, 1);
 	wprintw(gameWindow, " ");
 
+	//Prints the top left square
 	if (tiles[1] == 'X')
 		wattron(gameWindow, COLOR_PAIR(1));
 	else if (tiles[1] == 'O')
@@ -90,6 +91,7 @@ void TTTManager::updateBoard()
 
 	wprintw(gameWindow, " | ");
 
+	//Prints the top middle square
 	if (tiles[2] == 'X')
 		wattron(gameWindow, COLOR_PAIR(1));
 	else if (tiles[2] == 'O')
@@ -102,6 +104,7 @@ void TTTManager::updateBoard()
 
 	wprintw(gameWindow, " | ");
 
+	//Prints the top left square
 	if (tiles[3] == 'X')
 		wattron(gameWindow, COLOR_PAIR(1));
 	else if (tiles[3] == 'O')
@@ -117,6 +120,7 @@ void TTTManager::updateBoard()
 	wmove(gameWindow, 3, 1);
 	wprintw(gameWindow, " ");
 
+	//Prints the middle left square
 	if (tiles[4] == 'X')
 		wattron(gameWindow, COLOR_PAIR(1));
 	else if (tiles[4] == 'O')
@@ -129,6 +133,7 @@ void TTTManager::updateBoard()
 
 	wprintw(gameWindow, " | ");
 
+	//Prints the middle square
 	if (tiles[5] == 'X')
 		wattron(gameWindow, COLOR_PAIR(1));
 	else if (tiles[5] == 'O')
@@ -141,6 +146,7 @@ void TTTManager::updateBoard()
 
 	wprintw(gameWindow, " | ");
 
+	//Prints the middle right square
 	if (tiles[6] == 'X')
 		wattron(gameWindow, COLOR_PAIR(1));
 	else if (tiles[6] == 'O')
@@ -156,6 +162,7 @@ void TTTManager::updateBoard()
 	wmove(gameWindow, 5, 1);
 	wprintw(gameWindow, " ");
 
+	//Prints the lower left square
 	if (tiles[7] == 'X')
 		wattron(gameWindow, COLOR_PAIR(1));
 	else if (tiles[7] == 'O')
@@ -168,6 +175,7 @@ void TTTManager::updateBoard()
 
 	wprintw(gameWindow, " | ");
 
+	//Prints the lower middle square
 	if (tiles[8] == 'X')
 		wattron(gameWindow, COLOR_PAIR(1));
 	else if (tiles[8] == 'O')
@@ -180,6 +188,7 @@ void TTTManager::updateBoard()
 
 	wprintw(gameWindow, " | ");
 
+	//Prints the lower right square
 	if (tiles[9] == 'X')
 		wattron(gameWindow, COLOR_PAIR(1));
 	else if (tiles[9] == 'O')
@@ -190,6 +199,7 @@ void TTTManager::updateBoard()
 	else if (tiles[9] == 'O')
 		wattroff(gameWindow, COLOR_PAIR(2));
 
+	//Refreshes the game window
 	wrefresh(gameWindow);
 }
 
@@ -207,6 +217,7 @@ char TTTManager::getMove()
 	printw(" in square: ");
 
 	refresh();
+	//This still works fine
 	cin >> playerChoice;
 	return playerChoice;
 }
@@ -219,16 +230,17 @@ bool TTTManager::finishedCheck()
 {
 	int winStatus = getWinStatus();
 
+	//A player has won the game
 	if (winStatus == 1)
 	{
 		return true;
 	}
-
+	//Neither player has won, game ends in tie
 	else if (winStatus == 2)
 	{
 		return true;
 	}
-	
+	//Game is still going
 	else
 	{
 		return false;
@@ -246,6 +258,7 @@ void TTTManager::printVictory()
 	move(9, 5);
 	int vicCon = getWinStatus();
 
+	//Someone has won the game, congratulates them
 	if (vicCon == 1)
 	{
 		printw("Congratulations Player ");
@@ -255,6 +268,7 @@ void TTTManager::printVictory()
 			printw("2 (O's)");
 		printw("! You have won!");
 	}
+	//Game has ended in a tie
 	else
 	{
 		printw("Game has resulted in a tie.");
@@ -272,7 +286,9 @@ void TTTManager::printVictory()
  *********************************************************************/
 bool TTTManager::goAgain()
 {
-	char anotherGame = 'P';
+	char anotherGame = 'P'; //Default value
+
+	//Will infinitely loop until a valid answer is entered
 	while (anotherGame != 'Y' && anotherGame != 'N')
 	{
 		clear();
@@ -294,11 +310,13 @@ bool TTTManager::goAgain()
  *********************************************************************/
 void TTTManager::boardReset()
 {
+	//resets both the tiles and charPlaced lists to their default value
 	for (int i = 1; i <= 9; i++)
 	{
 		tiles[i] = char(i + 48);
 		charPlaced[i] = false;
 	}
 
+	//resets player, so that X's can always go first
 	player = 0;
 }

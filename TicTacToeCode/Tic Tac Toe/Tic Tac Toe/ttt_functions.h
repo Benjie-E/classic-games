@@ -18,6 +18,7 @@ const char PLAYER[2]{ 'X','O' };
 
 class TTTManager {
 public:
+	//used to keep track of whose turn it is
 	int player = 0;
 
 	bool setChar(char tile);
@@ -30,6 +31,8 @@ public:
 	void boardReset();
 
 private:
+	//Stores what the board looks like
 	char tiles[10]{'1','1','2','3','4','5','6','7','8','9' };
+	//Stores if a piece has been placed in that square
 	bool charPlaced[10]{ true,false,false,false,false,false,false,false,false,false };
 };

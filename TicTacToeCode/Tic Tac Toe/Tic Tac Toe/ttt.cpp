@@ -21,12 +21,14 @@ int main()
 	//Initializing various variables for PDCurses
 	initscr();
 	start_color();
+	//Red text, black background
 	init_pair(1, COLOR_RED, COLOR_BLACK);
+	//Blue text, black background
 	init_pair(2, COLOR_BLUE, COLOR_BLACK);
-	init_pair(3, COLOR_WHITE, COLOR_BLACK);
 
 	do
 	{
+		//Clears the board and prints out the current state of the board
 		clear();
 		ttt.updateBoard();
 		refresh();
@@ -58,7 +60,7 @@ int main()
 
 
 		//checks if how game ended and then displays the results
-		//congrats to win and checks if they want to exit the program
+		//congrats to win and checks if they want to play again, otherwise exists the program
 		ttt.printVictory();
 
 		goAgain = ttt.goAgain();
