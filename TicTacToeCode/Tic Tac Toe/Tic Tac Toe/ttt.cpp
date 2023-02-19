@@ -21,6 +21,7 @@ int main()
 	//Initializing various variables for PDCurses
 	initscr();
 	start_color();
+	curs_set(0);
 	//Red text, black background
 	init_pair(1, COLOR_RED, COLOR_BLACK);
 	//Blue text, black background
@@ -44,7 +45,7 @@ int main()
 				if (moveMade == false)
 				{
 					move(9, 5);
-					printw("Invald Move! Please enter a valid move.");
+					printw("Invalid Move! Please enter a valid move.");
 					refresh();
 					getch();
 					clear();
