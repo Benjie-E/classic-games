@@ -22,12 +22,15 @@ public:
 
 	int gameBoard[ROWS][COLUMNS];
 	bool isRedTurn;
-	int turnNumber;
+	//bool keepPlaying;
 
 	// accessors and mutators
 	int getWinner();
+	int getTurnNumber();
 	void setWinner(int winner);
+	void setTurnNumber(int turnNumber);
 
 private:
+	int mTurnNumber;
 	int mWinner;
 };

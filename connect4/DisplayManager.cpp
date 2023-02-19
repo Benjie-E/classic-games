@@ -41,7 +41,6 @@ void DisplayManager::updateScreen(const GameManager &game)
 
 void DisplayManager::manageCursor(const GameManager &game)
 {
-	// TODO: get rid of magic numbers
 	int keypress;
 
 	move(mCursorRow, mCursorCol);
@@ -65,7 +64,8 @@ void DisplayManager::manageCursor(const GameManager &game)
 		case KEY_ENTER: // a few possible ENTER keys, need to capture all
 		case 10: // newline \n
 		case 13: // carriage return \r
-			// previous 3 cases will end up here (fall-through)
+		case 32: // spacebar
+			// previous 4 cases will end up here (fall-through)
 			return;
 			break;
 		default:
@@ -84,6 +84,48 @@ void DisplayManager::winMessage(int winner)
 		printw("\nYellow wins!\n");
 	else // if draw
 		printw("\nDraw...\n");
+}
+
+
+bool DisplayManager::replay()
+{
+	int keypress;
+	bool cursorOnQuit = false;
+
+	mCursorRow += 3;
+	mvprintw(mCursorRow, 0, ">  Play Again");
+	mvprintw(mCursorRow + 1, 3, "Quit");
+
+	while (true)
+	{
+		keypress = getch();
+		switch (keypress)
+		{
+		case KEY_UP:
+		case KEY_DOWN:
+			if (cursorOnQuit)
+			{
+				mvaddch(mCursorRow + 1, 0, ' ');
+				mvaddch(mCursorRow, 0, '>');
+			}
+			else
+			{
+				mvaddch(mCursorRow, 0, ' ');
+				mvaddch(mCursorRow + 1, 0, '>');
+			}
+			cursorOnQuit = !cursorOnQuit;
+			break;
+		case KEY_ENTER: // a few possible ENTER keys, need to capture all
+		case 10: // newline \n
+		case 13: // carriage return \r
+		case 32: // spacebar
+			// previous 4 cases will end up here (fall-through)
+			return !cursorOnQuit;
+			break;
+		default:
+			break;
+		}
+	}
 }
 
 

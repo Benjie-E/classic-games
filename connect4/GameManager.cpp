@@ -13,8 +13,9 @@ GameManager::GameManager()
 	}
 	
 	isRedTurn = true;
+	//keepPlaying = true;
 	mWinner = NONE;
-	turnNumber = 1;
+	mTurnNumber = 1;
 }
 
 
@@ -36,7 +37,7 @@ void GameManager::placePiece(int column)
 			gameBoard[i - 1][column] = YELLOW;
 
 		isRedTurn = !isRedTurn;
-		turnNumber++;
+		mTurnNumber++;
 	}
 }
 
@@ -154,8 +155,18 @@ int GameManager::getWinner()
 	return mWinner;
 }
 
+int GameManager::getTurnNumber()
+{
+	return mTurnNumber;
+}
+
 
 void GameManager::setWinner(int winner)
 {
 	mWinner = winner;
+}
+
+void GameManager::setTurnNumber(int turnNumber)
+{
+	mTurnNumber = turnNumber;
 }

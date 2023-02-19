@@ -14,8 +14,9 @@ public:
 	DisplayManager();
 	~DisplayManager() {};
 
-	void updateScreen(const GameManager &game);
-	void manageCursor(const GameManager &game);
+	void updateScreen(const GameManager& game);
+	void manageCursor(const GameManager& game);
+	bool replay();
 
 	// accessors/mutators
 	int getCursorRow();

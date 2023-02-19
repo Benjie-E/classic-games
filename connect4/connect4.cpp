@@ -17,21 +17,25 @@ int main()
 	init_pair(YELLOW, COLOR_YELLOW, COLOR_YELLOW);
 	refresh();
 
-	GameManager game;
-	DisplayManager screen;
-	screen.updateScreen(game);
-
-	while (game.getWinner() == NONE && game.turnNumber <= (COLUMNS * ROWS))
+	while (true)
 	{
-		screen.manageCursor(game);
-		game.placePiece(screen.getGameboardCol());
+		GameManager game;
+		DisplayManager screen;
 		screen.updateScreen(game);
-		game.checkWin();
+
+		while (game.getWinner() == NONE && game.getTurnNumber() <= (COLUMNS * ROWS))
+		{
+			screen.manageCursor(game);
+			game.placePiece(screen.getGameboardCol());
+			screen.updateScreen(game);
+			game.checkWin();
+		}
+
+		screen.winMessage(game.getWinner());
+
+		if (!screen.replay())
+			break;
 	}
-
-	screen.winMessage(game.getWinner());
-
-	getch();
 
 	return 0;
 }
