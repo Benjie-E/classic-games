@@ -80,8 +80,10 @@ void DisplayManager::winMessage(int winner)
 	move(mCursorRow, 0);
 	if (winner == RED)
 		printw("\nRed wins!\n");
-	else // if (gameEnding == YELLOW)
+	else if (winner == YELLOW)
 		printw("\nYellow wins!\n");
+	else // if draw
+		printw("\nDraw...\n");
 }
 
 

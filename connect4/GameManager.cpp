@@ -14,6 +14,7 @@ GameManager::GameManager()
 	
 	isRedTurn = true;
 	mWinner = NONE;
+	turnNumber = 1;
 }
 
 
@@ -26,7 +27,7 @@ void GameManager::placePiece(int column)
 		i++;
 	}
 
-	// do nothing if the column is full
+	// only do something if column is not full
 	if (gameBoard[i - 1][column] == NONE)
 	{
 		if (isRedTurn)
@@ -35,6 +36,7 @@ void GameManager::placePiece(int column)
 			gameBoard[i - 1][column] = YELLOW;
 
 		isRedTurn = !isRedTurn;
+		turnNumber++;
 	}
 }
 

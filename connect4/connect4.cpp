@@ -21,17 +21,15 @@ int main()
 	DisplayManager screen;
 	screen.updateScreen(game);
 
-	while (game.getWinner() == NONE)
+	while (game.getWinner() == NONE && game.turnNumber <= (COLUMNS * ROWS))
 	{
 		screen.manageCursor(game);
 		game.placePiece(screen.getGameboardCol());
 		screen.updateScreen(game);
 		game.checkWin();
-		if (game.getWinner() != NONE)
-		{
-			screen.winMessage(game.getWinner());
-		}
 	}
+
+	screen.winMessage(game.getWinner());
 
 	getch();
 

@@ -22,6 +22,7 @@ public:
 
 	int gameBoard[ROWS][COLUMNS];
 	bool isRedTurn;
+	int turnNumber;
 
 	// accessors and mutators
 	int getWinner();
