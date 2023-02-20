@@ -68,8 +68,8 @@ int TTTManager::getWinStatus()
  *********************************************************************/
 void TTTManager::updateBoard()
 {
-	move(0, 5);
-	printw("Tic-Tac-Toe in C++");
+	move(0, 3);
+	printw("Tic-Tac-Toe: get 3 in a row to win");
 	WINDOW* gameWindow = newwin(7, 13, 1, 7);
 	refresh();
 
@@ -211,10 +211,10 @@ char TTTManager::getMove()
 {
 	char playerChoice;
 	
-	move(9, 5);
+	move(9, 3);
 	printw("Place your ");
 	addch(PLAYER[player]);
-	printw(" in square: ");
+	printw(" in which square?");
 
 	refresh();
 	//This still works fine
