@@ -28,7 +28,7 @@ void GameManager::importWords(string words[])
 
 	if (!fin.is_open())
 	{
-		printw("failed to import words file\n");
+		printw("Failed to import words file.\n");
 		refresh();
 		return;
 	}
@@ -50,8 +50,8 @@ void GameManager::changeCurrentWord(int randNum)
 void GameManager::introMessage()
 {
 	printw("Welcome to Wordle!\n");
-	printw("A random 5 letter word will be selected and it's your job to guess what it is\n");
-	printw("You will have 5 tries and will be told what letters and right and if they are in the right position or not\n");
+	printw("A random 5 letter word will be selected and it's your job to guess what it is.\n");
+	printw("You will have 5 tries and will be told what letters are right and if they are in the right position or not.\n");
 	printw("Good luck!\n");
 	refresh();
 }
@@ -67,7 +67,7 @@ void GameManager::runGameLoop(bool &shouldQuit)
 		if (mInput == "exit!" || mInput == "Exit!")
 		{
 			printw("\n");
-			printw("quiting game\n");
+			printw("Quiting game\n");
 			refresh();
 			shouldQuit = true;
 			break;
@@ -77,7 +77,7 @@ void GameManager::runGameLoop(bool &shouldQuit)
 		if (mInput.size() != 5)
 		{ 
 			printw("\n");
-			printw("This word is not five letters long please try again\n");
+			printw("This word is not five letters long, please try again\n");
 			refresh();
 			continue;
 		}
@@ -87,7 +87,7 @@ void GameManager::runGameLoop(bool &shouldQuit)
 		{
 			printw("\n");
 			printw("Correct!!!\n");
-			printw("would you like to play again (y for yes n for no)\n");
+			printw("Would you like to play again? (y for yes or anything else for no)\n");
 			refresh();
 			char input = getch();
 
@@ -110,10 +110,12 @@ void GameManager::runGameLoop(bool &shouldQuit)
 		if (mNumTries <= 0)
 		{
 			printw("\n");
-			printw("out of tries\n");
+			printw("----------\n");
+			printw("Out of tries\n");
+			printw("The correct word was: ");
 			printw(getCurrentWord().c_str());
 			printw("\n");
-			printw("would you like to play again(y for yes n for no\n");
+			printw("Would you like to play again? (y for yes or anything else for no)\n");
 			refresh();
 			char input = getch();
 

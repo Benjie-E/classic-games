@@ -12,6 +12,7 @@ int main()
     GameManager gameManager(randNum);
     ScreenManager screenManager;
     gameManager.introMessage();
+    curs_set(0);
     
 
     //game loop
