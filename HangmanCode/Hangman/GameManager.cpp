@@ -7,7 +7,7 @@ GameManager::GameManager()
 	words = new std::string[numberOfWords];
 	importWords(words);
 	currentPhase = 0;
-	
+	solvedLetters = 0;
 }
 
 GameManager::~GameManager()
@@ -21,11 +21,15 @@ void GameManager::start()
 	gameLoop();
 	
 }
-void GameManager::lost()
+void GameManager::lose()
 {
+	screen.lose();
+	getch();
 }
 void GameManager::won()
 {
+	screen.win();
+	getch();
 }
 void GameManager::updateWord(int index)
 {
@@ -90,24 +94,33 @@ char GameManager::getLetter()
 
 void GameManager::gameLoop()
 {
-	screen.updateHangedMan(currentPhase);
-	while (currentPhase<6) {
-		char letter= getLetter();
-		if (usedChars.find(letter)!=-1) {
-			continue;
+	while (true) {
+		screen.updateHangedMan(currentPhase);
+		while (currentPhase < 6) {
+			char letter = getLetter();
+			if (usedChars.find(letter) != -1) {
+				continue;
+			}
+			usedChars += letter;
+			if (validateLetter(letter).empty()) {
+				currentPhase++;
+				screen.updateHangedMan(currentPhase);
+			}
+			else {
+				for (int i : validateLetter(letter))
+					screen.updateWord(i, letter);
+					solvedLetters++;
+			}
+			isDone();
+			screen.updateLetter(letter);
+			if (solvedLetters >= word.length()) {
+				won();
+				return;
+			}
 		}
-		usedChars+=letter;
-		if (validateLetter(letter).empty()) {
-			currentPhase++;
-			screen.updateHangedMan(currentPhase);
-		}
-		else {
-			for (int i : validateLetter(letter))
-				screen.updateWord(i,letter);
-		}
-		isDone();
-		screen.updateLetter(letter);
+		lose();
+		return;
 	}
-	lost();
+	
 }
 

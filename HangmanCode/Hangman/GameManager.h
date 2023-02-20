@@ -25,12 +25,13 @@ public:
 	std::string word;
 	void start();
 	ScreenManager screen;
-	void lost();
+	void lose();
 	void won();
 	int currentPhase;
 	void updateWord(int index);
 	std::vector<int> validateLetter(char letter);
 	std::string usedChars;
+	int solvedLetters;
 	bool isDone();
 private:
 	int numberOfWords = 854;

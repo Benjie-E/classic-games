@@ -2,6 +2,28 @@
 #include "ScreenManager.h"
 #include <iostream>
 #include <curses.h>
+const char* LOSETEXT = { R"(
+
+ __     ______  _    _   _      ____   _____ ______ 
+ \ \   / / __ \| |  | | | |    / __ \ / ____|  ____|
+  \ \_/ / |  | | |  | | | |   | |  | | (___ | |__   
+   \   /| |  | | |  | | | |   | |  | |\___ \|  __|  
+    | | | |__| | |__| | | |___| |__| |____) | |____ 
+    |_|  \____/ \____/  |______\____/|_____/|______|
+                                                    
+                                                    
+)" };
+const char* WINTEXT = { R"(
+
+ __     ______  _    _  __          _______ _   _ 
+ \ \   / / __ \| |  | | \ \        / /_   _| \ | |
+  \ \_/ / |  | | |  | |  \ \  /\  / /  | | |  \| |
+   \   /| |  | | |  | |   \ \/  \/ /   | | | . ` |
+    | | | |__| | |__| |    \  /\  /   _| |_| |\  |
+    |_|  \____/ \____/      \/  \/   |_____|_| \_|
+                                                  
+                                                  
+)" };
 const char* HANGMANPICS[7] = {R"(
   +---+
   |   |
@@ -82,7 +104,6 @@ void ScreenManager::reset()
 {
 
 }
-
 int ScreenManager::letterToIndex(char letter)
 {
     return int(letter) - 0x41;
@@ -91,7 +112,6 @@ int ScreenManager::letterToIndex(char letter)
 void ScreenManager::updateLetter(char letter)
 {
     int index = letterToIndex(letter);
-    std::cout << index;
     refresh();
     mvaddch(letterPos.y, letterPos.x+index,letter);
 }
@@ -107,5 +127,21 @@ void ScreenManager::start(int length) {
 void ScreenManager::updateWord(int index, char letter)
 {
     mvaddch(wordPos.y,wordPos.x+index*2,letter);
+    refresh();
+}
+
+void ScreenManager::win()
+{
+    clear();
+    move(hangmanPos.y, hangmanPos.x);
+    addstr(WINTEXT);
+    refresh();
+}
+
+void ScreenManager::lose()
+{
+    clear();
+    move(hangmanPos.y, hangmanPos.x);
+    addstr(LOSETEXT);
     refresh();
 }
