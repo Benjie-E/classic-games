@@ -13,47 +13,5 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
-    <Filter Include="Source Files\Hangman">
-      <UniqueIdentifier>{d38ea84f-0c67-4b42-96b7-69348a73e674}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="HangmanCode\Hangman\GameManager.cpp">
-      <Filter>Source Files\Hangman</Filter>
-    </ClCompile>
-    <ClCompile Include="HangmanCode\Hangman\Hangman.cpp">
-      <Filter>Source Files\Hangman</Filter>
-    </ClCompile>
-    <ClCompile Include="HangmanCode\Hangman\ScreenManager.cpp">
-      <Filter>Source Files\Hangman</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameSelector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="HangmanCode\Hangman\GameManager.h">
-      <Filter>Source Files\Hangman</Filter>
-    </ClInclude>
-    <ClInclude Include="HangmanCode\Hangman\ScreenManager.h">
-      <Filter>Source Files\Hangman</Filter>
-    </ClInclude>
-    <ClInclude Include="arrowMove.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameSelector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HangmanCode\Hangman\Hangman.h">
-      <Filter>Source Files\Hangman</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="HangmanCode\Hangman\words.txt">
-      <Filter>Source Files\Hangman</Filter>
-    </Text>
   </ItemGroup>
 </Project>
