@@ -122,21 +122,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Connect4\connect4.cpp" />
+    <ClCompile Include="Connect4\DisplayManager.cpp" />
+    <ClCompile Include="Connect4\Connect4GameManager.cpp" />
     <ClCompile Include="GameSelector.cpp" />
-    <ClCompile Include="HangmanCode\Hangman\GameManager.cpp" />
-    <ClCompile Include="HangmanCode\Hangman\Hangman.cpp" />
-    <ClCompile Include="HangmanCode\Hangman\ScreenManager.cpp" />
+    <ClCompile Include="HangmanCode\HangmanGameManager.cpp" />
+    <ClCompile Include="HangmanCode\Hangman.cpp" />
+    <ClCompile Include="HangmanCode\HangmanScreenManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TicTacToeCode\ttt.cpp" />
+    <ClCompile Include="TicTacToeCode\ttt_functions.cpp" />
+    <ClCompile Include="WordleCode\WordleGameManager.cpp" />
+    <ClCompile Include="WordleCode\main.cpp" />
+    <ClCompile Include="WordleCode\WordleScreenManager.cpp" />
+    <ClCompile Include="WordleCode\Wordle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrowMove.h" />
+    <ClInclude Include="Connect4\connect4.h" />
+    <ClInclude Include="Connect4\DisplayManager.h" />
+    <ClInclude Include="Connect4\GameManager.h" />
     <ClInclude Include="GameSelector.h" />
-    <ClInclude Include="HangmanCode\Hangman\GameManager.h" />
-    <ClInclude Include="HangmanCode\Hangman\Hangman.h" />
-    <ClInclude Include="HangmanCode\Hangman\ScreenManager.h" />
+    <ClInclude Include="HangmanCode\GameManager.h" />
+    <ClInclude Include="HangmanCode\Hangman.h" />
+    <ClInclude Include="HangmanCode\ScreenManager.h" />
+    <ClInclude Include="TicTacToeCode\ttt.h" />
+    <ClInclude Include="TicTacToeCode\ttt_functions.h" />
+    <ClInclude Include="WordleCode\GameManager.h" />
+    <ClInclude Include="WordleCode\ScreenManager.h" />
+    <ClInclude Include="WordleCode\Wordle.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="HangmanCode\Hangman\words.txt" />
+    <Text Include="HangmanCode\words.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

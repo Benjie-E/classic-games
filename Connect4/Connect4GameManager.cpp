@@ -1,9 +1,10 @@
 #include "GameManager.h"
 
 using namespace std;
-
+using namespace Connect4NS;
 GameManager::GameManager()
 {
+
 	for (int i = 0; i < ROWS; i++)
 	{
 		for (int j = 0; j < COLUMNS; j++)

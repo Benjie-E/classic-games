@@ -1,6 +1,6 @@
 #include "GameManager.h"
 #include <cstring>
-
+using namespace HangmanNS;
 GameManager::GameManager()
 {
 	srand(time(NULL));

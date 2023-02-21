@@ -1,9 +1,8 @@
-#include "GameManager.h"
 #include "DisplayManager.h"
-
+#include "connect4.h"
 using namespace std;
-
-int main()
+using namespace Connect4NS;
+Connect4::Connect4()
 {
 	// start the terminal with Curses
 	initscr();
@@ -36,6 +35,5 @@ int main()
 		if (!screen.replay())
 			break;
 	}
-
-	return 0;
+	return;
 }

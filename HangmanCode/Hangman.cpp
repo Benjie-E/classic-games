@@ -1,8 +1,11 @@
 #include "GameManager.h"
+#include "Hangman.h"
 //Word list from https://github.com/Xethron/Hangman
 
-int main() {
+using namespace HangmanNS;
+Hangman::Hangman()
+{
     GameManager gameManager;
     gameManager.start();
-    return 0;
+    return;
 }

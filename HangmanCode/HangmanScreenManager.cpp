@@ -2,6 +2,7 @@
 #include "ScreenManager.h"
 #include <iostream>
 #include <curses.h>
+using namespace HangmanNS;
 const char* LOSETEXT = { R"(
 
  __     ______  _    _   _      ____   _____ ______ 

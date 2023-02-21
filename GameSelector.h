@@ -1,5 +1,8 @@
 #pragma once
-#include "HangmanCode/Hangman/Hangman.h"
+#include "HangmanCode/Hangman.h"
+#include "Connect4/connect4.h"
+#include "WordleCode/Wordle.h"
+#include "TicTacToeCode/ttt.h"
 #include <curses.h>
 #include <string>
 #include <Windows.h>

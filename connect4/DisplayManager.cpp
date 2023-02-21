@@ -2,7 +2,7 @@
 #include <cmath>
 
 using namespace std;
-
+using namespace Connect4NS;
 DisplayManager::DisplayManager()
 {
 	mCursorRow = 11; // first row under gameboard
