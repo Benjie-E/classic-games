@@ -14,7 +14,14 @@
   * Benjie E.
 
 # First Games:
-   - John: Wordle
-   - Nicole: Connect 4
-   - Ben: Tic-Tac-Toe
-   - Benjie: Hangman
+   - Wordle: John
+   - Connect 4: Nicole
+   - Tic Tac Toe: Ben
+   - Hangman: Benjie
+
+# Second Games:
+   - Snake: John and Benjie
+   - Minesweeper: Nicole and Ben
+
+# Third Game:
+   - Unknown Game: Everyone
