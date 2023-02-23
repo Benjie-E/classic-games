@@ -1,0 +1,18 @@
+Featurs Snake needs
+	1: Movement
+	2: Death on hitting a wall or self
+	3: Spawning new "objects" that increase your size when picked up
+	4: Growing the player
+	5: Some sort of grid to have the play field on
+	6: Tutorials and player feedback on events
+
+
+Initial steps:
+	1: Get a new Visual Studio project set up with pdcurses included
+	2: Find some way to get an object to move with pdcurses
+	3: add way of growing a tail and having that tail kill the player (collision detection)
+
+Remainder on how game loops should be set up: 
+	1: Procces user input
+	2: Update game state
+	3: Render updates
