@@ -1,0 +1,3 @@
+# Auto-generated CMake config file for jackoalan/pdcurses package
+cmake_minimum_required(VERSION 2.8)
+include("@PDCURSES_TARGETS_FILE@")

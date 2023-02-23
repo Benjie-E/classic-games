@@ -1,6 +1,6 @@
 #pragma once
 #include "HangmanCode/Hangman/Hangman.h"
-#include <curses.h>
+#include "curses.h"
 #include <string>
 #include <Windows.h>
 class GameSelector

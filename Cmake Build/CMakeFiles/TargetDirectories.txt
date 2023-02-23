@@ -1,0 +1,4 @@
+C:/Users/jgrot/OneDrive/Desktop/classic-games/Cmake Build/CMakeFiles/pdcurses.dir
+C:/Users/jgrot/OneDrive/Desktop/classic-games/Cmake Build/CMakeFiles/ClassicGames.dir
+C:/Users/jgrot/OneDrive/Desktop/classic-games/Cmake Build/CMakeFiles/ALL_BUILD.dir
+C:/Users/jgrot/OneDrive/Desktop/classic-games/Cmake Build/CMakeFiles/ZERO_CHECK.dir
