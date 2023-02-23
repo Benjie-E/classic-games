@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\GameSelector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\HangmanCode\HangmanGameManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\HangmanCode\Hangman.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\HangmanCode\HangmanScreenManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\connect4\connect4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\connect4\DisplayManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\connect4\Connect4GameManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\TicTacToeCode\ttt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\TicTacToeCode\ttt_functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\WordleCode\WordleGameManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\WordleCode\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\WordleCode\WordleScreenManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{614C5556-61E8-364B-B8B3-462898D59B09}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
