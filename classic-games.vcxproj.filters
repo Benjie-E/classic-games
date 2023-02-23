@@ -118,5 +118,8 @@
     <Text Include="HangmanCode\words.txt">
       <Filter>Source Files\Hangman</Filter>
     </Text>
+    <Text Include="WordleCode\words.txt">
+      <Filter>Source Files\Wordle</Filter>
+    </Text>
   </ItemGroup>
 </Project>

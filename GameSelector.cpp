@@ -72,8 +72,9 @@ int GameSelector::start(int game)
     default:
         mvaddstr(menuPos.y+size(gameList)*2,menuPos.x,"Game Not Found");
         getch();
-        clear();
-        refresh();
+        
     }
+    clear();
+    refresh();
     return 0;
 }
