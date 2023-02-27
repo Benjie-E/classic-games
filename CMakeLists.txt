@@ -35,6 +35,9 @@ WordleCode/Wordle/Wordle/ScreenManager.h)
 add_library(pdcurses
             ${SOURCE_FILES})
 
+add_subdirectory(pdcurses)
+
+
 # Export for external inclusion
 export(TARGETS pdcurses FILE pdcurses-targets.cmake)
 set(PDCURSES_TARGETS_FILE ${CMAKE_BINARY_DIR}/pdcurses-targets.cmake)
