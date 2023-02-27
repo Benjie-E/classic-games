@@ -18,10 +18,7 @@ WordleCode/main.cpp
 WordleCode/WordleScreenManager.cpp)
 
 # add .h files
-include_directories(dependencies/PDcurses-3.9/curses.h
-dependencies/PDcurses-3.9/curspriv.h
-dependencies?PDCurses-3.9/panel.h
-connect4/DisplayManager.h
+include_directories(connect4/DisplayManager.h
 connect4/GameManager.h
 HangmanCode/Hangman/Hangman.h
 HangmanCode/Hangman/GameManager.h
@@ -46,3 +43,8 @@ export(PACKAGE pdcurses)
 
 # Add executable target with source files listed in SOURCE_FILES variable
 add_executable(ClassicGames ${SOURCE_FILES})
+
+target_link_libraries(ClassicGames PUBLIC pdcurses)
+target_include_directories(dependencies/PDcurses-3.9/curses.h
+dependencies/PDcurses-3.9/curspriv.h
+dependencies?PDCurses-3.9/panel.h)
