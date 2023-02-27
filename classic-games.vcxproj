@@ -127,6 +127,7 @@
     <ClCompile Include="HangmanCode\Hangman\Hangman.cpp" />
     <ClCompile Include="HangmanCode\Hangman\ScreenManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SnakeCode\Snake\Snake\Snake.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrowMove.h" />

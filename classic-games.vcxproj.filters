@@ -33,6 +33,9 @@
     <ClCompile Include="GameSelector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SnakeCode\Snake\Snake\Snake.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HangmanCode\Hangman\GameManager.h">
