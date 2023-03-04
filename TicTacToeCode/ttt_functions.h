@@ -10,7 +10,7 @@ Description:
 
 #include <string>
 #include <iostream>
-#include <curses.h>
+#include "dependencies/PDCurses-3.9/curses.h"
 
 using namespace std;
 

@@ -3,7 +3,7 @@
 #include "Connect4/connect4.h"
 #include "WordleCode/Wordle.h"
 #include "TicTacToeCode/ttt.h"
-#include <curses.h>
+#include "dependencies/PDCurses-3.9/curses.h"
 #include <string>
 #include <Windows.h>
 class GameSelector

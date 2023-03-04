@@ -1,6 +1,6 @@
 /* PDCurses */
 
-#include <curspriv.h>
+#include "dependencies/PDCurses-3.9/curspriv.h"
 
 /*man-start**************************************************************
 
