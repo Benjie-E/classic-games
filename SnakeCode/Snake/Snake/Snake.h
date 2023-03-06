@@ -1,5 +1,8 @@
 #pragma once
 #include "Location.h"
+#include <vector>
+
+using namespace std;
 
 class Snake {
 public:
@@ -10,4 +13,6 @@ public:
 	void changeDirection(direction dir);
 	direction currentDirection = OTHER;
 	Location head;
+
+	vector<Location> locations;
 };
