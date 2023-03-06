@@ -16,13 +16,14 @@ public:
 	SnakeGameManager();
 	~SnakeGameManager();
 
-	Location getSnakeLocation();
-	Location getAppleLocation();
+	Location getHeadLocation();
+	Location getBodyLocations();
+	std::vector<Location> getAppleLocation();
 	void reset();
 
 private:
 	Apple* currentApple;
-	Snake snake;
+	Snake* snake;
 
 	const int MAX_X = 30;
 	const int MAX_Y = 30;

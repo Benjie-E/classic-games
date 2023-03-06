@@ -10,4 +10,5 @@ public:
 	void changeDirection(direction dir);
 	direction currentDirection = OTHER;
 	Location head;
+	std::vector<Location> body;
 };

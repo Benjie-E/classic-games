@@ -27,7 +27,9 @@ void SnakeScreenManager::printBody()
 
 void SnakeScreenManager::printApple()
 {
-    Location SnakeGameManager::getInstance()->getAppleLocation();
-
+    Location apple = SnakeGameManager::getInstance()->getAppleLocation();
+    move(apple.getY(), apple.getX());
+    addch('A');
+    refresh();
 }
 

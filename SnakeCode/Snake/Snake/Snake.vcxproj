@@ -143,12 +143,14 @@
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="Snake.cpp" />
     <ClCompile Include="SnakeGameManager.cpp" />
+    <ClCompile Include="SnakeScreenManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Apple.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="Snake.h" />
     <ClInclude Include="SnakeGameManager.h" />
+    <ClInclude Include="SnakeScreenManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
