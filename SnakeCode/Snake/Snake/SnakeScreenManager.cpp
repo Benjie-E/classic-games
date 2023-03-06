@@ -1,0 +1,33 @@
+#include "SnakeScreenManager.h"
+SnakeScreenManager::SnakeScreenManager()
+{
+    WINDOW* window = initscr();
+    curs_set(0);
+    noecho();
+    
+}
+
+SnakeScreenManager::~SnakeScreenManager()
+{
+}
+
+void SnakeScreenManager::updateVisuals() {
+    clear();
+
+}
+
+void SnakeScreenManager::printHead()
+{
+    
+}
+
+void SnakeScreenManager::printBody()
+{
+}
+
+void SnakeScreenManager::printApple()
+{
+    Location SnakeGameManager::getInstance()->getAppleLocation();
+
+}
+
