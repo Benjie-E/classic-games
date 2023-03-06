@@ -1,30 +1,52 @@
 #include <curses.h>
 #include "Snake.h"
 #include <iostream>
+#include <stdlib.h>
+#include <Windows.h>
 
-Snake::Snake() {
 
-}
-int Snake::getSnakeInput() {
+Snake::direction Snake::getSnakeInput() {
     int input = getch();
-    if (input == -1) {
-        return -1;
-    }
     switch (input) {
         case KEY_RIGHT:
-            return 0;
+            return RIGHT;
             break;
         case KEY_DOWN:
-            return 1;
+            return DOWN;
             break;
         case KEY_LEFT:
-            return 2;
+            return LEFT;
             break;
         case KEY_UP:
-            return 3;
+            return UP;
             break;
         default:
-            return -1;
+            return OTHER;
+    }
+}
+void Snake::changeDirection(direction dir)
+{
+    if (dir == OTHER) { //invalid direction
+        return;
+    }
+    if (dir == currentDirection) { //same as current direction
+        return;
+    }
+    if ((dir + 2)%4 == currentDirection) {//opposite of current direction
+        return;
+    }
+    currentDirection = dir;
+}
+Snake::Snake()
+{
+}
+void Snake::gameLoop() {
+    move(0, 0);
+    
+    while (true) {
+        Sleep(1000);
+        addch('0');
+        refresh();
     }
 }
 
@@ -34,8 +56,4 @@ int main()
     noecho();
     keypad(stdscr,true);
     Snake snek;
-    while (!false) {
-        snek.getSnakeInput();
-
-    }
 }
