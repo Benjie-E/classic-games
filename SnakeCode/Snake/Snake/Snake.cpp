@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <Windows.h>
 
-
 Snake::direction Snake::getSnakeInput() {
     int input = getch();
     switch (input) {
