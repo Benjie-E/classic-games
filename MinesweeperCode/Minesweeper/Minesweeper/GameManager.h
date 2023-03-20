@@ -27,6 +27,8 @@ public:
 	Square operator()(int row, int col);
 
 	Square** gameBoard;
+	//Accessors
+	int getDifficulty();
 	
 private:
 	int mDifficulty;

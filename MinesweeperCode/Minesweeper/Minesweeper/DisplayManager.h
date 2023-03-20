@@ -12,6 +12,7 @@ public:
 	void manageCursor();
 
 	// accessors and mutators
+	void updateScreen(GameManager &game);
 	int getCursorRow();
 	int getCursorCol();
 	void setCursorRow(int row);

@@ -37,3 +37,9 @@ Square GameManager::operator()(int row, int col)
 {
 	return gameBoard[row][col];
 }
+
+int GameManager::getDifficulty()
+{
+	const int difficulty = mDifficulty;
+	return difficulty;
+}

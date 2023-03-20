@@ -37,3 +37,14 @@ void DisplayManager::setCursorCol(int col)
 {
 	mCursorCol = col;
 }
+
+void DisplayManager::updateScreen(GameManager &game)
+{
+	int rows = game.getDifficulty();
+	int columns = rows;
+	//The window doesn't show up right now idk why
+	WINDOW* gameWindow = newwin(rows, columns, 3, 3);
+	move(2, 2);
+	printw("This is a test line");
+	refresh();
+}
