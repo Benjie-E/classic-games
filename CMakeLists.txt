@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.26.0)  # CMake version check
+cmake_minimum_required(VERSION 3.24)  # CMake version check
 project(ClassicGames C CXX)               # Create project 
 set(CMAKE_CXX_STANDARD 14)            # Enable c++14 standard
 
@@ -31,7 +31,8 @@ WordleCode/Wordle/Wordle/ScreenManager.h)
 add_executable(ClassicGames ${SOURCE_FILES})
 
 
-set(CMAKE_TOOLCHAIN_FILE C:/Users/jgrot/vcpkg/scripts/buildsystems/vcpkg.cmake)
-find_package(pdcurses CONFIG REQUIRED)
+find_path(PDC_INCLUDES curses.h)
+find_library(PDC_LIBS pdcurses REQUIRED)
 
-target_link_libraries(ClassicGames PRIVATE pdcurses)
+target_include_directories(ClassicGames PRIVATE ${PDC_INCLUDES})
+target_link_libraries(ClassicGames PRIVATE ${PDC_LIBS})

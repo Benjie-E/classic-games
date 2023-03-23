@@ -194,6 +194,12 @@ ClassicGames_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 ClassicGames_SOURCE_DIR:STATIC=C:/Users/jgrot/OneDrive/Desktop/classic-games
 
+//Path to a file.
+PDC_INCLUDES:PATH=PDC_INCLUDES-NOTFOUND
+
+//Path to a library.
+PDC_LIBS:FILEPATH=PDC_LIBS-NOTFOUND
+
 //The directory containing a CMake configuration file for PDCurses.
 PDCurses_DIR:PATH=PDCurses_DIR-NOTFOUND
 
