@@ -54,13 +54,19 @@ void SnakeGameManager::checkForCollisions()
 	if (snake->head.getX() == currentApple->getX() && snake->head.getY() == currentApple->getY())
 	{
 		//the player has gotten a new apple
-		//increase the size of snake
-		//spawn new apple
+		snake->increaseSize();
+		createNewApple();
+	}
+	else if (snake->head.getX() == MAX_X || snake->head.getX() == MAX_Y || snake->head.getX() == -MAX_X || snake->head.getX() == -MAX_Y)
+	{
+		//game over!
+		isGameOver = true;
 	}
 }
 
 void SnakeGameManager::newGame()
 {
+	isGameOver = false;
 	createNewApple();
 	createSnake();
 	SnakeScreenManager *screenManager = new SnakeScreenManager;

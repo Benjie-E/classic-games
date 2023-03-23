@@ -35,5 +35,7 @@ private:
 
 	const static int MAX_X = 30;
 	const static int MAX_Y = 30;
+
+	bool isGameOver;
 };
 
