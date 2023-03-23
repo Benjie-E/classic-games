@@ -1,4 +1,5 @@
 #include "SnakeGameManager.h"
+#include "SnakeScreenManager.h"
 
 SnakeGameManager* SnakeGameManager::snakeInstance = NULL;
 
@@ -27,7 +28,6 @@ void SnakeGameManager::destroyInstance()
 SnakeGameManager::SnakeGameManager()
 {
 	keypad(stdscr, true);
-
 }
 
 SnakeGameManager::~SnakeGameManager()

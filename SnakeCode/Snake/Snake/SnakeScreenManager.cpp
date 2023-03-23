@@ -4,7 +4,8 @@ SnakeScreenManager::SnakeScreenManager()
     WINDOW* window = initscr();
     curs_set(0);
     noecho();
-    
+    updateVisuals();
+
 }
 
 SnakeScreenManager::~SnakeScreenManager()
@@ -13,7 +14,9 @@ SnakeScreenManager::~SnakeScreenManager()
 
 void SnakeScreenManager::updateVisuals() {
     clear();
-
+    printBox();
+    refresh();
+    getch();
 }
 
 void SnakeScreenManager::printHead()
@@ -32,4 +35,11 @@ void SnakeScreenManager::printApple()
     addch('A');
     refresh();
 }
-
+void SnakeScreenManager::printBox() {
+    int maxX = SnakeGameManager::getInstance()->getMaxX();
+    int maxY = SnakeGameManager::getInstance()->getMaxY();
+    for (int i = 0;i < maxY;i++) {
+        move(0, i);
+        addch('-');
+    }
+}

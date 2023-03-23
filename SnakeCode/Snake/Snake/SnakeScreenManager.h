@@ -9,6 +9,6 @@ class SnakeScreenManager
 	void printHead();
 	void printBody();
 	void printApple();
-
+	void printBox();
 };
 

@@ -20,7 +20,8 @@ public:
 	std::vector<Location> getBodyLocations();
 	Location getAppleLocation();
 	void reset();
-
+	int getMaxX() { return MAX_X; };
+	int getMaxY() { return MAX_Y; };
 private:
 	Apple* currentApple;
 	Snake* snake;
