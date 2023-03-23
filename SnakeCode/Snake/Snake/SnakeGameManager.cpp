@@ -11,8 +11,8 @@ Location SnakeGameManager::getHeadLocation()
 {
 	return snake->head;
 }
-Location SnakeGameManager::getBodyLocations() {
-	return snake.body;
+std::vector<Location> SnakeGameManager::getBodyLocations() {
+	return snake->body;
 }
 void SnakeGameManager::createInstance()
 {
@@ -22,4 +22,14 @@ void SnakeGameManager::createInstance()
 void SnakeGameManager::destroyInstance()
 {
 	delete snakeInstance;
+}
+
+SnakeGameManager::SnakeGameManager()
+{
+	keypad(stdscr, true);
+
+}
+
+SnakeGameManager::~SnakeGameManager()
+{
 }

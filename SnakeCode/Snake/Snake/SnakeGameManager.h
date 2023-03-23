@@ -17,8 +17,8 @@ public:
 	~SnakeGameManager();
 
 	Location getHeadLocation();
-	Location getBodyLocations();
-	std::vector<Location> getAppleLocation();
+	std::vector<Location> getBodyLocations();
+	Location getAppleLocation();
 	void reset();
 
 private:

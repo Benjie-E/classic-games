@@ -13,10 +13,7 @@ public:
 	void changeDirection(direction dir);
 	direction currentDirection = OTHER;
 	Location head;
-<<<<<<< HEAD
 	std::vector<Location> body;
-=======
 
 	vector<Location> locations;
->>>>>>> cac1b3fad289a4ac1befb22f0157fa608dd5f131
 };

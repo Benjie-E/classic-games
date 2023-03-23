@@ -49,10 +49,3 @@ void Snake::gameLoop() {
     }
 }
 
-int main()
-{
-    initscr();
-    noecho();
-    keypad(stdscr,true);
-    Snake snek;
-}
