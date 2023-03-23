@@ -19,7 +19,12 @@ public:
 	Location getHeadLocation();
 	std::vector<Location> getBodyLocations();
 	Location getAppleLocation();
-	void reset();
+
+	void createNewApple();
+	void createSnake();
+
+	void newGame();
+	void checkForCollisions();
 
 private:
 	Apple* currentApple;

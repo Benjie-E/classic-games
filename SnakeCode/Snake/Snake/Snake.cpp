@@ -36,8 +36,10 @@ void Snake::changeDirection(direction dir)
     }
     currentDirection = dir;
 }
-Snake::Snake()
+Snake::Snake(int x, int y)
 {
+    Location newLocation(y, x);
+    head = newLocation;
 }
 void Snake::gameLoop() {
     move(0, 0);
