@@ -194,6 +194,15 @@ ClassicGames_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 ClassicGames_SOURCE_DIR:STATIC=C:/Users/jgrot/OneDrive/Desktop/classic-games
 
+//The directory containing a CMake configuration file for PDCurses.
+PDCurses_DIR:PATH=PDCurses_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for curses.
+curses_DIR:PATH=curses_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for pdcurses.
+pdcurses_DIR:PATH=pdcurses_DIR-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries

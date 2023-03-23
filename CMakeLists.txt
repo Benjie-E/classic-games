@@ -27,58 +27,11 @@ TicTacToeCode/TicTacToe/TicTacToe/ttt_functions.h
 WordleCode/Wordle/Wordle/GameManager.h
 WordleCode/Wordle/Wordle/ScreenManager.h)
 
-
-
-set(
-CURSES_FILES dependencies/PDCurses-3.9/curses.h
-dependencies/PDCurses-3.9/curspriv.h
-dependencies/PDCurses-3.9/panel.h
-dependencies/PDCurses-3.9/pdcurses/addch.c
-dependencies/PDCurses-3.9/pdcurses/addchstr.c
-dependencies/PDCurses-3.9/pdcurses/addstr.c
-dependencies/PDCurses-3.9/pdcurses/attr.c
-dependencies/PDCurses-3.9/pdcurses/beep.c
-dependencies/PDCurses-3.9/pdcurses/bkgd.c
-dependencies/PDCurses-3.9/pdcurses/border.c
-dependencies/PDCurses-3.9/pdcurses/clear.c
-dependencies/PDCurses-3.9/pdcurses/color.c
-dependencies/PDCurses-3.9/pdcurses/debug.c
-dependencies/PDCurses-3.9/pdcurses/delch.c
-dependencies/PDCurses-3.9/pdcurses/deleteln.c
-dependencies/PDCurses-3.9/pdcurses/getch.c
-dependencies/PDCurses-3.9/pdcurses/getstr.c
-dependencies/PDCurses-3.9/pdcurses/getyx.c
-dependencies/PDCurses-3.9/pdcurses/inch.c
-dependencies/PDCurses-3.9/pdcurses/inchstr.c
-dependencies/PDCurses-3.9/pdcurses/initscr.c
-dependencies/PDCurses-3.9/pdcurses/inopts.c
-dependencies/PDCurses-3.9/pdcurses/insch.c
-dependencies/PDCurses-3.9/pdcurses/insstr.c
-dependencies/PDCurses-3.9/pdcurses/instr.c
-dependencies/PDCurses-3.9/pdcurses/kernel.c
-dependencies/PDCurses-3.9/pdcurses/keyname.c
-dependencies/PDCurses-3.9/pdcurses/mouse.c
-dependencies/PDCurses-3.9/pdcurses/move.c
-dependencies/PDCurses-3.9/pdcurses/outopts.c
-dependencies/PDCurses-3.9/pdcurses/overlay.c
-dependencies/PDCurses-3.9/pdcurses/pad.c
-dependencies/PDCurses-3.9/pdcurses/panel.c
-dependencies/PDCurses-3.9/pdcurses/printw.c
-dependencies/PDCurses-3.9/pdcurses/refresh.c
-dependencies/PDCurses-3.9/pdcurses/scanw.c
-dependencies/PDCurses-3.9/pdcurses/scr_dump.c
-dependencies/PDCurses-3.9/pdcurses/scroll.c
-dependencies/PDCurses-3.9/pdcurses/slk.c
-dependencies/PDCurses-3.9/pdcurses/termattr.c
-dependencies/PDCurses-3.9/pdcurses/touch.c
-dependencies/PDCurses-3.9/pdcurses/util.c
-dependencies/PDCurses-3.9/pdcurses/window.c
-)
-
-add_library(pdcurses ${CURSES_FILES})
-
-
 # Add executable target with source files listed in SOURCE_FILES variable
 add_executable(ClassicGames ${SOURCE_FILES})
+
+
+set(CMAKE_TOOLCHAIN_FILE C:/Users/jgrot/vcpkg/scripts/buildsystems/vcpkg.cmake)
+find_package(pdcurses CONFIG REQUIRED)
 
 target_link_libraries(ClassicGames PRIVATE pdcurses)
