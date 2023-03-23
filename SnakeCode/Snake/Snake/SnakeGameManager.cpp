@@ -36,10 +36,7 @@ SnakeGameManager::~SnakeGameManager()
 
 void SnakeGameManager::createNewApple()
 {
-	int newRandX = rand() % MAX_X + 1;
-	int newRandY = rand() % MAX_Y + 1;
-
-	currentApple = new Apple(newRandX, newRandY);
+	currentApple = new Apple;
 }
 
 void SnakeGameManager::createSnake()
@@ -55,8 +52,13 @@ void SnakeGameManager::checkForCollisions()
 	if (snake->head.getX() == currentApple->getX() && snake->head.getY() == currentApple->getY())
 	{
 		//the player has gotten a new apple
-		//increase the size of snake
-		//spawn new apple
+		snake->increaseSize();
+		createNewApple();
+	}
+	if (snake->head.getX() == MAX_X || snake->head.getX() == MAX_Y || snake->head.getX() == -MAX_X || snake->head.getX() == -MAX_Y)
+	{
+		//game over!
+		//show some game over text and then ask player if they want to play agian or quit
 	}
 }
 

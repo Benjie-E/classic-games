@@ -51,3 +51,22 @@ void Snake::gameLoop() {
     }
 }
 
+void Snake::increaseSize()
+{
+    int vecSize = body.size();
+
+    if (vecSize == 0)
+    {
+        Location newBody(head.getY() - 1, head.getX() - 1);
+        body.push_back(newBody);
+    }
+    else
+    {
+        for (int i = 0; i < vecSize; i++)
+        {
+            Location newBody(head.getY() - i, head.getX() - i);
+            body.push_back(newBody);
+        }
+    }
+}
+

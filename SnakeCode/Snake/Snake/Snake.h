@@ -16,4 +16,6 @@ public:
 	std::vector<Location> body;
 
 	vector<Location> locations;
+
+	void increaseSize();
 };
