@@ -9,7 +9,7 @@
 class Apple
 {
 public:
-	Apple();
+	Apple(int X, int Y);
 	~Apple();
 
 	int getY() { return location->getY(); }

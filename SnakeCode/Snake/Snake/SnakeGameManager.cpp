@@ -33,3 +33,36 @@ SnakeGameManager::SnakeGameManager()
 SnakeGameManager::~SnakeGameManager()
 {
 }
+
+void SnakeGameManager::createNewApple()
+{
+	int newRandX = rand() % MAX_X + 1;
+	int newRandY = rand() % MAX_Y + 1;
+
+	currentApple = new Apple(newRandX, newRandY);
+}
+
+void SnakeGameManager::createSnake()
+{
+	int newRandX = rand() % MAX_X + 1;
+	int newRandY = rand() % MAX_Y + 1;
+
+	snake = new Snake(newRandX, newRandY);
+}
+
+void SnakeGameManager::checkForCollisions()
+{
+	if (snake->head.getX() == currentApple->getX() && snake->head.getY() == currentApple->getY())
+	{
+		//the player has gotten a new apple
+		//increase the size of snake
+		//spawn new apple
+	}
+}
+
+void SnakeGameManager::newGame()
+{
+	createNewApple();
+	createSnake();
+}
+

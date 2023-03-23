@@ -7,7 +7,7 @@ using namespace std;
 class Snake {
 public:
 	enum direction {OTHER = -1, RIGHT, DOWN, LEFT, UP };
-	Snake();
+	Snake(int x, int y);
 	void gameLoop();
 	direction getSnakeInput(); //RDLU
 	void changeDirection(direction dir);
