@@ -3,6 +3,7 @@
 #include "SnakeGameManager.h"
 class SnakeScreenManager
 {
+public:
 	SnakeScreenManager();
 	~SnakeScreenManager();
 	void updateVisuals();

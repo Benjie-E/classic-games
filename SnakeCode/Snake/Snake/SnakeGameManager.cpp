@@ -28,6 +28,7 @@ void SnakeGameManager::destroyInstance()
 SnakeGameManager::SnakeGameManager()
 {
 	keypad(stdscr, true);
+	newGame();
 }
 
 SnakeGameManager::~SnakeGameManager()
@@ -36,7 +37,8 @@ SnakeGameManager::~SnakeGameManager()
 
 void SnakeGameManager::createNewApple()
 {
-	currentApple = new Apple;
+
+	currentApple = new Apple();
 }
 
 void SnakeGameManager::createSnake()
@@ -52,13 +54,8 @@ void SnakeGameManager::checkForCollisions()
 	if (snake->head.getX() == currentApple->getX() && snake->head.getY() == currentApple->getY())
 	{
 		//the player has gotten a new apple
-		snake->increaseSize();
-		createNewApple();
-	}
-	if (snake->head.getX() == MAX_X || snake->head.getX() == MAX_Y || snake->head.getX() == -MAX_X || snake->head.getX() == -MAX_Y)
-	{
-		//game over!
-		//show some game over text and then ask player if they want to play agian or quit
+		//increase the size of snake
+		//spawn new apple
 	}
 }
 
@@ -66,5 +63,6 @@ void SnakeGameManager::newGame()
 {
 	createNewApple();
 	createSnake();
+	SnakeScreenManager *screenManager = new SnakeScreenManager;
 }
 
