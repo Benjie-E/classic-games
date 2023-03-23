@@ -20,13 +20,20 @@ public:
 	std::vector<Location> getBodyLocations();
 	Location getAppleLocation();
 	void reset();
-	int getMaxX() { return MAX_X; };
-	int getMaxY() { return MAX_Y; };
+	static int getMaxX() { return MAX_X; };
+	static int getMaxY() { return MAX_Y; };
+
+	void createNewApple();
+	void createSnake();
+
+	void newGame();
+	void checkForCollisions();
+
 private:
 	Apple* currentApple;
 	Snake* snake;
 
-	const int MAX_X = 30;
-	const int MAX_Y = 30;
+	const static int MAX_X = 30;
+	const static int MAX_Y = 30;
 };
 
