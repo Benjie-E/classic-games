@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\GameSelector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\HangmanCode\HangmanGameManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\HangmanCode\Hangman.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\HangmanCode\HangmanScreenManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\connect4\connect4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\connect4\DisplayManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\connect4\Connect4GameManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\TicTacToeCode\ttt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\TicTacToeCode\ttt_functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\WordleCode\WordleGameManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\WordleCode\WordleScreenManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\jgrot\OneDrive\Desktop\classic-games\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3B5BEAC8-CDE6-347E-9D80-0DF060F56C6C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

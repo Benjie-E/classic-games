@@ -51,9 +51,6 @@
     <ClCompile Include="TicTacToeCode\ttt.cpp">
       <Filter>Source Files\TicTacToe</Filter>
     </ClCompile>
-    <ClCompile Include="WordleCode\main.cpp">
-      <Filter>Source Files\Wordle</Filter>
-    </ClCompile>
     <ClCompile Include="WordleCode\Wordle.cpp">
       <Filter>Source Files\Wordle</Filter>
     </ClCompile>

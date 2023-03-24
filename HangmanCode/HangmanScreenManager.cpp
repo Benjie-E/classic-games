@@ -1,7 +1,7 @@
 
 #include "ScreenManager.h"
 #include <iostream>
-#include "dependencies/PDCurses-3.9/curses.h"
+#include <curses.h>
 using namespace HangmanNS;
 const char* LOSETEXT = { R"(
 

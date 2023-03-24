@@ -5,7 +5,7 @@
 #include "ScreenManager.h"
 #include "Wordle.h"
 
-Wordle::Wordle()
+WordleGame::WordleGame()
 {
     //settup stuff
     srand(time(NULL));

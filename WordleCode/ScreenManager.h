@@ -3,7 +3,7 @@
 #include <fstream>
 #include <time.h>
 #include <Windows.h>
-#include "dependencies/PDCurses-3.9/curses.h"
+#include <curses.h>
 
 using namespace std;
 

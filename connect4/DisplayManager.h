@@ -1,7 +1,7 @@
 #pragma once
 
 #include "GameManager.h"
-#include "dependencies/PDCurses-3.9/curses.h"
+#include <curses.h>
 namespace Connect4NS {
 	const int COL_SPACING = 5;
 	const int COL_SPACING_WRAPAROUND = 30;

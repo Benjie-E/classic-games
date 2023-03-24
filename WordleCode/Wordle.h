@@ -1,5 +1,5 @@
 #pragma once
-class Wordle {
+class WordleGame {
 public:
-	Wordle();
+	WordleGame();
 };

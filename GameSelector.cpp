@@ -61,7 +61,7 @@ int GameSelector::start(int game)
         HangmanNS::Hangman::Hangman();
         break;
     case Wordle:
-        Wordle::Wordle();
+        WordleGame::WordleGame();
         break;
     case TicTacToe:
         TTT::TTT();

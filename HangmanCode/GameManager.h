@@ -5,7 +5,7 @@
 #include "ScreenManager.h"
 #include <vector>
 #include <direct.h>
-#include "dependencies/PDCurses-3.9/curses.h"
+#include <curses.h>
 #include <time.h>
 namespace HangmanNS {
 	class GameManager

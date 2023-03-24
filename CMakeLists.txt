@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.24)  # CMake version check
-project(ClassicGames C CXX)               # Create project 
+set(VCPKG_TARGET_ARCHITECTURE x64)
+
+project(ClassicGames)               # Create project 
 set(CMAKE_CXX_STANDARD 14)            # Enable c++14 standard
 
 # Add source files
@@ -14,7 +16,6 @@ connect4/connect4GameManager.cpp
 TicTacToeCode/ttt.cpp
 TicTacToeCode/ttt_functions.cpp
 WordleCode/WordleGameManager.cpp
-WordleCode/main.cpp
 WordleCode/WordleScreenManager.cpp)
 
 # add .h files
@@ -33,6 +34,5 @@ add_executable(ClassicGames ${SOURCE_FILES})
 
 find_path(PDC_INCLUDES curses.h)
 find_library(PDC_LIBS pdcurses REQUIRED)
-
 target_include_directories(ClassicGames PRIVATE ${PDC_INCLUDES})
 target_link_libraries(ClassicGames PRIVATE ${PDC_LIBS})
