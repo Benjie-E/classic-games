@@ -20,11 +20,13 @@ void Square::printSquare()
 		{
 			attron(COLOR_PAIR(3));
 			printw("XX");
+			attroff(COLOR_PAIR(3));
 		}
 		else // if (!hasMine)
 		{
 			attron(COLOR_PAIR(surroundingMines));
 			printw("%d ", surroundingMines);
+			attroff(COLOR_PAIR(surroundingMines));
 		}
 	}
 	else // if (!isRevealed)
@@ -33,11 +35,13 @@ void Square::printSquare()
 		{
 			attron(COLOR_PAIR(10));
 			printw("!!");
+			attroff(COLOR_PAIR(10));
 		}
 		else
 		{
 			attron(COLOR_PAIR(9));
 			printw("  ");
+			attroff(COLOR_PAIR(9));
 		}
 	}
 }
