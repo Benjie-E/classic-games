@@ -1,4 +1,8 @@
 #pragma once
+#include <iostream>
+#include <curses.h>
+
+using namespace std;
 
 const enum Difficulties
 {
@@ -15,6 +19,9 @@ struct Square
 
 	int surroundingMines;
 	bool hasMine, isRevealed, isFlagged;
+
+	//friend ostream& operator<<(ostream& out, const Square& square);
+	void printSquare();
 };
 
 

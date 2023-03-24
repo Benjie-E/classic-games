@@ -1,7 +1,6 @@
 #pragma once
 
 #include "GameManager.h"
-#include <curses.h>
 
 class DisplayManager
 {

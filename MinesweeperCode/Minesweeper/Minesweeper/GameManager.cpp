@@ -1,4 +1,7 @@
 #include "GameManager.h"
+#include <string>
+
+using namespace std;
 
 Square::Square()
 {
@@ -6,6 +9,37 @@ Square::Square()
 	hasMine = false;
 	isRevealed = false;
 	isFlagged = false;
+}
+
+
+void Square::printSquare()
+{
+	if (isRevealed)
+	{
+		if (hasMine)
+		{
+			attron(COLOR_PAIR(3));
+			printw("XX");
+		}
+		else // if (!hasMine)
+		{
+			attron(COLOR_PAIR(surroundingMines));
+			printw("%d ", surroundingMines);
+		}
+	}
+	else // if (!isRevealed)
+	{
+		if (isFlagged)
+		{
+			attron(COLOR_PAIR(10));
+			printw("!!");
+		}
+		else
+		{
+			attron(COLOR_PAIR(9));
+			printw("  ");
+		}
+	}
 }
 
 
