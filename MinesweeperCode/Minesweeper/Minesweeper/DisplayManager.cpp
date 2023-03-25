@@ -31,7 +31,7 @@ void DisplayManager::displayStats(WINDOW* statDis, GameManager& game)
 	else
 		dif = "Hard";
 	string diffic = "Difficulty: " + dif;
-	wmove(statDis, 2, 1);
+	wmove(statDis, 1, 20);
 	wprintw(statDis, diffic.c_str());
 
 }
