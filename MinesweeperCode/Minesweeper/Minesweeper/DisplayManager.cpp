@@ -9,6 +9,34 @@ DisplayManager::DisplayManager()
 }
 
 
+void DisplayManager::displayStats(WINDOW* statDis, GameManager& game)
+{
+	//Function to set everything up to be displayed in the window
+	//I am 100% sure there is a better way to do this but it is nearly 1 am and my brain isn't working anymore.
+
+	//Displays flag stats
+	string total, flagged, dif;
+	total = to_string(game.getTotalMines());
+	flagged = to_string(game.getFlagged());
+	string flags = "Flags: " + flagged + " / " + total;
+	wmove(statDis, 1, 1);
+	wprintw(statDis, flags.c_str());
+
+	//Displays Difficulty
+	int difInt = game.getDifficulty();
+	if (difInt == 9)
+		dif = "Easy";
+	else if (difInt == 16)
+		dif = "Medium";
+	else
+		dif = "Hard";
+	string diffic = "Difficulty: " + dif;
+	wmove(statDis, 2, 1);
+	wprintw(statDis, diffic.c_str());
+
+}
+
+
 void DisplayManager::manageCursor()
 {
 	return;
@@ -38,18 +66,22 @@ void DisplayManager::setCursorCol(int col)
 	mCursorCol = col;
 }
 
+
 void DisplayManager::updateScreen(GameManager &game)
 {
 	int difficulty = game.getDifficulty();
-	int columns = (difficulty * 3) + 1;
-	int rows = difficulty;
-	WINDOW* mineBoard = newwin(rows, columns, 2, 2);
-	box(mineBoard, 0, 0);
+
+	//Displays title of game
+	move(0, 18);
+	printw("Minesweeper");
+
+	//Displays game stats
+	WINDOW* stats = newwin(4, 40, 2, 5);
+	box(stats, 0, 0);
+	displayStats(stats, game);
 	
-	//Prints out the board. Right now still working on how exactly we want to do that.
-	//Either going to print by itself or be contained inside a window.
-	wmove(mineBoard, 1, 1);
-	//move(2, 2);
+	//Prints out the board.
+	move(6, 2);
 	for (int i = 0; i < difficulty; i++)
 	{
 		for (int j = 0; j < difficulty; j++)
@@ -58,8 +90,8 @@ void DisplayManager::updateScreen(GameManager &game)
 			printw(" ");
 		}
 		printw("\n\n");
-		//move(i + 2, 1);
+		move((i * 2) + 6, 2);
 	}
-	wrefresh(mineBoard);
+	wrefresh(stats);
 	refresh();
 }

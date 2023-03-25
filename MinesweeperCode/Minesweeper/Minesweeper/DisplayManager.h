@@ -16,6 +16,7 @@ public:
 	int getCursorCol();
 	void setCursorRow(int row);
 	void setCursorCol(int col);
+	void displayStats(WINDOW* statDis, GameManager& game);
 
 private:
 	int mCursorRow;

@@ -19,11 +19,11 @@ int main()
 	init_pair(7, COLOR_WHITE, COLOR_BLACK);
 	init_pair(8, COLOR_BLUE, COLOR_BLACK);
 	// unrevealed colors
-	init_pair(9, COLOR_GREEN, COLOR_GREEN);
+	init_pair(9, COLOR_WHITE, COLOR_WHITE);
 	init_pair(10, COLOR_RED, COLOR_WHITE); // flagged
 	refresh();
 
-	GameManager game(MEDIUM);
+	GameManager game(MEDIUM, MEDMINES);
 	DisplayManager display;
 	display.updateScreen(game);
 	getch();

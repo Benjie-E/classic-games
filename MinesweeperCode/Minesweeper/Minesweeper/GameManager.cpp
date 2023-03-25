@@ -12,6 +12,18 @@ Square::Square()
 }
 
 
+int GameManager::getTotalMines()
+{
+	return mTotalMines;
+}
+
+
+int GameManager::getFlagged()
+{
+	return mFlaggedMines;
+}
+
+
 void Square::printSquare()
 {
 	if (isRevealed)
@@ -47,9 +59,11 @@ void Square::printSquare()
 }
 
 
-GameManager::GameManager(int difficulty)
+GameManager::GameManager(int difficulty, int mineDif)
 {
 	mDifficulty = difficulty;
+	mTotalMines = mineDif;
+	mFlaggedMines = 0;
 
 	// dynamic allocation of 2d arrays is gross
 	gameBoard = new Square * [mDifficulty];
@@ -75,6 +89,7 @@ Square GameManager::operator()(int row, int col)
 {
 	return gameBoard[row][col];
 }
+
 
 int GameManager::getDifficulty()
 {
