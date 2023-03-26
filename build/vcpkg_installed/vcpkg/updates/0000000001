@@ -6,4 +6,3 @@ Multi-Arch: same
 Abi: 8c7820c9e571f44af7fd9ce9548bc690a18a966a947ba9d7e716b2741df95eeb
 Description: Public Domain Curses - a curses library for environments that don't fit the termcap/terminfo model.
 Status: install ok installed
-

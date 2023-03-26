@@ -5,7 +5,10 @@ project(ClassicGames)               # Create project
 set(CMAKE_CXX_STANDARD 14)            # Enable c++14 standard
 
 # Add source files
-set(SOURCE_FILES GameSelector.cpp
+set(SOURCE_FILES WordleCode/WordleGameManager.cpp
+WordleCode/WordleScreenManager.cpp
+WordleCode/Wordle.cpp
+GameSelector.cpp
 main.cpp
 HangmanCode/HangmanGameManager.cpp
 HangmanCode/Hangman.cpp
@@ -15,8 +18,7 @@ connect4/DisplayManager.cpp
 connect4/connect4GameManager.cpp
 TicTacToeCode/ttt.cpp
 TicTacToeCode/ttt_functions.cpp
-WordleCode/WordleGameManager.cpp
-WordleCode/WordleScreenManager.cpp)
+)
 
 # add .h files
 include_directories(connect4/DisplayManager.h

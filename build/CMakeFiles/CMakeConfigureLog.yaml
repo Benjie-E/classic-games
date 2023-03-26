@@ -24,7 +24,7 @@ events:
       The output was:
       0
       MSBuild version 17.4.1+9a89d02ff for .NET Framework
-      Build started 3/23/2023 5:29:20 PM.
+      Build started 3/26/2023 1:27:54 PM.
       Project "C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\3.26.1\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
         Creating directory "Debug\\".
@@ -61,7 +61,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:01.28
+      Time Elapsed 00:00:01.15
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -87,7 +87,7 @@ events:
       The output was:
       0
       MSBuild version 17.4.1+9a89d02ff for .NET Framework
-      Build started 3/23/2023 5:29:21 PM.
+      Build started 3/26/2023 1:27:55 PM.
       Project "C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\3.26.1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
         Creating directory "Debug\\".
@@ -124,7 +124,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:01.20
+      Time Elapsed 00:00:00.83
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -143,8 +143,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-4sg06i"
-      binary: "C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-4sg06i"
+      source: "C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-vpmi6g"
+      binary: "C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-vpmi6g"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -157,31 +157,31 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-4sg06i
+        Change Dir: C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-vpmi6g
         
-        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_363bb.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.4.1+9a89d02ff for .NET Framework
-        Build started 3/23/2023 5:29:23 PM.
-        Project "C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4sg06i\\cmTC_363bb.vcxproj" on node 1 (default targets).
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_41cf2.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.4.1+9a89d02ff for .NET Framework
+        Build started 3/26/2023 1:27:56 PM.
+        Project "C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vpmi6g\\cmTC_41cf2.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_363bb.dir\\Debug\\".
-          Creating directory "C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4sg06i\\Debug\\".
-          Creating directory "cmTC_363bb.dir\\Debug\\cmTC_363bb.tlog\\".
+          Creating directory "cmTC_41cf2.dir\\Debug\\".
+          Creating directory "C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vpmi6g\\Debug\\".
+          Creating directory "cmTC_41cf2.dir\\Debug\\cmTC_41cf2.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_363bb.dir\\Debug\\cmTC_363bb.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Creating "cmTC_41cf2.dir\\Debug\\cmTC_41cf2.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
         VcpkgTripletSelection:
           Not using Vcpkg because VcpkgEnabled is "false"
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_363bb.dir\\Debug\\\\" /Fd"cmTC_363bb.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_41cf2.dir\\Debug\\\\" /Fd"cmTC_41cf2.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.34.31942 for x64
           CMakeCCompilerABI.c
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_363bb.dir\\Debug\\\\" /Fd"cmTC_363bb.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_41cf2.dir\\Debug\\\\" /Fd"cmTC_41cf2.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4sg06i\\Debug\\cmTC_363bb.exe" /INCREMENTAL /ILK:"cmTC_363bb.dir\\Debug\\cmTC_363bb.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-4sg06i/Debug/cmTC_363bb.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-4sg06i/Debug/cmTC_363bb.lib" /MACHINE:X64  /machine:x64 cmTC_363bb.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_363bb.vcxproj -> C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4sg06i\\Debug\\cmTC_363bb.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vpmi6g\\Debug\\cmTC_41cf2.exe" /INCREMENTAL /ILK:"cmTC_41cf2.dir\\Debug\\cmTC_41cf2.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-vpmi6g/Debug/cmTC_41cf2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-vpmi6g/Debug/cmTC_41cf2.lib" /MACHINE:X64  /machine:x64 cmTC_41cf2.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_41cf2.vcxproj -> C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vpmi6g\\Debug\\cmTC_41cf2.exe
         PostBuildEvent:
           setlocal
-          C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/jgrot/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-4sg06i/Debug/cmTC_363bb.exe -installedDir C:/Users/jgrot/vcpkg/installed/x64-windows/debug/bin -OutVariable out
+          C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/jgrot/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-vpmi6g/Debug/cmTC_41cf2.exe -installedDir C:/Users/jgrot/vcpkg/installed/x64-windows/debug/bin -OutVariable out
           if %errorlevel% neq 0 goto :cmEnd
           :cmEnd
           endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -191,15 +191,15 @@ events:
           if %errorlevel% neq 0 goto :VCEnd
           :VCEnd
         FinalizeBuildStatus:
-          Deleting file "cmTC_363bb.dir\\Debug\\cmTC_363bb.tlog\\unsuccessfulbuild".
-          Touching "cmTC_363bb.dir\\Debug\\cmTC_363bb.tlog\\cmTC_363bb.lastbuildstate".
-        Done Building Project "C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4sg06i\\cmTC_363bb.vcxproj" (default targets).
+          Deleting file "cmTC_41cf2.dir\\Debug\\cmTC_41cf2.tlog\\unsuccessfulbuild".
+          Touching "cmTC_41cf2.dir\\Debug\\cmTC_41cf2.tlog\\cmTC_41cf2.lastbuildstate".
+        Done Building Project "C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vpmi6g\\cmTC_41cf2.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:01.11
+        Time Elapsed 00:00:00.76
         
       exitCode: 0
   -
@@ -211,8 +211,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-2t2ox9"
-      binary: "C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-2t2ox9"
+      source: "C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-6lzr97"
+      binary: "C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-6lzr97"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -225,31 +225,31 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-2t2ox9
+        Change Dir: C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-6lzr97
         
-        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_5e247.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.4.1+9a89d02ff for .NET Framework
-        Build started 3/23/2023 5:29:24 PM.
-        Project "C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2t2ox9\\cmTC_5e247.vcxproj" on node 1 (default targets).
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_e434c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.4.1+9a89d02ff for .NET Framework
+        Build started 3/26/2023 1:27:57 PM.
+        Project "C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6lzr97\\cmTC_e434c.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_5e247.dir\\Debug\\".
-          Creating directory "C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2t2ox9\\Debug\\".
-          Creating directory "cmTC_5e247.dir\\Debug\\cmTC_5e247.tlog\\".
+          Creating directory "cmTC_e434c.dir\\Debug\\".
+          Creating directory "C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6lzr97\\Debug\\".
+          Creating directory "cmTC_e434c.dir\\Debug\\cmTC_e434c.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_5e247.dir\\Debug\\cmTC_5e247.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Creating "cmTC_e434c.dir\\Debug\\cmTC_e434c.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
         VcpkgTripletSelection:
           Not using Vcpkg because VcpkgEnabled is "false"
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5e247.dir\\Debug\\\\" /Fd"cmTC_5e247.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e434c.dir\\Debug\\\\" /Fd"cmTC_e434c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.34.31942 for x64
           CMakeCXXCompilerABI.cpp
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5e247.dir\\Debug\\\\" /Fd"cmTC_5e247.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e434c.dir\\Debug\\\\" /Fd"cmTC_e434c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2t2ox9\\Debug\\cmTC_5e247.exe" /INCREMENTAL /ILK:"cmTC_5e247.dir\\Debug\\cmTC_5e247.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-2t2ox9/Debug/cmTC_5e247.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-2t2ox9/Debug/cmTC_5e247.lib" /MACHINE:X64  /machine:x64 cmTC_5e247.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_5e247.vcxproj -> C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2t2ox9\\Debug\\cmTC_5e247.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6lzr97\\Debug\\cmTC_e434c.exe" /INCREMENTAL /ILK:"cmTC_e434c.dir\\Debug\\cmTC_e434c.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-6lzr97/Debug/cmTC_e434c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-6lzr97/Debug/cmTC_e434c.lib" /MACHINE:X64  /machine:x64 cmTC_e434c.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_e434c.vcxproj -> C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6lzr97\\Debug\\cmTC_e434c.exe
         PostBuildEvent:
           setlocal
-          C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/jgrot/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-2t2ox9/Debug/cmTC_5e247.exe -installedDir C:/Users/jgrot/vcpkg/installed/x64-windows/debug/bin -OutVariable out
+          C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/jgrot/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/CMakeScratch/TryCompile-6lzr97/Debug/cmTC_e434c.exe -installedDir C:/Users/jgrot/vcpkg/installed/x64-windows/debug/bin -OutVariable out
           if %errorlevel% neq 0 goto :cmEnd
           :cmEnd
           endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -259,15 +259,15 @@ events:
           if %errorlevel% neq 0 goto :VCEnd
           :VCEnd
         FinalizeBuildStatus:
-          Deleting file "cmTC_5e247.dir\\Debug\\cmTC_5e247.tlog\\unsuccessfulbuild".
-          Touching "cmTC_5e247.dir\\Debug\\cmTC_5e247.tlog\\cmTC_5e247.lastbuildstate".
-        Done Building Project "C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2t2ox9\\cmTC_5e247.vcxproj" (default targets).
+          Deleting file "cmTC_e434c.dir\\Debug\\cmTC_e434c.tlog\\unsuccessfulbuild".
+          Touching "cmTC_e434c.dir\\Debug\\cmTC_e434c.tlog\\cmTC_e434c.lastbuildstate".
+        Done Building Project "C:\\Users\\jgrot\\OneDrive\\Desktop\\classic-games\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6lzr97\\cmTC_e434c.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:01.07
+        Time Elapsed 00:00:00.77
         
       exitCode: 0
 ...
