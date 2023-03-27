@@ -87,7 +87,7 @@ void DisplayManager::updateScreen(GameManager &game)
 		for (int j = 0; j < difficulty; j++)
 		{
 			game.gameBoard[i][j].printSquare();
-			printw(" ");
+			printw("  ");
 		}
 		printw("\n\n");
 		move((i * 2) + 6, 2);
