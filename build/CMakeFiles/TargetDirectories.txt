@@ -1,0 +1,3 @@
+C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/ClassicGames.dir
+C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/jgrot/OneDrive/Desktop/classic-games/build/CMakeFiles/ZERO_CHECK.dir
