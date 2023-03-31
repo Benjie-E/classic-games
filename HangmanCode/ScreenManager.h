@@ -1,5 +1,5 @@
 #pragma once
-#include <Windows.h>
+#include "../common/Location.h"
 namespace HangmanNS {
 	class ScreenManager
 	{
@@ -14,8 +14,8 @@ namespace HangmanNS {
 		void updateWord(int index, char letter);
 		void win();
 		void lose();
-		POINT hangmanPos;
-		POINT letterPos;
-		POINT wordPos;
+		Location hangmanPos;
+		Location letterPos;
+		Location wordPos;
 	};
 }

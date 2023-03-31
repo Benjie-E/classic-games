@@ -80,12 +80,9 @@ ScreenManager::ScreenManager()
     WINDOW *window = initscr();
     curs_set(0);
     noecho();
-    hangmanPos.y = 0;
-    hangmanPos.x = 0;
-    letterPos.y = 20;
-    letterPos.x = 0;
-    wordPos.y = 22;
-    wordPos.x = 10;
+    hangmanPos.setYX(0, 0);
+    letterPos.setYX(20, 0);
+    wordPos.setYX(22, 10);
 }
 
 ScreenManager::~ScreenManager()
@@ -97,7 +94,7 @@ ScreenManager::~ScreenManager()
 void ScreenManager::updateHangedMan(int phase)
 {
     refresh();
-    move(hangmanPos.y,hangmanPos.x);
+    move(hangmanPos.getY(), hangmanPos.getX());
     printw(HANGMANPICS[phase]);
 }
 
@@ -114,10 +111,10 @@ void ScreenManager::updateLetter(char letter)
 {
     int index = letterToIndex(letter);
     refresh();
-    mvaddch(letterPos.y, letterPos.x+index,letter);
+    mvaddch(letterPos.getY(), letterPos.getX() + index, letter);
 }
 void ScreenManager::start(int length) {
-    move(wordPos.y, wordPos.x);
+    move(wordPos.getY(), wordPos.getX());
     for (int i = 0;i < length;i++) {
         addstr("_ ");
     }
@@ -127,14 +124,14 @@ void ScreenManager::start(int length) {
 }
 void ScreenManager::updateWord(int index, char letter)
 {
-    mvaddch(wordPos.y,wordPos.x+index*2,letter);
+    mvaddch(wordPos.getY(), wordPos.getX() + index * 2, letter);
     refresh();
 }
 
 void ScreenManager::win()
 {
     clear();
-    move(hangmanPos.y, hangmanPos.x);
+    move(hangmanPos.getY(), hangmanPos.getX());
     addstr(WINTEXT);
     refresh();
 }
@@ -142,7 +139,7 @@ void ScreenManager::win()
 void ScreenManager::lose()
 {
     clear();
-    move(hangmanPos.y, hangmanPos.x);
+    move(hangmanPos.getY(), hangmanPos.getX());
     addstr(LOSETEXT);
     refresh();
 }
