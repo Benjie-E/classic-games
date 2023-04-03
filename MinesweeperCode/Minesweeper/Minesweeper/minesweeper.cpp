@@ -23,8 +23,9 @@ int main()
 	init_pair(10, COLOR_RED, COLOR_WHITE); // flagged
 	refresh();
 
-	GameManager game(MEDIUM, MEDMINES);
+	GameManager game(MEDIUM);
 	DisplayManager display;
+	display.setConsoleSize(game.getDifficulty());
 	display.updateScreen(game);
 	getch();
 	return 0;

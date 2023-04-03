@@ -9,6 +9,26 @@ DisplayManager::DisplayManager()
 }
 
 
+void DisplayManager::setConsoleSize(int dif)
+{
+	//These are just guess values, and will need to be tweaked later.
+	if (dif == EASY)
+	{
+		resize_term(22, 44);
+	}
+	else if (dif == HARD)
+	{
+		resize_term(72, 132);
+	}
+	//Medium is the default state
+	else
+	{
+		resize_term(36, 66);
+	}
+
+}
+
+
 void DisplayManager::displayStats(WINDOW* statDis, GameManager& game)
 {
 	//Function to set everything up to be displayed in the window

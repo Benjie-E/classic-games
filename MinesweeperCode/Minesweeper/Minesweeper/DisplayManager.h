@@ -14,6 +14,7 @@ public:
 	void updateScreen(GameManager &game);
 	int getCursorRow();
 	int getCursorCol();
+	void setConsoleSize(int dif);
 	void setCursorRow(int row);
 	void setCursorCol(int col);
 	void displayStats(WINDOW* statDis, GameManager& game);
