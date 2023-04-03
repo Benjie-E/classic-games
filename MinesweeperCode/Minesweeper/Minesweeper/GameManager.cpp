@@ -12,29 +12,6 @@ Square::Square()
 }
 
 
-int GameManager::getTotalMines()
-{
-	return mTotalMines;
-}
-
-
-int GameManager::getFlagged()
-{
-	return mFlaggedMines;
-}
-
-
-void GameManager::SetMinesAmount(int dif)
-{
-	if (dif == EASY)
-		mTotalMines = EASYMINES;
-	else if (dif == HARD)
-		mTotalMines = HARDMINES;
-	else
-		mTotalMines = MEDMINES;
-}
-
-
 void Square::printSquare()
 {
 	if (isRevealed)
@@ -70,6 +47,80 @@ void Square::printSquare()
 }
 
 
+void GameManager::calcSurroundingMines()
+{
+	/*
+	* There's a lot of unique cases here due to corners, etc.
+	* So this is kind of a mess but...it works. (hopefully)
+	* The nested ifs are to avoid going out of the array's ranges
+	*/
+	int i, j;
+	int boardSize = getDifficulty();
+	Square* tmp;
+
+	for (i = 0; i < boardSize; i++)
+	{
+		for (j = 0; j < boardSize; j++)
+		{
+			tmp = &gameBoard[i][j];
+			if (i > 0) // has square above it
+			{
+				if (gameBoard[i - 1][j].hasMine)
+					tmp->surroundingMines++;
+				if (j > 0) // ...and to the up-left
+					if (gameBoard[i - 1][j - 1].hasMine)
+						tmp->surroundingMines++;
+				if (j < boardSize - 1) // ...and to the up-right
+					if (gameBoard[i - 1][j + 1].hasMine)
+						tmp->surroundingMines++;
+			}
+			if (i < boardSize - 1) // has square below it
+			{
+				if (gameBoard[i + 1][j].hasMine)
+					tmp->surroundingMines++;
+				if (j > 0) // ...and down-left
+					if (gameBoard[i + 1][j - 1].hasMine)
+						tmp->surroundingMines++;
+				if (j < boardSize - 1) // ...and down-right
+					if (gameBoard[i + 1][j + 1].hasMine)
+						tmp->surroundingMines++;
+			}
+			if (j > 0) // has square to the left
+				if (gameBoard[i][j - 1].hasMine)
+					tmp->surroundingMines++;
+			if (j < boardSize - 1) // has square to the right
+				if (gameBoard[i][j + 1].hasMine)
+					tmp->surroundingMines++;
+		}
+	}
+	tmp = NULL;
+	delete tmp;
+}
+
+
+int GameManager::getTotalMines()
+{
+	return mTotalMines;
+}
+
+
+int GameManager::getFlagged()
+{
+	return mFlaggedMines;
+}
+
+
+void GameManager::SetMinesAmount(int dif)
+{
+	if (dif == EASY)
+		mTotalMines = EASYMINES;
+	else if (dif == HARD)
+		mTotalMines = HARDMINES;
+	else
+		mTotalMines = MEDMINES;
+}
+
+
 GameManager::GameManager(int difficulty)
 {
 	mDifficulty = difficulty;
@@ -82,6 +133,9 @@ GameManager::GameManager(int difficulty)
 	{
 		gameBoard[i] = new Square[mDifficulty];
 	}
+
+	// generate mines HERE (before calcSurroundingMines)
+	calcSurroundingMines();
 }
 
 

@@ -28,7 +28,6 @@ struct Square
 	int surroundingMines;
 	bool hasMine, isRevealed, isFlagged;
 
-	//friend ostream& operator<<(ostream& out, const Square& square);
 	void printSquare();
 };
 
@@ -42,6 +41,8 @@ public:
 	Square operator()(int row, int col);
 
 	Square** gameBoard;
+
+	void calcSurroundingMines();
 
 	//Accessors
 	int getDifficulty();
