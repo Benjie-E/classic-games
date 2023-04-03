@@ -36,7 +36,7 @@ struct Square
 class GameManager
 {
 public:
-	GameManager(int difficulty, int mineDif);
+	GameManager(int difficulty);
 	~GameManager();
 
 	Square operator()(int row, int col);
@@ -47,6 +47,7 @@ public:
 	int getDifficulty();
 	int getTotalMines();
 	int getFlagged();
+	void SetMinesAmount(int dif);
 	
 private:
 	int mDifficulty, mTotalMines, mFlaggedMines;

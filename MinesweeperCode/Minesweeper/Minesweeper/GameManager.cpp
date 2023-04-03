@@ -24,6 +24,17 @@ int GameManager::getFlagged()
 }
 
 
+void GameManager::SetMinesAmount(int dif)
+{
+	if (dif == EASY)
+		mTotalMines = EASYMINES;
+	else if (dif == HARD)
+		mTotalMines = HARDMINES;
+	else
+		mTotalMines = MEDMINES;
+}
+
+
 void Square::printSquare()
 {
 	if (isRevealed)
@@ -59,10 +70,10 @@ void Square::printSquare()
 }
 
 
-GameManager::GameManager(int difficulty, int mineDif)
+GameManager::GameManager(int difficulty)
 {
 	mDifficulty = difficulty;
-	mTotalMines = mineDif;
+	SetMinesAmount(difficulty);
 	mFlaggedMines = 0;
 
 	// dynamic allocation of 2d arrays is gross
