@@ -34,7 +34,7 @@ path.h)
 # Add executable target with source files listed in SOURCE_FILES variable
 add_executable(ClassicGames ${SOURCE_FILES})
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/HangmanCode/HangmanWords.txt ${CMAKE_CURRENT_BINARY_DIR}/Hangman.txt COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/HangmanWords.txt ${CMAKE_CURRENT_BINARY_DIR}/Hangman.txt COPYONLY)
 
 	 
 find_path(PDC_INCLUDES curses.h)
