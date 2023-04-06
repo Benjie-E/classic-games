@@ -7,4 +7,10 @@ int main()
     noecho();
     SnakeGameManager::createInstance();
     SnakeScreenManager* screenManager = new SnakeScreenManager;
+    
+    while (true)
+    {
+        SnakeGameManager::getInstance()->gameLoop();
+        screenManager->updateVisuals();
+    }
 }

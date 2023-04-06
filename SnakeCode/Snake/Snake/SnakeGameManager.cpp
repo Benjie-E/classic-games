@@ -1,4 +1,5 @@
 #include "SnakeGameManager.h"
+#include "SnakeScreenManager.h"
 
 SnakeGameManager* SnakeGameManager::snakeInstance = NULL;
 
@@ -69,3 +70,10 @@ void SnakeGameManager::newGame()
 	createSnake();
 }
 
+void SnakeGameManager::gameLoop()
+{
+	//update locations of the snake, apple, and body, and check for collisions
+
+	//update locations
+	checkForCollisions();
+}

@@ -2,6 +2,8 @@
 #include "Snake.h"
 #include "Apple.h"
 
+class SnakeScreenManager;
+
 class SnakeGameManager
 {
 public:
@@ -20,8 +22,8 @@ public:
 	std::vector<Location> getBodyLocations();
 	Location* getAppleLocation();
 	void reset();
-	static int getMaxX() { return MAX_X; };
-	static int getMaxY() { return MAX_Y; };
+	int getMaxX() { return MAX_X; };
+	int getMaxY() { return MAX_Y; };
 
 	void createNewApple();
 	void createSnake();
@@ -29,12 +31,14 @@ public:
 	void newGame();
 	void checkForCollisions();
 
+	void gameLoop();
+
 private:
 	Apple* currentApple;
 	Snake* snake;
 
-	const static int MAX_X = 118;
-	const static int MAX_Y = 55;
+	const int MAX_X = getmaxx(stdscr) - 2;
+	const int MAX_Y = getmaxy(stdscr) - 2;
 
 	bool isGameOver;
 };
