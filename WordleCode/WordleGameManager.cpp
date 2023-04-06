@@ -52,7 +52,6 @@ void GameManager::introMessage()
 	printw("Welcome to Wordle!\n");
 	printw("A random 5 letter word will be selected and it's your job to guess what it is.\n");
 	printw("You will have 5 tries and will be told what letters are right and if they are in the right position or not.\n");
-	printw("Good luck!\n");
 	refresh();
 }
 
