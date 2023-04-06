@@ -16,6 +16,7 @@ void SnakeScreenManager::updateVisuals() {
     clear();
     printBox();
     printApple();
+    printHead();
     refresh();
     getch();
 }
@@ -33,17 +34,9 @@ void SnakeScreenManager::printBody()
 
 void SnakeScreenManager::printApple()
 {
-    if (SnakeGameManager::getInstance() == NULL)
-    {
-
-    }
-    else
-    {
         Location* apple = SnakeGameManager::getInstance()->getAppleLocation();
         move(apple->getY(), apple->getX());
         addch('A');
-        refresh();
-    }
 }
 void SnakeScreenManager::printBox() {
     int maxX = SnakeGameManager::getInstance()->getMaxX();

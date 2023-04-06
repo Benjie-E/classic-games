@@ -2,7 +2,6 @@
 
 Apple::Apple()
 {
-	srand(time(NULL));
 	int randY = rand() % MAX_Y + 1;
 	int randX = rand() % MAX_X + 1;
 
