@@ -1,0 +1,9 @@
+Package: pdcurses
+Version: 3.9
+Port-Version: 3
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 4dd5b885bbc34df91ba395373df1667a06fb032d419e19961f06c35dfb34b9be
+Description: Public Domain Curses - a curses library for environments that don't fit the termcap/terminfo model.
+Status: install ok installed
+
