@@ -1,5 +1,5 @@
 #include <iostream>
-#include <Windows.h>
+#include "../common/Location.h"
 #include <time.h>
 #include "GameManager.h"
 #include "ScreenManager.h"
