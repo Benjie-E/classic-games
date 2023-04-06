@@ -8,10 +8,10 @@ Description:
 
 #include "ttt_functions.h"
 #include <curses.h>
-
+#include "ttt.h"
 using namespace std;
 
-int main()
+TTT::TTT()
 {
 	TTTManager ttt;
 	int vicCon;
@@ -71,5 +71,5 @@ int main()
 	} while (goAgain == true);
 
 	endwin();
-	return 0;
+	return;
 }

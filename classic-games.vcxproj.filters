@@ -16,47 +16,119 @@
     <Filter Include="Source Files\Hangman">
       <UniqueIdentifier>{d38ea84f-0c67-4b42-96b7-69348a73e674}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Menu">
+      <UniqueIdentifier>{e030ccbd-76cc-4409-9594-467c45df5afa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TicTacToe">
+      <UniqueIdentifier>{477233b0-288b-4dd2-8444-241e72c8fd7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Wordle">
+      <UniqueIdentifier>{9fbc31d6-47e5-4c97-a16c-7c234720cdbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Connect4">
+      <UniqueIdentifier>{636e74ac-87e5-439a-8dad-11605fb3720a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\common">
+      <UniqueIdentifier>{59453502-430c-481d-ab19-7e441359ad71}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HangmanCode\Hangman\GameManager.cpp">
-      <Filter>Source Files\Hangman</Filter>
-    </ClCompile>
-    <ClCompile Include="HangmanCode\Hangman\Hangman.cpp">
-      <Filter>Source Files\Hangman</Filter>
-    </ClCompile>
-    <ClCompile Include="HangmanCode\Hangman\ScreenManager.cpp">
-      <Filter>Source Files\Hangman</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Menu</Filter>
     </ClCompile>
     <ClCompile Include="GameSelector.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Connect4\connect4.cpp">
+      <Filter>Source Files\Connect4</Filter>
+    </ClCompile>
+    <ClCompile Include="Connect4\DisplayManager.cpp">
+      <Filter>Source Files\Connect4</Filter>
+    </ClCompile>
+    <ClCompile Include="HangmanCode\Hangman.cpp">
+      <Filter>Source Files\Hangman</Filter>
+    </ClCompile>
+    <ClCompile Include="TicTacToeCode\ttt_functions.cpp">
+      <Filter>Source Files\TicTacToe</Filter>
+    </ClCompile>
+    <ClCompile Include="TicTacToeCode\ttt.cpp">
+      <Filter>Source Files\TicTacToe</Filter>
+    </ClCompile>
+    <ClCompile Include="WordleCode\Wordle.cpp">
+      <Filter>Source Files\Wordle</Filter>
+    </ClCompile>
+    <ClCompile Include="Connect4\Connect4GameManager.cpp">
+      <Filter>Source Files\Connect4</Filter>
+    </ClCompile>
+    <ClCompile Include="HangmanCode\HangmanGameManager.cpp">
+      <Filter>Source Files\Hangman</Filter>
+    </ClCompile>
+    <ClCompile Include="WordleCode\WordleGameManager.cpp">
+      <Filter>Source Files\Wordle</Filter>
+    </ClCompile>
+    <ClCompile Include="HangmanCode\HangmanScreenManager.cpp">
+      <Filter>Source Files\Hangman</Filter>
+    </ClCompile>
+    <ClCompile Include="WordleCode\WordleScreenManager.cpp">
+      <Filter>Source Files\Wordle</Filter>
+    </ClCompile>
+    <ClCompile Include="common\Location.cpp">
+      <Filter>Source Files\common</Filter>
     </ClCompile>
     <ClCompile Include="SnakeCode\Snake\Snake\Snake.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HangmanCode\Hangman\GameManager.h">
-      <Filter>Source Files\Hangman</Filter>
-    </ClInclude>
-    <ClInclude Include="HangmanCode\Hangman\ScreenManager.h">
-      <Filter>Source Files\Hangman</Filter>
-    </ClInclude>
     <ClInclude Include="arrowMove.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="GameSelector.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="HangmanCode\Hangman\Hangman.h">
+    <ClInclude Include="Connect4\connect4.h">
+      <Filter>Source Files\Connect4</Filter>
+    </ClInclude>
+    <ClInclude Include="Connect4\DisplayManager.h">
+      <Filter>Source Files\Connect4</Filter>
+    </ClInclude>
+    <ClInclude Include="Connect4\GameManager.h">
+      <Filter>Source Files\Connect4</Filter>
+    </ClInclude>
+    <ClInclude Include="HangmanCode\GameManager.h">
       <Filter>Source Files\Hangman</Filter>
+    </ClInclude>
+    <ClInclude Include="HangmanCode\Hangman.h">
+      <Filter>Source Files\Hangman</Filter>
+    </ClInclude>
+    <ClInclude Include="HangmanCode\ScreenManager.h">
+      <Filter>Source Files\Hangman</Filter>
+    </ClInclude>
+    <ClInclude Include="TicTacToeCode\ttt.h">
+      <Filter>Source Files\TicTacToe</Filter>
+    </ClInclude>
+    <ClInclude Include="TicTacToeCode\ttt_functions.h">
+      <Filter>Source Files\TicTacToe</Filter>
+    </ClInclude>
+    <ClInclude Include="WordleCode\ScreenManager.h">
+      <Filter>Source Files\Wordle</Filter>
+    </ClInclude>
+    <ClInclude Include="WordleCode\Wordle.h">
+      <Filter>Source Files\Wordle</Filter>
+    </ClInclude>
+    <ClInclude Include="WordleCode\GameManager.h">
+      <Filter>Source Files\Wordle</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Location.h">
+      <Filter>Source Files\common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="HangmanCode\Hangman\words.txt">
+    <Text Include="HangmanCode\words.txt">
       <Filter>Source Files\Hangman</Filter>
+    </Text>
+    <Text Include="WordleCode\words.txt">
+      <Filter>Source Files\Wordle</Filter>
     </Text>
   </ItemGroup>
 </Project>

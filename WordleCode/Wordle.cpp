@@ -1,10 +1,11 @@
 #include <iostream>
-#include <Windows.h>
+#include "../common/Location.h"
 #include <time.h>
 #include "GameManager.h"
 #include "ScreenManager.h"
+#include "Wordle.h"
 
-int main()
+WordleGame::WordleGame()
 {
     //settup stuff
     srand(time(NULL));
@@ -13,7 +14,7 @@ int main()
     ScreenManager screenManager;
     gameManager.introMessage();
     curs_set(0);
-    
+
 
     //game loop
     bool shouldQuit = false;
@@ -21,7 +22,6 @@ int main()
     {
         gameManager.runGameLoop(shouldQuit);
     }
-
-    return 0;
+    return;
 }
 
