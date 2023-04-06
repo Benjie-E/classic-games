@@ -73,6 +73,7 @@ int GameSelector::start(int game)
         getch();
         
     }
+    noraw();
     clear();
     refresh();
     return 0;
