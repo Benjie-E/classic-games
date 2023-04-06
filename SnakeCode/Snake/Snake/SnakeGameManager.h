@@ -18,7 +18,7 @@ public:
 
 	Location getHeadLocation();
 	std::vector<Location> getBodyLocations();
-	Location getAppleLocation();
+	Location* getAppleLocation();
 	void reset();
 	static int getMaxX() { return MAX_X; };
 	static int getMaxY() { return MAX_Y; };
@@ -33,8 +33,8 @@ private:
 	Apple* currentApple;
 	Snake* snake;
 
-	const static int MAX_X = 30;
-	const static int MAX_Y = 30;
+	const static int MAX_X = 118;
+	const static int MAX_Y = 55;
 
 	bool isGameOver;
 };

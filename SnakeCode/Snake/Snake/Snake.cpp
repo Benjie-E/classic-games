@@ -43,12 +43,6 @@ Snake::Snake(int x, int y)
 }
 void Snake::gameLoop() {
     move(0, 0);
-    
-    while (true) {
-        Sleep(1000);
-        addch('0');
-        refresh();
-    }
 }
 
 void Snake::increaseSize()

@@ -18,7 +18,7 @@ public:
 private:
 	Location* location;
 
-	const int MAX_X = 30;
-	const int MAX_Y = 30;
+	const int MAX_X = getmaxx(stdscr)-2;
+	const int MAX_Y = getmaxy(stdscr)-2;
 };
 

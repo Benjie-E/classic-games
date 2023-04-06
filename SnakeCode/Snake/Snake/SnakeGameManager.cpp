@@ -1,11 +1,10 @@
 #include "SnakeGameManager.h"
-#include "SnakeScreenManager.h"
 
 SnakeGameManager* SnakeGameManager::snakeInstance = NULL;
 
-Location SnakeGameManager::getAppleLocation()
+Location* SnakeGameManager::getAppleLocation()
 {
-	Location appleLocation(currentApple->getY(), currentApple->getX());
+	Location* appleLocation = new Location(currentApple->getY(), currentApple->getX());
 	return appleLocation;
 }
 Location SnakeGameManager::getHeadLocation()
@@ -37,7 +36,6 @@ SnakeGameManager::~SnakeGameManager()
 
 void SnakeGameManager::createNewApple()
 {
-
 	currentApple = new Apple();
 }
 
@@ -69,6 +67,5 @@ void SnakeGameManager::newGame()
 	isGameOver = false;
 	createNewApple();
 	createSnake();
-	SnakeScreenManager *screenManager = new SnakeScreenManager;
 }
 

@@ -15,13 +15,16 @@ SnakeScreenManager::~SnakeScreenManager()
 void SnakeScreenManager::updateVisuals() {
     clear();
     printBox();
+    printApple();
     refresh();
     getch();
 }
 
 void SnakeScreenManager::printHead()
 {
-    
+    Location headLoc = SnakeGameManager::getInstance()->getHeadLocation();
+    move(headLoc.getY(), headLoc.getX());
+    addch('@');
 }
 
 void SnakeScreenManager::printBody()
@@ -30,16 +33,21 @@ void SnakeScreenManager::printBody()
 
 void SnakeScreenManager::printApple()
 {
-    Location apple = SnakeGameManager::getInstance()->getAppleLocation();
-    move(apple.getY(), apple.getX());
-    addch('A');
-    refresh();
+    if (SnakeGameManager::getInstance() == NULL)
+    {
+
+    }
+    else
+    {
+        Location* apple = SnakeGameManager::getInstance()->getAppleLocation();
+        move(apple->getY(), apple->getX());
+        addch('A');
+        refresh();
+    }
 }
 void SnakeScreenManager::printBox() {
     int maxX = SnakeGameManager::getInstance()->getMaxX();
     int maxY = SnakeGameManager::getInstance()->getMaxY();
-    for (int i = 0;i < maxY;i++) {
-        move(0, i);
-        addch('-');
-    }
+
+    box(stdscr, '|', '-');
 }
