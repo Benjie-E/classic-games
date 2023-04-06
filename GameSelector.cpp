@@ -2,8 +2,7 @@
 
 GameSelector::GameSelector()
 {
-    menuPos.x = 0;
-    menuPos.y = 0;
+    menuPos.setYX(0, 0);
     initscr();
     curs_set(0);
     noecho();
@@ -13,9 +12,9 @@ GameSelector::GameSelector()
 bool GameSelector::updateSelector(int game)
 {
     echochar(' ');
-    move(menuPos.y+game*2,menuPos.x+1);
+    move(menuPos.getY() + game * 2, menuPos.getX() + 1);
     echochar('X');
-    move(menuPos.y + game * 2, menuPos.x + 1);
+    move(menuPos.getY() + game * 2, menuPos.getX() + 1);
     return true;
 }
 
@@ -23,7 +22,7 @@ int GameSelector::select()
 {
     for (int i = 0;i < int(sizeof(gameList) / sizeof(std::string));i++) {
         std::string formattedString = "[ ] "+gameList[i];
-        mvaddstr(menuPos.y+i*2,menuPos.x,formattedString.c_str());
+        mvaddstr(menuPos.getY() + i * 2, menuPos.getX(), formattedString.c_str());
     }
     refresh();
     int value = 0;
@@ -58,13 +57,23 @@ int GameSelector::start(int game)
 {
     switch (game) {
     case Hangman:
-        Hangman::Hangman();
+        HangmanNS::Hangman::Hangman();
+        break;
+    case Wordle:
+        WordleGame::WordleGame();
+        break;
+    case TicTacToe:
+        TTT::TTT();
+        break;
+    case Connect4:
+        Connect4NS::Connect4::Connect4();
         break;
     default:
-        mvaddstr(menuPos.y+size(gameList)*2,menuPos.x,"Game Not Found");
+        mvaddstr(menuPos.getY() + size(gameList) * 2, menuPos.getX(), "Game Not Found");
         getch();
-        clear();
-        refresh();
+        
     }
+    clear();
+    refresh();
     return 0;
 }
