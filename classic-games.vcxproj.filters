@@ -115,8 +115,11 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="WordleCode\words.txt">
+    <Text Include="WordleCode\wordleWords.txt">
       <Filter>Source Files\Wordle</Filter>
+    </Text>
+    <Text Include="HangmanCode\hangmanWords.txt">
+      <Filter>Source Files\Hangman</Filter>
     </Text>
   </ItemGroup>
 </Project>

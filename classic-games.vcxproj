@@ -155,7 +155,8 @@
     <ClInclude Include="WordleCode\Wordle.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="WordleCode\words.txt" />
+    <Text Include="HangmanCode\hangmanWords.txt" />
+    <Text Include="WordleCode\wordleWords.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
