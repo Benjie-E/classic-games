@@ -14,11 +14,11 @@ void DisplayManager::setConsoleSize(int dif)
 	//These are just guess values, and will need to be tweaked later.
 	if (dif == EASY)
 	{
-		resize_term(22, 44);
+		resize_term(22, 38);
 	}
 	else if (dif == HARD)
 	{
-		resize_term(72, 132);
+		resize_term(48, 90);
 	}
 	//Medium is the default state
 	else
@@ -29,10 +29,36 @@ void DisplayManager::setConsoleSize(int dif)
 }
 
 
-void DisplayManager::displayStats(WINDOW* statDis, GameManager& game)
+void DisplayManager::displayStats(int difficulty, GameManager& game)
 {
 	//Function to set everything up to be displayed in the window
 	//I am 100% sure there is a better way to do this but it is nearly 1 am and my brain isn't working anymore.
+	int titleY, difY;
+
+	//Sets
+	if (difficulty == EASY)
+	{
+		titleY = 12;
+		difY = 1;
+	}
+	else if (difficulty == HARD)
+	{
+		titleY = 39;
+		difY = 27;
+	}
+	else
+	{
+		titleY = 27;
+		difY = 15;
+	}
+
+	//Displays title of game
+	move(0, titleY);
+	printw("Minesweeper");
+
+	//Displays game stats
+	WINDOW* statDis = newwin(4, 36, 2, difY);
+	box(statDis, 0, 0);
 
 	//Displays flag stats
 	string total, flagged, dif;
@@ -44,16 +70,16 @@ void DisplayManager::displayStats(WINDOW* statDis, GameManager& game)
 
 	//Displays Difficulty
 	int difInt = game.getDifficulty();
-	if (difInt == 9)
+	if (difInt == EASY)
 		dif = "Easy";
-	else if (difInt == 16)
+	else if (difInt == MEDIUM)
 		dif = "Medium";
 	else
 		dif = "Hard";
 	string diffic = "Difficulty: " + dif;
-	wmove(statDis, 1, 20);
+	wmove(statDis, 1, 16);
 	wprintw(statDis, diffic.c_str());
-
+	wrefresh(statDis);
 }
 
 
@@ -91,14 +117,7 @@ void DisplayManager::updateScreen(GameManager &game)
 {
 	int difficulty = game.getDifficulty();
 
-	//Displays title of game
-	move(0, 18);
-	printw("Minesweeper");
-
-	//Displays game stats
-	WINDOW* stats = newwin(4, 40, 2, 5);
-	box(stats, 0, 0);
-	displayStats(stats, game);
+	displayStats(difficulty, game);
 	
 	//Prints out the board.
 	move(6, 2);
@@ -112,6 +131,5 @@ void DisplayManager::updateScreen(GameManager &game)
 		printw("\n\n");
 		move((i * 2) + 6, 2);
 	}
-	wrefresh(stats);
 	refresh();
 }
