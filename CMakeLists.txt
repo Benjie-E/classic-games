@@ -18,6 +18,7 @@ connect4/DisplayManager.cpp
 connect4/connect4GameManager.cpp
 TicTacToeCode/ttt.cpp
 TicTacToeCode/ttt_functions.cpp
+common/Location.cpp
 )
 
 # add .h files
