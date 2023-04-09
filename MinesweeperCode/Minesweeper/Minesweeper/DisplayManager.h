@@ -17,7 +17,7 @@ public:
 	void setConsoleSize(int dif);
 	void setCursorRow(int row);
 	void setCursorCol(int col);
-	void displayStats(WINDOW* statDis, GameManager& game);
+	void displayStats(int difficulty, GameManager& game);
 
 private:
 	int mCursorRow;
