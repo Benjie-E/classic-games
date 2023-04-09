@@ -65,6 +65,7 @@ void DisplayManager::manageCursor(const GameManager &game)
 		case 10: // newline \n
 		case 13: // carriage return \r
 		case 32: // spacebar
+		case KEY_DOWN:
 			// previous 4 cases will end up here (fall-through)
 			return;
 			break;
