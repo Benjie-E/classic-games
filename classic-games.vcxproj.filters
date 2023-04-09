@@ -28,6 +28,9 @@
     <Filter Include="Source Files\Connect4">
       <UniqueIdentifier>{636e74ac-87e5-439a-8dad-11605fb3720a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\common">
+      <UniqueIdentifier>{59453502-430c-481d-ab19-7e441359ad71}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -68,6 +71,9 @@
     </ClCompile>
     <ClCompile Include="WordleCode\WordleScreenManager.cpp">
       <Filter>Source Files\Wordle</Filter>
+    </ClCompile>
+    <ClCompile Include="common\Location.cpp">
+      <Filter>Source Files\common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

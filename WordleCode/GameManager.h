@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <time.h>
-#include <Windows.h>
+#include "../common/Location.h"
 #include <curses.h>
 
 using namespace std;

@@ -124,6 +124,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="common\Location.cpp" />
     <ClCompile Include="Connect4\connect4.cpp" />
     <ClCompile Include="Connect4\DisplayManager.cpp" />
     <ClCompile Include="Connect4\Connect4GameManager.cpp" />
@@ -140,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrowMove.h" />
+    <ClInclude Include="common\Location.h" />
     <ClInclude Include="Connect4\connect4.h" />
     <ClInclude Include="Connect4\DisplayManager.h" />
     <ClInclude Include="Connect4\GameManager.h" />
