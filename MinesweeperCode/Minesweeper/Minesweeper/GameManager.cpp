@@ -1,5 +1,7 @@
 #include "GameManager.h"
 #include <string>
+#include <vector>
+#include <ctime>
 
 using namespace std;
 
@@ -7,7 +9,7 @@ Square::Square()
 {
 	surroundingMines = 0;
 	hasMine = false;
-	isRevealed = false;
+	isRevealed = true;
 	isFlagged = false;
 }
 
@@ -44,6 +46,42 @@ void Square::printSquare()
 			attroff(COLOR_PAIR(9));
 		}
 	}
+}
+
+
+GameManager::GameManager(int difficulty)
+{
+	mDifficulty = difficulty;
+	setMinesAmount(difficulty);
+	mFlaggedMines = 0;
+
+	// dynamic allocation of 2d arrays is gross
+	gameBoard = new Square * [mDifficulty];
+	for (int i = 0; i < mDifficulty; i++)
+	{
+		gameBoard[i] = new Square[mDifficulty];
+	}
+
+	// generate mines HERE (before calcSurroundingMines)
+	placeMines();
+	calcSurroundingMines();
+}
+
+
+GameManager::~GameManager()
+{
+	// gotta get rid of all those pointers
+	for (int i = 0; i < mDifficulty; i++)
+	{
+		delete[] gameBoard[i];
+	}
+	delete[] gameBoard;
+}
+
+
+Square GameManager::operator()(int row, int col)
+{
+	return gameBoard[row][col];
 }
 
 
@@ -98,6 +136,39 @@ void GameManager::calcSurroundingMines()
 }
 
 
+void GameManager::placeMines()
+{
+	int totalSquares = mDifficulty * mDifficulty;
+	
+	vector<int> allSquareIndexes;
+	// fill the vector with the indexes of the squares on the board
+	for (int i = 0; i < totalSquares; i++)
+	{
+		allSquareIndexes.push_back(i);
+	}
+
+	int vecIndex, tmp, row, col;
+	for (int i = 0; i < mTotalMines; i++)
+	{
+		// lottery picks a random square and removes it from the vector
+		vecIndex = rand() % (allSquareIndexes.size() - 1);
+		tmp = allSquareIndexes[vecIndex];
+		allSquareIndexes.erase(allSquareIndexes.begin() + vecIndex);
+		// math time
+		row = tmp / (mDifficulty); // row is the quotient
+		col = tmp % (mDifficulty); // col is the remainder
+		gameBoard[row][col].hasMine = true;
+	}
+}
+
+
+int GameManager::getDifficulty()
+{
+	const int difficulty = mDifficulty;
+	return difficulty;
+}
+
+
 int GameManager::getTotalMines()
 {
 	return mTotalMines;
@@ -110,7 +181,7 @@ int GameManager::getFlagged()
 }
 
 
-void GameManager::SetMinesAmount(int dif)
+void GameManager::setMinesAmount(int dif)
 {
 	if (dif == EASY)
 		mTotalMines = EASYMINES;
@@ -120,44 +191,3 @@ void GameManager::SetMinesAmount(int dif)
 		mTotalMines = MEDMINES;
 }
 
-
-GameManager::GameManager(int difficulty)
-{
-	mDifficulty = difficulty;
-	SetMinesAmount(difficulty);
-	mFlaggedMines = 0;
-
-	// dynamic allocation of 2d arrays is gross
-	gameBoard = new Square * [mDifficulty];
-	for (int i = 0; i < mDifficulty; i++)
-	{
-		gameBoard[i] = new Square[mDifficulty];
-	}
-
-	// generate mines HERE (before calcSurroundingMines)
-	calcSurroundingMines();
-}
-
-
-GameManager::~GameManager()
-{
-	// gotta get rid of all those pointers
-	for (int i = 0; i < mDifficulty; i++)
-	{
-		delete[] gameBoard[i];
-	}
-	delete[] gameBoard;
-}
-
-
-Square GameManager::operator()(int row, int col)
-{
-	return gameBoard[row][col];
-}
-
-
-int GameManager::getDifficulty()
-{
-	const int difficulty = mDifficulty;
-	return difficulty;
-}

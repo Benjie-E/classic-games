@@ -3,6 +3,8 @@
 
 int main()
 {
+	// seed the RNG (it's a surprise tool that will help us later)
+	srand(time(NULL));
 	//Starts terminal with curses
 	initscr();
 	noecho();
@@ -23,7 +25,7 @@ int main()
 	init_pair(10, COLOR_RED, COLOR_WHITE); // flagged
 	refresh();
 
-	GameManager game(HARD);
+	GameManager game(MEDIUM);
 	DisplayManager display;
 	display.setConsoleSize(game.getDifficulty());
 	display.updateScreen(game);

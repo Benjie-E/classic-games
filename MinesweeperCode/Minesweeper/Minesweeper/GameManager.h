@@ -43,12 +43,13 @@ public:
 	Square** gameBoard;
 
 	void calcSurroundingMines();
+	void placeMines();
 
 	//Accessors
 	int getDifficulty();
 	int getTotalMines();
 	int getFlagged();
-	void SetMinesAmount(int dif);
+	void setMinesAmount(int dif);
 	
 private:
 	int mDifficulty, mTotalMines, mFlaggedMines;

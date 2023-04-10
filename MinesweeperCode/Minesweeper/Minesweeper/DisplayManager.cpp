@@ -14,16 +14,16 @@ void DisplayManager::setConsoleSize(int dif)
 	//These are just guess values, and will need to be tweaked later.
 	if (dif == EASY)
 	{
-		resize_term(22, 38);
+		resize_term(24, 38);
 	}
 	else if (dif == HARD)
 	{
-		resize_term(48, 90);
+		resize_term(50, 90);
 	}
 	//Medium is the default state
 	else
 	{
-		resize_term(36, 66);
+		resize_term(38, 66);
 	}
 
 }
@@ -120,16 +120,15 @@ void DisplayManager::updateScreen(GameManager &game)
 	displayStats(difficulty, game);
 	
 	//Prints out the board.
-	move(6, 2);
 	for (int i = 0; i < difficulty; i++)
 	{
+		move((i * 2) + 6, 2);
 		for (int j = 0; j < difficulty; j++)
 		{
 			game.gameBoard[i][j].printSquare();
 			printw("  ");
 		}
 		printw("\n\n");
-		move((i * 2) + 6, 2);
 	}
 	refresh();
 }
