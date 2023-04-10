@@ -45,14 +45,21 @@ string ScreenManager::getInput(int numTries)
 	string input;
 	for (int i = 1; i < 11; i+=2)
 	{
-		builder = getch();
+		builder = getLetter();
 		move(mCurrentDepth, i);
 		addch(builder);
 		input += builder;
 	}
 	return input;
 }
-
+char ScreenManager::getLetter()
+{
+	char letter = 0;
+	while (!isalpha(letter)) {
+		letter = getch();
+	}
+	return toupper(letter);
+}
 void ScreenManager::proccesGuess(string guess, string currentWord, int numTries)
 {
 	int j = 0;

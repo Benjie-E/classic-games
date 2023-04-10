@@ -15,6 +15,7 @@ public:
 
 	void makeWordleBox();
 	string getInput(int numTries);
+	char getLetter();
 	int checkLetter(char charToCheck, string currentGuess, int i);
 	void proccesGuess(string guess, string currentWord, int numTries);
 	void reset();

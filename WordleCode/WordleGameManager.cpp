@@ -18,6 +18,7 @@ GameManager::~GameManager()
 string GameManager::getWord(string words[], int randNum)
 {
 	string word = words[randNum];
+	transform(word.begin(), word.end(), word.begin(), ::toupper);
 	return word;
 }
 
