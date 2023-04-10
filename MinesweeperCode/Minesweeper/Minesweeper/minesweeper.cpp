@@ -25,7 +25,7 @@ int main()
 	init_pair(10, COLOR_RED, COLOR_WHITE); // flagged
 	refresh();
 
-	GameManager game(MEDIUM);
+	GameManager game(EASY);
 	DisplayManager display;
 	display.setConsoleSize(game.getDifficulty());
 	display.updateScreen(game);

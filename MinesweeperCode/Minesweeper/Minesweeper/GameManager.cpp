@@ -9,7 +9,7 @@ Square::Square()
 {
 	surroundingMines = 0;
 	hasMine = false;
-	isRevealed = true;
+	isRevealed = false;
 	isFlagged = false;
 }
 

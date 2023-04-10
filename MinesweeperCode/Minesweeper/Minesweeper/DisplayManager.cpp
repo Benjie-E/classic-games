@@ -14,16 +14,16 @@ void DisplayManager::setConsoleSize(int dif)
 	//These are just guess values, and will need to be tweaked later.
 	if (dif == EASY)
 	{
-		resize_term(24, 38);
+		resize_term(22, 38);
 	}
 	else if (dif == HARD)
 	{
-		resize_term(50, 90);
+		resize_term(48, 90);
 	}
 	//Medium is the default state
 	else
 	{
-		resize_term(38, 66);
+		resize_term(36, 66);
 	}
 
 }
@@ -57,7 +57,7 @@ void DisplayManager::displayStats(int difficulty, GameManager& game)
 	printw("Minesweeper");
 
 	//Displays game stats
-	WINDOW* statDis = newwin(4, 36, 2, difY);
+	WINDOW* statDis = newwin(3, 36, 1, difY);
 	box(statDis, 0, 0);
 
 	//Displays flag stats
@@ -118,17 +118,17 @@ void DisplayManager::updateScreen(GameManager &game)
 	int difficulty = game.getDifficulty();
 
 	displayStats(difficulty, game);
-	
+	move(4, 2);
 	//Prints out the board.
 	for (int i = 0; i < difficulty; i++)
 	{
-		move((i * 2) + 6, 2);
 		for (int j = 0; j < difficulty; j++)
 		{
 			game.gameBoard[i][j].printSquare();
 			printw("  ");
 		}
 		printw("\n\n");
+		move((i * 2) + 6, 2);
 	}
 	refresh();
 }
