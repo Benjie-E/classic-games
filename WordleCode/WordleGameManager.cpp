@@ -1,6 +1,6 @@
 #include "GameManager.h"
 #include "ScreenManager.h"
-
+#include "../path.h"
 GameManager::GameManager(int randNum)
 {
 	importWords(mWords);
@@ -24,7 +24,8 @@ string GameManager::getWord(string words[], int randNum)
 void GameManager::importWords(string words[])
 {
 	ifstream fin;
-	fin.open(this->WORD_FILENAME);
+	std::filesystem::path filePath = exePath.parent_path().parent_path().append(this->WORD_FILENAME);
+	fin.open(filePath);
 
 	if (!fin.is_open())
 	{

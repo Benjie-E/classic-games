@@ -116,16 +116,16 @@
     <ClInclude Include="WordleCode\GameManager.h">
       <Filter>Source Files\Wordle</Filter>
     </ClInclude>
-    <ClInclude Include="common\Location.h">
-      <Filter>Source Files\common</Filter>
+    <ClInclude Include="path.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="HangmanCode\words.txt">
-      <Filter>Source Files\Hangman</Filter>
-    </Text>
-    <Text Include="WordleCode\words.txt">
+    <Text Include="WordleCode\wordleWords.txt">
       <Filter>Source Files\Wordle</Filter>
+    </Text>
+    <Text Include="HangmanCode\hangmanWords.txt">
+      <Filter>Source Files\Hangman</Filter>
     </Text>
   </ItemGroup>
 </Project>

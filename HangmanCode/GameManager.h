@@ -14,7 +14,7 @@ namespace HangmanNS {
 		GameManager();
 		~GameManager();
 
-		const std::string WORD_FILENAME = "words.txt";
+		const std::string WORD_FILENAME = "hangmanWords.txt";
 
 		std::string getWord();
 		int getNumWords() { return numberOfWords; }

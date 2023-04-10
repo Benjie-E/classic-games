@@ -15,7 +15,7 @@ public:
 	GameManager(int randNum);
 	~GameManager();
 
-	const string WORD_FILENAME = "words.txt";
+	const string WORD_FILENAME = "wordleWords.txt";
 
 	string getWord(string words[], int RandNum);
 	string getCurrentWord() { return mCurrentWord; }

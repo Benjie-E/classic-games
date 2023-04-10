@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.24)  # CMake version check
 set(VCPKG_TARGET_ARCHITECTURE x64)
 
 project(ClassicGames)               # Create project 
-set(CMAKE_CXX_STANDARD 14)            # Enable c++14 standard
+set(CMAKE_CXX_STANDARD 20)            # Enable c++14 standard
 
 # Add source files
 set(SOURCE_FILES WordleCode/WordleGameManager.cpp
@@ -18,6 +18,7 @@ connect4/DisplayManager.cpp
 connect4/connect4GameManager.cpp
 TicTacToeCode/ttt.cpp
 TicTacToeCode/ttt_functions.cpp
+common/Location.cpp
 )
 
 # add .h files
@@ -28,12 +29,16 @@ HangmanCode/Hangman/GameManager.h
 HangmanCode/Hangman/ScreenManager.h
 TicTacToeCode/TicTacToe/TicTacToe/ttt_functions.h
 WordleCode/Wordle/Wordle/GameManager.h
-WordleCode/Wordle/Wordle/ScreenManager.h)
+WordleCode/Wordle/Wordle/ScreenManager.h
+path.h)
 
 # Add executable target with source files listed in SOURCE_FILES variable
 add_executable(ClassicGames ${SOURCE_FILES})
 
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/HangmanCode/hangmanWords.txt ${CMAKE_CURRENT_BINARY_DIR}/hangmanWords.txt COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/WordleCode/wordleWords.txt ${CMAKE_CURRENT_BINARY_DIR}/wordleWords.txt COPYONLY)
 
+	 
 find_path(PDC_INCLUDES curses.h)
 find_library(PDC_LIBS pdcurses REQUIRED)
 target_include_directories(ClassicGames PRIVATE ${PDC_INCLUDES})

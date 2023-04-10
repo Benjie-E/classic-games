@@ -1,5 +1,7 @@
 #include "GameManager.h"
+#include <filesystem>
 #include <cstring>
+#include "../path.h"
 using namespace HangmanNS;
 GameManager::GameManager()
 {
@@ -64,7 +66,8 @@ std::string GameManager::getWord()
 void GameManager::importWords(std::string words[])
 {
 	std::ifstream fin;
-	fin.open(".\\HangmanCode\\Hangman\\"+this->WORD_FILENAME);
+	std::filesystem::path filePath = exePath.parent_path().parent_path().append(this->WORD_FILENAME);
+	fin.open(filePath);
 	
 	if (!fin.is_open())
 	{
