@@ -47,10 +47,16 @@ public:
 
 	//Accessors
 	int getDifficulty();
+	int getGameState();
 	int getTotalMines();
 	int getFlagged();
 	void setMinesAmount(int dif);
+	void setGameState(int);
 	
 private:
 	int mDifficulty, mTotalMines, mFlaggedMines;
+	//GameStates: 0 = normal plaY, 1 = player win, 2 = player lose
+	int mGameState = 0;
 };
+
+int setDifficulty();

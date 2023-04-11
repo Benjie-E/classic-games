@@ -25,10 +25,22 @@ int main()
 	init_pair(10, COLOR_RED, COLOR_WHITE); // flagged
 	refresh();
 
-	GameManager game(EASY);
+	int gameDiff = setDifficulty();
+	GameManager game(gameDiff);
 	DisplayManager display;
-	display.setConsoleSize(game.getDifficulty());
-	display.updateScreen(game);
+	bool playing = true;
+
+	//Only for testing game states
+	game.setGameState(2);
+
+	while (playing == true)
+	{
+		display.setConsoleSize(game.getDifficulty());
+		display.updateScreen(game);
+
+		if (game.getGameState() != 0)
+			playing = false;
+	}
 	getch();
 	return 0;
 }
