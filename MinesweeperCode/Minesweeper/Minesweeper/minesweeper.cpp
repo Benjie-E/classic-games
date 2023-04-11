@@ -31,7 +31,7 @@ int main()
 	bool playing = true;
 
 	//Only for testing game states
-	game.setGameState(2);
+	game.setGameState(1);
 
 	while (playing == true)
 	{

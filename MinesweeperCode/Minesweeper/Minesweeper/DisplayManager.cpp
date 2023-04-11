@@ -47,7 +47,7 @@ void DisplayManager::displayStats(int difficulty, GameManager& game)
 	else
 		dif = "Hard";
 
-	//Sets
+	//Sets title and game stats starting location
 	if (difficulty == EASY)
 	{
 		titleY = 12;
@@ -64,40 +64,38 @@ void DisplayManager::displayStats(int difficulty, GameManager& game)
 		difY = 15;
 	}
 
-	//Displays title of game
-	move(0, titleY);
-	printw("Minesweeper");
+	//Displays game state of game
+	if (game.getGameState() == 1)
+	{
+		move(0, titleY - 5);
+		printw("You won in Minesweeper");
+	}
+	else if (game.getGameState() == 2)
+	{
+		move(0, titleY - 6);
+		printw("You lost in Minesweeper");
+	}
+	else
+	{
+		move(0, titleY - 4);
+		printw("Playing Minesweeper");
+	}
 
 	//Create window for game stats to be displayed in
 	WINDOW* statDis = newwin(3, 36, 1, difY);
 	box(statDis, 0, 0);
 	wmove(statDis, 1, 1);
 
-	//Player has won the game
-	if (game.getGameState() == 1)
-	{
-		wmove(statDis, 1, 11);
-		string victoryMsg = "Victory on " + dif;
-		wprintw(statDis, victoryMsg.c_str());
-	}
-	//Player has lost the game
-	else if (game.getGameState() == 2)
-	{
-		wmove(statDis, 1, 11);
-		string loseMsg = "Lose on " + dif;
-		wprintw(statDis, loseMsg.c_str());
-	}
-	else
-	{
-		string flags = "Flags: " + flagged + " / " + total;
-		wprintw(statDis, flags.c_str());
+	string flags = "Flags: " + flagged + " / " + total;
+	wprintw(statDis, flags.c_str());
 
-		//Displays Difficulty
-		string diffic = "Difficulty: " + dif;
-		wmove(statDis, 1, 16);
-		wprintw(statDis, diffic.c_str());
-	}
+	//Displays Difficulty
+	string diffic = "Difficulty: " + dif;
+	wmove(statDis, 1, 16);
+	wprintw(statDis, diffic.c_str());
+
 	wrefresh(statDis);
+	refresh();
 }
 
 
