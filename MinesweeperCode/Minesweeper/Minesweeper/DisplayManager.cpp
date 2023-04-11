@@ -68,17 +68,17 @@ void DisplayManager::displayStats(int difficulty, GameManager& game)
 	if (game.getGameState() == 1)
 	{
 		move(0, titleY - 5);
-		printw("You won in Minesweeper");
+		printw("You won in MINESWEEPER!");
 	}
 	else if (game.getGameState() == 2)
 	{
 		move(0, titleY - 6);
-		printw("You lost in Minesweeper");
+		printw("You lost in MINESWEEPER!");
 	}
 	else
 	{
 		move(0, titleY - 4);
-		printw("Playing Minesweeper");
+		printw("Playing MINESWEEPER");
 	}
 
 	//Create window for game stats to be displayed in
