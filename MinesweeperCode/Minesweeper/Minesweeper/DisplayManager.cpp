@@ -34,6 +34,18 @@ void DisplayManager::displayStats(int difficulty, GameManager& game)
 	//Function to set everything up to be displayed in the window
 	//I am 100% sure there is a better way to do this but it is nearly 1 am and my brain isn't working anymore.
 	int titleY, difY;
+	string total, flagged, dif;
+
+	int difInt = game.getDifficulty();
+	total = to_string(game.getTotalMines());
+	flagged = to_string(game.getFlagged());
+
+	if (difInt == EASY)
+		dif = "Easy";
+	else if (difInt == MEDIUM)
+		dif = "Medium";
+	else
+		dif = "Hard";
 
 	//Sets
 	if (difficulty == EASY)
@@ -56,29 +68,35 @@ void DisplayManager::displayStats(int difficulty, GameManager& game)
 	move(0, titleY);
 	printw("Minesweeper");
 
-	//Displays game stats
+	//Create window for game stats to be displayed in
 	WINDOW* statDis = newwin(3, 36, 1, difY);
 	box(statDis, 0, 0);
-
-	//Displays flag stats
-	string total, flagged, dif;
-	total = to_string(game.getTotalMines());
-	flagged = to_string(game.getFlagged());
-	string flags = "Flags: " + flagged + " / " + total;
 	wmove(statDis, 1, 1);
-	wprintw(statDis, flags.c_str());
 
-	//Displays Difficulty
-	int difInt = game.getDifficulty();
-	if (difInt == EASY)
-		dif = "Easy";
-	else if (difInt == MEDIUM)
-		dif = "Medium";
+	//Player has won the game
+	if (game.getGameState() == 1)
+	{
+		wmove(statDis, 1, 11);
+		string victoryMsg = "Victory on " + dif;
+		wprintw(statDis, victoryMsg.c_str());
+	}
+	//Player has lost the game
+	else if (game.getGameState() == 2)
+	{
+		wmove(statDis, 1, 11);
+		string loseMsg = "Lose on " + dif;
+		wprintw(statDis, loseMsg.c_str());
+	}
 	else
-		dif = "Hard";
-	string diffic = "Difficulty: " + dif;
-	wmove(statDis, 1, 16);
-	wprintw(statDis, diffic.c_str());
+	{
+		string flags = "Flags: " + flagged + " / " + total;
+		wprintw(statDis, flags.c_str());
+
+		//Displays Difficulty
+		string diffic = "Difficulty: " + dif;
+		wmove(statDis, 1, 16);
+		wprintw(statDis, diffic.c_str());
+	}
 	wrefresh(statDis);
 }
 

@@ -164,10 +164,14 @@ void GameManager::placeMines()
 
 int GameManager::getDifficulty()
 {
-	const int difficulty = mDifficulty;
-	return difficulty;
+	return mDifficulty;
 }
 
+
+int GameManager::getGameState()
+{
+	return mGameState;
+}
 
 int GameManager::getTotalMines()
 {
@@ -191,3 +195,40 @@ void GameManager::setMinesAmount(int dif)
 		mTotalMines = MEDMINES;
 }
 
+
+int setDifficulty()
+{
+	int diffNum = 0;
+	char diffChoice;
+	refresh();
+	do
+	{
+		printw("Enter a difficulty: 1 = Easy, 2 = Medium, 3 = Hard");
+		refresh();
+		diffChoice = getchar();
+		erase();
+		switch (diffChoice)
+		{
+		case '1':
+			diffNum = EASY;
+			break;
+		case '2':
+			diffNum = MEDIUM;
+			break;
+		case '3':
+			diffNum = HARD;
+			break;
+		default:
+			printw("Invalid response please try again\n");
+			break;
+		}
+	} while (diffNum != HARD && diffNum != MEDIUM && diffNum != EASY);
+	erase();
+	return diffNum;
+};
+
+
+void GameManager::setGameState(int state)
+{
+	mGameState = state;
+}
