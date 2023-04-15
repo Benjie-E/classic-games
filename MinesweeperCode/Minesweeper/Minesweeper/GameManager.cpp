@@ -232,3 +232,29 @@ void GameManager::setGameState(int state)
 {
 	mGameState = state;
 }
+
+int GameManager::checkGameState()
+{
+	int i, j, minesFlagged = 0;
+	// Checks to see if a mine has been revealed (the player loses)
+	for (i = 0; i < mDifficulty; i++)
+	{
+		for (j = 0; j < mDifficulty; j++)
+		{
+			if (gameBoard[i][j].isRevealed == true && gameBoard[i][j].hasMine == true)
+			{
+				return PLAYERLOSE;
+			}
+			if (gameBoard[i][j].isFlagged == true && gameBoard[i][j].hasMine == true)
+			{
+				minesFlagged++;
+			}
+		}
+	}
+
+	// Player has won, all mines have been flagged
+	if (minesFlagged == mTotalMines)
+		return PLAYERWIN;
+	else
+		return STILLPLAYING; // Game is still going
+}
