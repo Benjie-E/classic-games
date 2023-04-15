@@ -198,32 +198,67 @@ void GameManager::setMinesAmount(int dif)
 
 int setDifficulty()
 {
-	int diffNum = 0;
-	char diffChoice;
-	refresh();
-	do
+	// Basic menu for the player to input if they want to replay
+	int choice = 0, numChoices = 3, selected = 0, diffNum, i;
+	bool replay = false;
+	string options[] = { "Easy (9x9)", "Medium (16x16)", "Hard (22x22)", "> Easy(9x9)", "> Medium (16x16)", "> Hard (22x22)"};
+	keypad(stdscr, true);
+
+	while (true)
 	{
-		printw("Enter a difficulty: 1 = Easy, 2 = Medium, 3 = Hard");
-		refresh();
-		diffChoice = getchar();
-		erase();
-		switch (diffChoice)
+		// clears screen and prints menu
+		clear();
+		for (i = 0; i < numChoices; i++)
 		{
-		case '1':
-			diffNum = EASY;
+			if (i == selected)
+			{
+				mvprintw(i + 1, 1, options[i + numChoices].c_str());
+			}
+			else
+			{
+				mvprintw(i + 1, 1, options[i].c_str());
+			}
+		}
+
+		choice = getch();
+
+		switch (choice) {
+		case KEY_UP: //Up arrow: Moves selection up
+			selected = (selected - 1 + numChoices) % numChoices;
 			break;
-		case '2':
-			diffNum = MEDIUM;
+		case 119: //W: Moves selection up
+			selected = (selected - 1 + numChoices) % numChoices;
 			break;
-		case '3':
-			diffNum = HARD;
+		case KEY_DOWN: // Down arrow. Moves selection down
+			selected = (selected + 1) % numChoices;
+			break;
+		case 115: // S: Moves selection down
+			selected = (selected + 1) % numChoices;
+			break;
+		case 10: //Enter: Returns selected
+			if (selected == 0)
+				diffNum = EASY;
+			else if (selected == 1)
+				diffNum = MEDIUM;
+			else
+				diffNum = HARD;
+			break;
+		case 32:
+			if (selected == 0)
+				diffNum = EASY;
+			else if (selected == 1)
+				diffNum = MEDIUM;
+			else
+				diffNum = HARD;
 			break;
 		default:
-			printw("Invalid response please try again\n");
 			break;
 		}
-	} while (diffNum != HARD && diffNum != MEDIUM && diffNum != EASY);
-	erase();
+
+		if (choice == 10 || choice == 32)
+			break;
+	}
+	clear();
 	return diffNum;
 };
 

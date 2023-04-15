@@ -37,15 +37,21 @@ int main()
 		display.setConsoleSize(game.getDifficulty());
 
 		// Main game loops
-		while (game.getGameState() != 0)
+		while (game.getGameState() == 0)
 		{
 			display.updateScreen(game);
-			// game.setGameState(game.checkGameState());
+			game.setGameState(game.checkGameState());
 			// Something to move a cursor around and select square to reveal or flag
+			//FOR TESTING END SCREENS
+			game.setGameState(1);
 		}
 
 		// checks if the player wants to play again
 		playing = display.replay(game);
+		
+		//Unallocates existing managers
+		display.~DisplayManager();
+		game.~GameManager();
 	}
 	getch();
 	return 0;
