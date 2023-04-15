@@ -37,6 +37,7 @@ int main()
 	{
 		display.setConsoleSize(game.getDifficulty());
 		display.updateScreen(game);
+		game.setGameState(game.checkGameState());
 
 		if (game.getGameState() != 0)
 			playing = false;

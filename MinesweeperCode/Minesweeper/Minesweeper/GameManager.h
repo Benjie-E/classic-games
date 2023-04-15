@@ -19,6 +19,13 @@ const enum MineAmount
 	HARDMINES=99
 };
 
+const enum GameStates
+{
+	STILLPLAYING=0,
+	PLAYERWIN=1,
+	PLAYERLOSE=2
+};
+
 
 struct Square
 {
@@ -52,10 +59,11 @@ public:
 	int getFlagged();
 	void setMinesAmount(int dif);
 	void setGameState(int);
+	int checkGameState();
 	
 private:
 	int mDifficulty, mTotalMines, mFlaggedMines;
-	//GameStates: 0 = normal plaY, 1 = player win, 2 = player lose
+	//GameStates: 0 = normal play, 1 = player win, 2 = player lose
 	int mGameState = 0;
 };
 
