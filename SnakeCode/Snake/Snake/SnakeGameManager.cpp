@@ -57,7 +57,7 @@ void SnakeGameManager::checkForCollisions()
 		snake->increaseSize();
 		createNewApple();
 	}
-	else if (snake->head.getX() == MAX_X + 2 || snake->head.getY() == MAX_Y + 2 || snake->head.getX() == -MAX_X + 2 || snake->head.getY() == -MAX_Y + 2)
+	else if (snake->head.getX() == MAX_X + 1 || snake->head.getY() == MAX_Y + 1 || snake->head.getX() < 1|| snake->head.getY() < 1)
 	{
 		//game over!
 		isGameOver = true;
@@ -74,10 +74,6 @@ void SnakeGameManager::newGame()
 void SnakeGameManager::gameLoop()
 {
 	//update locations of the snake, apple, and body, and check for collisions
-	if (isGameOver)
-	{
-		move(20, 20);
-	}
 	//update locations
 	snake->changeDirection(snake->getSnakeInput());
 	snake->gameLoop();

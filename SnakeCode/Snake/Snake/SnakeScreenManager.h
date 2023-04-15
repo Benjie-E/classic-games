@@ -11,5 +11,8 @@ public:
 	void printBody();
 	void printApple();
 	void printBox();
+
+private:
+	const string GAME_OVER = "Game Over";
 };
 

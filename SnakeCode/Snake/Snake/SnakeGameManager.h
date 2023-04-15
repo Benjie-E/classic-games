@@ -19,6 +19,7 @@ public:
 	~SnakeGameManager();
 
 	Location getHeadLocation();
+	bool getGameOver() { return isGameOver; }
 	std::vector<Location> getBodyLocations();
 	Location* getAppleLocation();
 	void reset();

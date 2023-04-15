@@ -1,4 +1,5 @@
 #include "SnakeScreenManager.h"
+
 SnakeScreenManager::SnakeScreenManager()
 {
     WINDOW* window = initscr();
@@ -12,12 +13,24 @@ SnakeScreenManager::~SnakeScreenManager()
 {
 }
 
-void SnakeScreenManager::updateVisuals() {
-    clear();
-    printBox();
-    printApple();
-    printHead();
-    refresh();
+void SnakeScreenManager::updateVisuals() 
+{
+    if (SnakeGameManager::getInstance()->getGameOver())
+    {
+        clear();
+        move(10, 55);
+        addnstr(GAME_OVER.c_str(), 10);
+        refresh();
+    }
+    else
+    {
+        clear();
+        printBox();
+        printApple();
+        printHead();
+        printBody();
+        refresh();
+    }
 }
 
 void SnakeScreenManager::printHead()
@@ -29,6 +42,11 @@ void SnakeScreenManager::printHead()
 
 void SnakeScreenManager::printBody()
 {
+    for (int i = 0; i < SnakeGameManager::getInstance()->getBodyLocations().size(); i++)
+    {
+        move(SnakeGameManager::getInstance()->getBodyLocations()[i].getX(), SnakeGameManager::getInstance()->getBodyLocations()[i].getY());
+        addch('|');
+    }
 }
 
 void SnakeScreenManager::printApple()

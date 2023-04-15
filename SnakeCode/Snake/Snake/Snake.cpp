@@ -39,6 +39,7 @@ Snake::Snake(int x, int y)
 {
     Location newLocation(y, x);
     head = newLocation;
+    dir = UP;
 }
 
 void Snake::gameLoop() 
