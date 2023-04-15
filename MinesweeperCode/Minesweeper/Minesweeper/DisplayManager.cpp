@@ -132,7 +132,6 @@ void DisplayManager::setCursorCol(int col)
 void DisplayManager::updateScreen(GameManager &game)
 {
 	int difficulty = game.getDifficulty();
-
 	displayStats(difficulty, game);
 	move(4, 2);
 	//Prints out the board.
