@@ -18,7 +18,6 @@ void SnakeScreenManager::updateVisuals() {
     printApple();
     printHead();
     refresh();
-    getch();
 }
 
 void SnakeScreenManager::printHead()

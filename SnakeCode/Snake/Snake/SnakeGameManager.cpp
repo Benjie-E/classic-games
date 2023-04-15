@@ -12,7 +12,8 @@ Location SnakeGameManager::getHeadLocation()
 {
 	return snake->head;
 }
-std::vector<Location> SnakeGameManager::getBodyLocations() {
+std::vector<Location> SnakeGameManager::getBodyLocations() 
+{
 	return snake->body;
 }
 void SnakeGameManager::createInstance()
@@ -56,7 +57,7 @@ void SnakeGameManager::checkForCollisions()
 		snake->increaseSize();
 		createNewApple();
 	}
-	else if (snake->head.getX() == MAX_X || snake->head.getX() == MAX_Y || snake->head.getX() == -MAX_X || snake->head.getX() == -MAX_Y)
+	else if (snake->head.getX() == MAX_X + 2 || snake->head.getY() == MAX_Y + 2 || snake->head.getX() == -MAX_X + 2 || snake->head.getY() == -MAX_Y + 2)
 	{
 		//game over!
 		isGameOver = true;
@@ -73,7 +74,10 @@ void SnakeGameManager::newGame()
 void SnakeGameManager::gameLoop()
 {
 	//update locations of the snake, apple, and body, and check for collisions
-
+	if (isGameOver)
+	{
+		move(20, 20);
+	}
 	//update locations
 	snake->changeDirection(snake->getSnakeInput());
 	snake->gameLoop();

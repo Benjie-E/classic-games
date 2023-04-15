@@ -25,16 +25,14 @@ Snake::direction Snake::getSnakeInput() {
 }
 void Snake::changeDirection(direction dir)
 {
-    if (dir == OTHER) { //invalid direction
+    if (this->dir == dir)
+    {
         return;
     }
-    if (this->dir == dir) { //same as current direction
-        return;
+    else
+    {
+        this->dir = dir;
     }
-    if ((dir + 2)%4 == this->dir) {//opposite of current direction
-        return;
-    }
-    this->dir = dir;
 }
 
 Snake::Snake(int x, int y)
@@ -47,19 +45,19 @@ void Snake::gameLoop()
 {
     if (dir == UP)
     {
-        head = Location(head.getX(), head.getY() + 1);
+        head = Location(head.getY() - 1, head.getX());
     }
     else if (dir == DOWN)
     {
-        head = Location(head.getX(), head.getY() - 1);
+        head = Location(head.getY() + 1, head.getX());
     }
     else if (dir == LEFT)
     {
-        head = Location(head.getX() - 1, head.getY());
+        head = Location(head.getY(), head.getX() - 1);
     }
     else if (dir == RIGHT)
     {
-        head = Location(head.getX() + 1, head.getY());
+        head = Location(head.getY(), head.getX() + 1);
     }
 }
 
