@@ -11,11 +11,12 @@ public:
 	void gameLoop();
 	direction getSnakeInput(); //RDLU
 	void changeDirection(direction dir);
-	direction currentDirection = OTHER;
 	Location head;
 	std::vector<Location> body;
 
 	vector<Location> locations;
 
 	void increaseSize();
+
+	direction dir;
 };

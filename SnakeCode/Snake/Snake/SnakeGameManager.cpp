@@ -75,5 +75,7 @@ void SnakeGameManager::gameLoop()
 	//update locations of the snake, apple, and body, and check for collisions
 
 	//update locations
+	snake->changeDirection(snake->getSnakeInput());
+	snake->gameLoop();
 	checkForCollisions();
 }

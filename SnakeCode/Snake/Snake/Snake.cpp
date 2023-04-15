@@ -28,21 +28,39 @@ void Snake::changeDirection(direction dir)
     if (dir == OTHER) { //invalid direction
         return;
     }
-    if (dir == currentDirection) { //same as current direction
+    if (this->dir == dir) { //same as current direction
         return;
     }
-    if ((dir + 2)%4 == currentDirection) {//opposite of current direction
+    if ((dir + 2)%4 == this->dir) {//opposite of current direction
         return;
     }
-    currentDirection = dir;
+    this->dir = dir;
 }
+
 Snake::Snake(int x, int y)
 {
     Location newLocation(y, x);
     head = newLocation;
 }
-void Snake::gameLoop() {
-    move(0, 0);
+
+void Snake::gameLoop() 
+{
+    if (dir == UP)
+    {
+        head = Location(head.getX(), head.getY() + 1);
+    }
+    else if (dir == DOWN)
+    {
+        head = Location(head.getX(), head.getY() - 1);
+    }
+    else if (dir == LEFT)
+    {
+        head = Location(head.getX() - 1, head.getY());
+    }
+    else if (dir == RIGHT)
+    {
+        head = Location(head.getX() + 1, head.getY());
+    }
 }
 
 void Snake::increaseSize()

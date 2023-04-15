@@ -39,6 +39,7 @@ private:
 
 	const int MAX_X = getmaxx(stdscr) - 2;
 	const int MAX_Y = getmaxy(stdscr) - 2;
+	
 
 	bool isGameOver;
 };
