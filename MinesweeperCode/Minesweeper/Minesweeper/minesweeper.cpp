@@ -25,22 +25,27 @@ int main()
 	init_pair(10, COLOR_RED, COLOR_WHITE); // flagged
 	refresh();
 
-	int gameDiff = setDifficulty();
-	GameManager game(gameDiff);
-	DisplayManager display;
 	bool playing = true;
-
-	//Only for testing game states
-	game.setGameState(1);
 
 	while (playing == true)
 	{
-		display.setConsoleSize(game.getDifficulty());
-		display.updateScreen(game);
-		game.setGameState(game.checkGameState());
+		int gameDiff = setDifficulty();
+		GameManager game(gameDiff);
+		DisplayManager display;
+		bool playing = true;
 
-		if (game.getGameState() != 0)
-			playing = false;
+		display.setConsoleSize(game.getDifficulty());
+
+		// Main game loops
+		while (game.getGameState() != 0)
+		{
+			display.updateScreen(game);
+			// game.setGameState(game.checkGameState());
+			// Something to move a cursor around and select square to reveal or flag
+		}
+
+		// checks if the player wants to play again
+		playing = display.replay(game);
 	}
 	getch();
 	return 0;

@@ -148,3 +148,67 @@ void DisplayManager::updateScreen(GameManager &game)
 	}
 	refresh();
 }
+
+bool DisplayManager::replay(GameManager game)
+{
+	// Basic menu for the player to input if they want to replay
+	int choice = 0;
+	int selected = 0;
+	bool replay = false;
+	int i = 0;
+	string options[] = { "Replay", "Quit", "> Replay", "> Quit"};
+	keypad(stdscr, true);
+
+	while (true)
+	{
+		// clears screen and prints menu
+		clear();
+		for (i = 0; i <= 1; i++)
+		{
+			if (i == selected)
+			{
+				mvprintw(i + 1, 1, options[i + 2].c_str());
+			}
+			else
+			{
+				mvprintw(i + 1, 1, options[i].c_str());
+			}
+		}
+
+		choice = getch();
+
+		switch (choice) {
+			case KEY_UP:
+				selected = (selected + 1) % 2;
+				break;
+			case 119:
+				selected = (selected + 1) % 2;
+				break;
+			case KEY_DOWN:
+				selected = (selected + 1) % 2;
+				break;
+			case 115:
+				selected = (selected + 1) % 2;
+				break;
+			case 10:
+				if (selected == 0)
+					replay = true;
+				else
+					replay = false;
+				break;
+			case 32:
+				if (selected == 0)
+					replay = true;
+				else
+					replay = false;
+				break;
+			default:
+				break;
+		}
+		
+		if (choice == 10 || choice == 32)
+			break;
+	}
+
+	return replay;
+}

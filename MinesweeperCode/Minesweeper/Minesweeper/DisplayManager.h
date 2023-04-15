@@ -18,6 +18,7 @@ public:
 	void setCursorRow(int row);
 	void setCursorCol(int col);
 	void displayStats(int difficulty, GameManager& game);
+	bool replay(GameManager game);
 
 private:
 	int mCursorRow;
