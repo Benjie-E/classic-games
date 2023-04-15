@@ -14,5 +14,6 @@ public:
 
 private:
 	const string GAME_OVER = "Game Over";
+	const string HELPER_MESSAGE = "Press r to restart or anything else to quit";
 };
 

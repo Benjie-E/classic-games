@@ -20,6 +20,7 @@ public:
 
 	Location getHeadLocation();
 	bool getGameOver() { return isGameOver; }
+	bool getShouldLoop() { return shouldLoop; }
 	std::vector<Location> getBodyLocations();
 	Location* getAppleLocation();
 	void reset();
@@ -42,5 +43,6 @@ private:
 	const int MAX_Y = getmaxy(stdscr) - 2;
 
 	bool isGameOver;
+	bool shouldLoop;
 };
 

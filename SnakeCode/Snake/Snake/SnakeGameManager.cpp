@@ -29,6 +29,7 @@ void SnakeGameManager::destroyInstance()
 SnakeGameManager::SnakeGameManager()
 {
 	keypad(stdscr, true);
+	shouldLoop = true;
 	newGame();
 }
 
@@ -75,7 +76,23 @@ void SnakeGameManager::gameLoop()
 {
 	//update locations of the snake, apple, and body, and check for collisions
 	//update locations
-	snake->changeDirection(snake->getSnakeInput());
-	snake->gameLoop();
-	checkForCollisions();
+	if (isGameOver)
+	{
+		char input = getch();
+		if (input == 'r')
+		{
+			//new game!
+			newGame();
+		}
+		else
+		{
+			shouldLoop = false;
+		}
+	}
+	else
+	{
+		snake->changeDirection(snake->getSnakeInput());
+		snake->gameLoop();
+		checkForCollisions();
+	}
 }

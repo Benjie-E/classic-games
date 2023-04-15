@@ -18,8 +18,10 @@ void SnakeScreenManager::updateVisuals()
     if (SnakeGameManager::getInstance()->getGameOver())
     {
         clear();
-        move(10, 55);
+        move(10, 47);
         addnstr(GAME_OVER.c_str(), 10);
+        move(12, 32);
+        addnstr(HELPER_MESSAGE.c_str(), 44);
         refresh();
     }
     else

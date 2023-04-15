@@ -8,7 +8,7 @@ int main()
     SnakeGameManager::createInstance();
     SnakeScreenManager* screenManager = new SnakeScreenManager;
     
-    while (true)
+    while (SnakeGameManager::getInstance()->getShouldLoop())
     {
         SnakeGameManager::getInstance()->gameLoop();
         screenManager->updateVisuals();
