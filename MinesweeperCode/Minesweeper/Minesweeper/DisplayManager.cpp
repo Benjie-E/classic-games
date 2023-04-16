@@ -68,17 +68,17 @@ void DisplayManager::displayStats(int difficulty, GameManager& game)
 	if (game.getGameState() == 1)
 	{
 		move(0, titleY - 5);
-		printw("You won in MINESWEEPER!");
+		printw("YOU WON IN MINESWEEPER!");
 	}
 	else if (game.getGameState() == 2)
 	{
 		move(0, titleY - 6);
-		printw("You lost in MINESWEEPER!");
+		printw("YOU LOST IN MINESWEEPER!");
 	}
 	else
 	{
 		move(0, titleY - 4);
-		printw("Playing MINESWEEPER");
+		printw("PLAYING MINESWEEPER");
 	}
 
 	//Create window for game stats to be displayed in
@@ -139,6 +139,13 @@ void DisplayManager::updateScreen(GameManager &game)
 	{
 		for (int j = 0; j < difficulty; j++)
 		{
+			// If the game has been won or lost reveal all 
+			if (game.getGameState() != 0)
+			{
+				if (game.gameBoard[i][j].hasMine == false && game.gameBoard[i][j].isFlagged == true)
+					game.gameBoard[i][j].isFlagged == false;
+				game.gameBoard[i][j].isRevealed = true;
+			}
 			game.gameBoard[i][j].printSquare();
 			printw("  ");
 		}
