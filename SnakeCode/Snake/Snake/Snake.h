@@ -1,6 +1,7 @@
 #pragma once
 #include "Location.h"
 #include <vector>
+#include "Timer.h"
 
 using namespace std;
 
@@ -19,4 +20,7 @@ public:
 	void increaseSize();
 
 	direction dir;
+	
+private:
+	Timer clock;
 };

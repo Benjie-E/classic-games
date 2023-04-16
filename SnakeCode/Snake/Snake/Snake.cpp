@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <Windows.h>
+#include <cstdlib>
 
 Snake::direction Snake::getSnakeInput() {
     int input = getch();
@@ -20,7 +21,7 @@ Snake::direction Snake::getSnakeInput() {
             return UP;
             break;
         default:
-            return OTHER;
+            return dir;
     }
 }
 void Snake::changeDirection(direction dir)
@@ -44,6 +45,7 @@ Snake::Snake(int x, int y)
 
 void Snake::gameLoop() 
 {
+    clock.start();
     if (dir == UP)
     {
         head = Location(head.getY() - 1, head.getX());
@@ -54,13 +56,14 @@ void Snake::gameLoop()
     }
     else if (dir == LEFT)
     {
-        head = Location(head.getY(), head.getX() - 1);
+        head = Location(head.getY(), head.getX() - 2);
     }
     else if (dir == RIGHT)
     {
-        head = Location(head.getY(), head.getX() + 1);
+        head = Location(head.getY(), head.getX() + 2);
     }
-}
+    while (this->clock.getElapsedTime() < 100);
+    }
 
 void Snake::increaseSize()
 {

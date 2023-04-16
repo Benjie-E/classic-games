@@ -62,11 +62,13 @@ void SnakeGameManager::checkForCollisions()
 	{
 		//game over!
 		isGameOver = true;
+		nodelay(stdscr, false);
 	}
 }
 
 void SnakeGameManager::newGame()
 {
+	nodelay(stdscr,true);
 	isGameOver = false;
 	createNewApple();
 	createSnake();
