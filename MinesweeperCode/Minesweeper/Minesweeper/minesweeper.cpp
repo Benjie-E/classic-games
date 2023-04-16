@@ -39,14 +39,17 @@ int main()
 		// Main game loops
 		while (game.getGameState() == 0)
 		{
-			display.updateScreen(game);
-			game.setGameState(game.checkGameState());
-			// Something to move a cursor around and select square to reveal or flag
-			//FOR TESTING END SCREENS
+			//For Testing, delete before release
 			game.setGameState(1);
+
+			// Keep code below but delete this comment before release
+			display.updateScreen(game);
+			// Movement and selecting board piece will go here
+			game.setGameState(game.checkGameState());
 		}
 
 		// checks if the player wants to play again
+		getch(); // This is so that the player can see the fully revealed board
 		playing = display.replay(game);
 		
 		//Unallocates existing managers

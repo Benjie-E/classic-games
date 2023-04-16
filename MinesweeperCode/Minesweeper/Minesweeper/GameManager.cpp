@@ -5,6 +5,7 @@
 
 using namespace std;
 
+
 Square::Square()
 {
 	surroundingMines = 0;
@@ -12,7 +13,6 @@ Square::Square()
 	isRevealed = false;
 	isFlagged = false;
 }
-
 
 void Square::printSquare()
 {
@@ -173,6 +173,7 @@ int GameManager::getGameState()
 	return mGameState;
 }
 
+
 int GameManager::getTotalMines()
 {
 	return mTotalMines;
@@ -199,7 +200,7 @@ void GameManager::setMinesAmount(int dif)
 int setDifficulty()
 {
 	// Basic menu for the player to input if they want to replay
-	int choice = 0, numChoices = 3, selected = 0, diffNum, i;
+	int choice = 0, numChoices = 3, selected = 0, diffNum = 0, i;
 	bool replay = false;
 	string options[] = { "Easy (9x9)", "Medium (16x16)", "Hard (22x22)", "> Easy(9x9)", "> Medium (16x16)", "> Hard (22x22)"};
 	keypad(stdscr, true);
@@ -267,6 +268,7 @@ void GameManager::setGameState(int state)
 {
 	mGameState = state;
 }
+
 
 int GameManager::checkGameState()
 {
