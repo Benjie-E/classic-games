@@ -72,6 +72,9 @@ int GameSelector::start(int game)
         clear();
         Connect4NS::Connect4::Connect4();
         break;
+    case Exit:
+        clear();
+        exit(0);
     default:
         mvaddstr(menuPos.getY() + size(gameList) * 2, menuPos.getX(), "Game Not Found");
         getch();
