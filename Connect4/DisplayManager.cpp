@@ -59,6 +59,9 @@ void DisplayManager::manageCursor(const GameManager &game)
 		case KEY_LEFT:
 			mCursorCol = (mCursorCol + COL_SPACING_WRAPAROUND) % BOARD_WIDTH;
 			mGameboardCol = (mGameboardCol - 1) % COLUMNS;
+			if (mGameboardCol < 0) {
+				mGameboardCol += COLUMNS;
+			}
 			updateScreen(game);
 			break;
 		case KEY_ENTER: // a few possible ENTER keys, need to capture all
