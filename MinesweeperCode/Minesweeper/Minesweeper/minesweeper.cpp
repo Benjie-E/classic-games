@@ -51,10 +51,6 @@ int main()
 		// checks if the player wants to play again
 		getch(); // This is so that the player can see the fully revealed board
 		playing = display.replay(game);
-		
-		//Unallocates existing managers
-		display.~DisplayManager();
-		game.~GameManager();
 	}
 	getch();
 	return 0;

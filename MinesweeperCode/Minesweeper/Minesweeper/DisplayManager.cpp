@@ -155,7 +155,7 @@ void DisplayManager::updateScreen(GameManager &game)
 	refresh();
 }
 
-bool DisplayManager::replay(GameManager game)
+bool DisplayManager::replay(GameManager &game)
 {
 	// Basic menu for the player to input if they want to replay
 	int choice = 0;
