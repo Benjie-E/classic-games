@@ -1,5 +1,6 @@
 #pragma once
 #include "../common/Location.h"
+#include <string>
 namespace HangmanNS {
 	class ScreenManager
 	{
@@ -12,8 +13,8 @@ namespace HangmanNS {
 		void updateLetter(char letter);
 		void start(int length);
 		void updateWord(int index, char letter);
-		void win();
-		void lose();
+		void win(std::string word);
+		void lose(std::string word);
 		Location hangmanPos;
 		Location letterPos;
 		Location wordPos;

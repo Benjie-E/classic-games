@@ -25,12 +25,12 @@ void GameManager::start()
 }
 void GameManager::lose()
 {
-	screen.lose();
+	screen.lose(word);
 	getch();
 }
 void GameManager::won()
 {
-	screen.win();
+	screen.win(word);
 	getch();
 }
 void GameManager::updateWord(int index)
@@ -50,6 +50,7 @@ std::vector<int> GameManager::validateLetter(char letter)
 
 bool GameManager::isDone()
 {
+
 	return false;
 }
 
@@ -114,7 +115,6 @@ void GameManager::gameLoop()
 					screen.updateWord(i, letter);
 					solvedLetters++;
 			}
-			isDone();
 			screen.updateLetter(letter);
 			if (solvedLetters >= word.length()) {
 				won();
