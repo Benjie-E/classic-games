@@ -111,9 +111,10 @@ void GameManager::gameLoop()
 				screen.updateHangedMan(currentPhase);
 			}
 			else {
-				for (int i : validateLetter(letter))
-					screen.updateWord(i, letter);
-					solvedLetters++;
+				for (int i : validateLetter(letter)) {
+				screen.updateWord(i, letter);
+				solvedLetters++;
+			}
 			}
 			screen.updateLetter(letter);
 			if (solvedLetters >= word.length()) {
