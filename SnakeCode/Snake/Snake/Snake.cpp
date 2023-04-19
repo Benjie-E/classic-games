@@ -56,11 +56,11 @@ void Snake::gameLoop()
     }
     else if (dir == LEFT)
     {
-        head = Location(head.getY(), head.getX() - 2);
+        head = Location(head.getY(), head.getX() - 1);
     }
     else if (dir == RIGHT)
     {
-        head = Location(head.getY(), head.getX() + 2);
+        head = Location(head.getY(), head.getX() + 1);
     }
     while (this->clock.getElapsedTime() < 100);
     }
@@ -71,8 +71,27 @@ void Snake::increaseSize()
 
     if (vecSize == 0)
     {
-        Location newBody(head.getY() - 1, head.getX() - 1);
-        body.push_back(newBody);
+        if (dir == UP)
+        {
+            Location newBody(head.getY() - 1, head.getX());
+            body.push_back(newBody);
+        }
+        else if (dir == DOWN)
+        {
+            Location newBody(head.getY() + 1, head.getX());
+            body.push_back(newBody);
+        }
+        else if (dir == RIGHT)
+        {
+            Location newBody(head.getY(), head.getX() - 1);
+            body.push_back(newBody);
+        }
+        else if (dir == LEFT)
+        {
+            Location newBody(head.getY(), head.getX() + 1);
+            body.push_back(newBody);
+        }
+        
     }
     else
     {
