@@ -33,7 +33,7 @@ struct Square
 	~Square() {};
 
 	int surroundingMines;
-	bool hasMine, isRevealed, isFlagged;
+	bool hasMine, isRevealed, isFlagged, isHighlighted;
 
 	void printSquare();
 };
@@ -62,9 +62,9 @@ public:
 	int checkGameState();
 	
 private:
-	int mDifficulty, mTotalMines, mFlaggedMines;
+	int mDifficulty, mTotalMines, mFlagsPlaced;
 	//GameStates: 0 = normal play, 1 = player win, 2 = player lose
-	int mGameState = 0;
+	int mGameState;
 };
 
 int setDifficulty();

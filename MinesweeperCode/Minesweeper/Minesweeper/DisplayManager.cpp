@@ -99,9 +99,51 @@ void DisplayManager::displayStats(int difficulty, GameManager& game)
 }
 
 
-void DisplayManager::manageCursor()
+void DisplayManager::manageInput(GameManager& game)
 {
-	return;
+	int keypress;
+	int size = game.getDifficulty();
+
+	while (true)
+	{
+		keypress = getch();
+		switch (keypress)
+		{
+		case KEY_RIGHT:
+			game.gameBoard[mCursorRow][mCursorCol].isHighlighted = false;
+			mCursorCol = (mCursorCol + 1) % size;
+			game.gameBoard[mCursorRow][mCursorCol].isHighlighted = true;
+			updateScreen(game);
+			break;
+		case KEY_LEFT:
+			game.gameBoard[mCursorRow][mCursorCol].isHighlighted = false;
+			mCursorCol = (mCursorCol - 1) % size;
+			if (mCursorCol < 0)
+				mCursorCol += size;
+			game.gameBoard[mCursorRow][mCursorCol].isHighlighted = true;
+			updateScreen(game);
+			break;
+		case KEY_UP:
+			game.gameBoard[mCursorRow][mCursorCol].isHighlighted = false;
+			mCursorRow = (mCursorRow - 1) % size;
+			if (mCursorRow < 0)
+				mCursorRow += size;
+			game.gameBoard[mCursorRow][mCursorCol].isHighlighted = true;
+			updateScreen(game);
+			break;
+		case KEY_DOWN:
+			game.gameBoard[mCursorRow][mCursorCol].isHighlighted = false;
+			mCursorRow = (mCursorRow + 1) % size;
+			game.gameBoard[mCursorRow][mCursorCol].isHighlighted = true;
+			updateScreen(game);
+			break;
+		// reveal a square
+		case 88: // X
+		case 120: // x
+			return;
+			break;
+		}
+	}
 }
 
 
@@ -143,7 +185,7 @@ void DisplayManager::updateScreen(GameManager &game)
 			if (game.getGameState() != 0)
 			{
 				if (game.gameBoard[i][j].hasMine == false && game.gameBoard[i][j].isFlagged == true)
-					game.gameBoard[i][j].isFlagged == false;
+					game.gameBoard[i][j].isFlagged = false;
 				game.gameBoard[i][j].isRevealed = true;
 			}
 			game.gameBoard[i][j].printSquare();

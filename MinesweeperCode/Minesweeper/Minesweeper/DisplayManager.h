@@ -8,7 +8,7 @@ public:
 	DisplayManager();
 	~DisplayManager() {};
 
-	void manageCursor();
+	void manageInput(GameManager& game);
 
 	// accessors and mutators
 	void updateScreen(GameManager &game);
