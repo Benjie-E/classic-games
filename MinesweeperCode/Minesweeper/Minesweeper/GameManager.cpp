@@ -12,6 +12,7 @@ Square::Square()
 	hasMine = false;
 	isRevealed = false;
 	isFlagged = false;
+	isHighlighted = false;
 }
 
 void Square::printSquare()
@@ -35,15 +36,33 @@ void Square::printSquare()
 	{
 		if (isFlagged)
 		{
-			attron(COLOR_PAIR(10));
-			printw("!!");
-			attroff(COLOR_PAIR(10));
+			if (isHighlighted)
+			{
+				attron(COLOR_PAIR(12));
+				printw("!!");
+				attroff(COLOR_PAIR(12));
+			}
+			else
+			{
+				attron(COLOR_PAIR(10));
+				printw("!!");
+				attroff(COLOR_PAIR(10));
+			}
 		}
 		else
 		{
-			attron(COLOR_PAIR(9));
-			printw("  ");
-			attroff(COLOR_PAIR(9));
+			if (isHighlighted)
+			{
+				attron(COLOR_PAIR(11));
+				printw("  ");
+				attroff(COLOR_PAIR(11));
+			}
+			else
+			{
+				attron(COLOR_PAIR(9));
+				printw("  ");
+				attroff(COLOR_PAIR(9));
+			}
 		}
 	}
 }
@@ -53,7 +72,8 @@ GameManager::GameManager(int difficulty)
 {
 	mDifficulty = difficulty;
 	setMinesAmount(difficulty);
-	mFlaggedMines = 0;
+	mFlagsPlaced = 0;
+	mGameState = 0;
 
 	// dynamic allocation of 2d arrays is gross
 	gameBoard = new Square * [mDifficulty];
@@ -182,7 +202,7 @@ int GameManager::getTotalMines()
 
 int GameManager::getFlagged()
 {
-	return mFlaggedMines;
+	return mFlagsPlaced;
 }
 
 
