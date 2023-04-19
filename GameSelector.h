@@ -10,8 +10,8 @@ class GameSelector
 {
 public:
 	Location menuPos;
-	std::string gameList[4] = {"Hangman","TicTacToe","Wordle","Connect4"};
-	enum gameList {Hangman,TicTacToe,Wordle,Connect4};
+	std::string gameList[5] = {"Hangman","TicTacToe","Wordle","Connect4","Exit"};
+	enum gameList {Hangman,TicTacToe,Wordle,Connect4,Exit};
 	GameSelector();
 	bool updateSelector(int game);
 	int select();
