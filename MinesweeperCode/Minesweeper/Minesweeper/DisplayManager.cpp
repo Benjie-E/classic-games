@@ -136,10 +136,19 @@ void DisplayManager::manageInput(GameManager& game)
 			mCursorRow = (mCursorRow + 1) % size;
 			game.gameBoard[mCursorRow][mCursorCol].isHighlighted = true;
 			updateScreen(game);
+			return;
 			break;
 		// reveal a square
 		case 88: // X
 		case 120: // x
+			game.gameBoard[mCursorRow][mCursorCol].isRevealed = true;
+			updateScreen(game);
+			break;
+		// flag a square
+		case 90: // Z
+		case 122:
+			game.gameBoard[mCursorRow][mCursorCol].isFlagged = true;
+			updateScreen(game);
 			return;
 			break;
 		}
