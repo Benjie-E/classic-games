@@ -38,8 +38,8 @@ void Snake::changeDirection(direction dir)
 
 Snake::Snake(int x, int y)
 {
-    Location newLocation(y, x);
-    head = newLocation;
+    SnakeLocation newSnakeLocation(y, x);
+    head = newSnakeLocation;
     dir = UP;
 }
 
@@ -48,19 +48,19 @@ void Snake::gameLoop()
     clock.start();
     if (dir == UP)
     {
-        head = Location(head.getY() - 1, head.getX());
+        head = SnakeLocation(head.getY() - 1, head.getX());
     }
     else if (dir == DOWN)
     {
-        head = Location(head.getY() + 1, head.getX());
+        head = SnakeLocation(head.getY() + 1, head.getX());
     }
     else if (dir == LEFT)
     {
-        head = Location(head.getY(), head.getX() - 1);
+        head = SnakeLocation(head.getY(), head.getX() - 1);
     }
     else if (dir == RIGHT)
     {
-        head = Location(head.getY(), head.getX() + 1);
+        head = SnakeLocation(head.getY(), head.getX() + 1);
     }
     while (this->clock.getElapsedTime() < 100);
 }
@@ -73,22 +73,22 @@ void Snake::increaseSize()
     {
         if (dir == UP)
         {
-            Location newBody(head.getY() - 1, head.getX());
+            SnakeLocation newBody(head.getY() - 1, head.getX());
             body.push_back(newBody);
         }
         else if (dir == DOWN)
         {
-            Location newBody(head.getY() + 1, head.getX());
+            SnakeLocation newBody(head.getY() + 1, head.getX());
             body.push_back(newBody);
         }
         else if (dir == RIGHT)
         {
-            Location newBody(head.getY(), head.getX() - 1);
+            SnakeLocation newBody(head.getY(), head.getX() - 1);
             body.push_back(newBody);
         }
         else if (dir == LEFT)
         {
-            Location newBody(head.getY(), head.getX() + 1);
+            SnakeLocation newBody(head.getY(), head.getX() + 1);
             body.push_back(newBody);
         }
 
@@ -97,7 +97,7 @@ void Snake::increaseSize()
     {
         for (int i = 0; i < vecSize; i++)
         {
-            Location newBody(head.getY() - i, head.getX() - i);
+            SnakeLocation newBody(head.getY() - i, head.getX() - i);
             body.push_back(newBody);
         }
     }

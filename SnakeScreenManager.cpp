@@ -37,23 +37,23 @@ void SnakeScreenManager::updateVisuals()
 
 void SnakeScreenManager::printHead()
 {
-    Location headLoc = SnakeGameManager::getInstance()->getHeadLocation();
+    SnakeLocation headLoc = SnakeGameManager::getInstance()->getHeadSnakeLocation();
     move(headLoc.getY(), headLoc.getX());
     addch('@');
 }
 
 void SnakeScreenManager::printBody()
 {
-    for (int i = 0; i < SnakeGameManager::getInstance()->getBodyLocations().size(); i++)
+    for (int i = 0; i < SnakeGameManager::getInstance()->getBodySnakeLocations().size(); i++)
     {
-        move(SnakeGameManager::getInstance()->getBodyLocations()[i].getX(), SnakeGameManager::getInstance()->getBodyLocations()[i].getY());
+        move(SnakeGameManager::getInstance()->getBodySnakeLocations()[i].getX(), SnakeGameManager::getInstance()->getBodySnakeLocations()[i].getY());
         addch('|');
     }
 }
 
 void SnakeScreenManager::printApple()
 {
-    Location* apple = SnakeGameManager::getInstance()->getAppleLocation();
+    SnakeLocation* apple = SnakeGameManager::getInstance()->getAppleSnakeLocation();
     move(apple->getY(), apple->getX());
     addch('A');
 }

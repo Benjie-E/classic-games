@@ -1,8 +1,9 @@
 #pragma once
-class Location {
+
+class SnakeLocation {
 public:
-	Location();
-	Location(int y, int x) { this->y = y; this->x = x; };
+	SnakeLocation();
+	SnakeLocation(int y, int x) { this->y = y; this->x = x; };
 
 	int getX() { return this->x; }
 	int getY() { return this->y; }

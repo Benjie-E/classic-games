@@ -1,5 +1,5 @@
 #pragma once
-#include "Location.h"
+#include "SnakeLocation.h"
 #include <vector>
 #include "Timer.h"
 
@@ -12,10 +12,10 @@ public:
 	void gameLoop();
 	direction getSnakeInput(); //RDLU
 	void changeDirection(direction dir);
-	Location head;
-	std::vector<Location> body;
+	SnakeLocation head;
+	std::vector<SnakeLocation> body;
 
-	vector<Location> locations;
+	vector<SnakeLocation> SnakeLocations;
 
 	void increaseSize();
 

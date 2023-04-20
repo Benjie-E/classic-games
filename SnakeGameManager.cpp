@@ -4,16 +4,16 @@
 
 SnakeGameManager* SnakeGameManager::snakeInstance = NULL;
 
-Location* SnakeGameManager::getAppleLocation()
+SnakeLocation* SnakeGameManager::getAppleSnakeLocation()
 {
-	Location* appleLocation = new Location(currentApple->getY(), currentApple->getX());
-	return appleLocation;
+	SnakeLocation* appleSnakeLocation = new SnakeLocation(currentApple->getY(), currentApple->getX());
+	return appleSnakeLocation;
 }
-Location SnakeGameManager::getHeadLocation()
+SnakeLocation SnakeGameManager::getHeadSnakeLocation()
 {
 	return snake->head;
 }
-std::vector<Location> SnakeGameManager::getBodyLocations()
+std::vector<SnakeLocation> SnakeGameManager::getBodySnakeLocations()
 {
 	return snake->body;
 }
@@ -77,8 +77,8 @@ void SnakeGameManager::newGame()
 
 void SnakeGameManager::gameLoop()
 {
-	//update locations of the snake, apple, and body, and check for collisions
-	//update locations
+	//update SnakeLocations of the snake, apple, and body, and check for collisions
+	//update SnakeLocations
 	if (isGameOver)
 	{
 		char input = getch();

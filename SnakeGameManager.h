@@ -18,11 +18,11 @@ public:
 	SnakeGameManager();
 	~SnakeGameManager();
 
-	Location getHeadLocation();
+	SnakeLocation getHeadSnakeLocation();
 	bool getGameOver() { return isGameOver; }
 	bool getShouldLoop() { return shouldLoop; }
-	std::vector<Location> getBodyLocations();
-	Location* getAppleLocation();
+	std::vector<SnakeLocation> getBodySnakeLocations();
+	SnakeLocation* getAppleSnakeLocation();
 	int getMaxX() { return MAX_X; };
 	int getMaxY() { return MAX_Y; };
 

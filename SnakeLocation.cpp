@@ -1,6 +1,6 @@
-#include "Location.h"
+#include "SnakeLocation.h"
 
-Location::Location()
+SnakeLocation::SnakeLocation()
 {
     this->x = 0;
     this->y = 0;
