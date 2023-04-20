@@ -133,6 +133,12 @@
     <ClCompile Include="HangmanCode\Hangman.cpp" />
     <ClCompile Include="HangmanCode\HangmanScreenManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SnakeCode\Apple.cpp" />
+    <ClCompile Include="SnakeCode\SnakeGame.cpp" />
+    <ClCompile Include="SnakeCode\Snake.cpp" />
+    <ClCompile Include="SnakeCode\SnakeGameManager.cpp" />
+    <ClCompile Include="SnakeCode\SnakeScreenManager.cpp" />
+    <ClCompile Include="SnakeCode\Timer.cpp" />
     <ClCompile Include="TicTacToeCode\ttt.cpp" />
     <ClCompile Include="TicTacToeCode\ttt_functions.cpp" />
     <ClCompile Include="WordleCode\WordleGameManager.cpp" />
@@ -150,6 +156,11 @@
     <ClInclude Include="HangmanCode\Hangman.h" />
     <ClInclude Include="HangmanCode\ScreenManager.h" />
     <ClInclude Include="path.h" />
+    <ClInclude Include="SnakeCode\Apple.h" />
+    <ClInclude Include="SnakeCode\Snake.h" />
+    <ClInclude Include="SnakeCode\SnakeGameManager.h" />
+    <ClInclude Include="SnakeCode\SnakeScreenManager.h" />
+    <ClInclude Include="SnakeCode\Timer.h" />
     <ClInclude Include="TicTacToeCode\ttt.h" />
     <ClInclude Include="TicTacToeCode\ttt_functions.h" />
     <ClInclude Include="WordleCode\GameManager.h" />

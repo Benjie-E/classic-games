@@ -25,11 +25,14 @@
     <Filter Include="Source Files\Wordle">
       <UniqueIdentifier>{9fbc31d6-47e5-4c97-a16c-7c234720cdbd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\common">
+      <UniqueIdentifier>{59453502-430c-481d-ab19-7e441359ad71}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\Connect4">
       <UniqueIdentifier>{636e74ac-87e5-439a-8dad-11605fb3720a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\common">
-      <UniqueIdentifier>{59453502-430c-481d-ab19-7e441359ad71}</UniqueIdentifier>
+    <Filter Include="Source Files\Snake">
+      <UniqueIdentifier>{8c3330e9-e73d-432e-bb6c-27f167138d4a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -75,6 +78,24 @@
     <ClCompile Include="common\Location.cpp">
       <Filter>Source Files\common</Filter>
     </ClCompile>
+    <ClCompile Include="SnakeCode\Apple.cpp">
+      <Filter>Source Files\Snake</Filter>
+    </ClCompile>
+    <ClCompile Include="SnakeCode\SnakeGame.cpp">
+      <Filter>Source Files\Snake</Filter>
+    </ClCompile>
+    <ClCompile Include="SnakeCode\Snake.cpp">
+      <Filter>Source Files\Snake</Filter>
+    </ClCompile>
+    <ClCompile Include="SnakeCode\SnakeGameManager.cpp">
+      <Filter>Source Files\Snake</Filter>
+    </ClCompile>
+    <ClCompile Include="SnakeCode\SnakeScreenManager.cpp">
+      <Filter>Source Files\Snake</Filter>
+    </ClCompile>
+    <ClCompile Include="SnakeCode\Timer.cpp">
+      <Filter>Source Files\Snake</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrowMove.h">
@@ -118,6 +139,24 @@
     </ClInclude>
     <ClInclude Include="path.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Location.h">
+      <Filter>Source Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="SnakeCode\Apple.h">
+      <Filter>Source Files\Snake</Filter>
+    </ClInclude>
+    <ClInclude Include="SnakeCode\Snake.h">
+      <Filter>Source Files\Snake</Filter>
+    </ClInclude>
+    <ClInclude Include="SnakeCode\SnakeGameManager.h">
+      <Filter>Source Files\Snake</Filter>
+    </ClInclude>
+    <ClInclude Include="SnakeCode\SnakeScreenManager.h">
+      <Filter>Source Files\Snake</Filter>
+    </ClInclude>
+    <ClInclude Include="SnakeCode\Timer.h">
+      <Filter>Source Files\Snake</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

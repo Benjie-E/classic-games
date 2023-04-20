@@ -6,12 +6,13 @@
 #include <curses.h>
 #include <string>
 #include "common/Location.h"
+#include "SnakeCode/SnakeGame.h"
 class GameSelector
 {
 public:
 	Location menuPos;
-	std::string gameList[5] = {"Hangman","TicTacToe","Wordle","Connect4","Exit"};
-	enum gameList {Hangman,TicTacToe,Wordle,Connect4,Exit};
+	std::string gameList[6] = {"Hangman","TicTacToe","Wordle","Connect4","Snake","Exit"};
+	enum gameList {Hangman,TicTacToe,Wordle,Connect4,Snake,Exit};
 	GameSelector();
 	bool updateSelector(int game);
 	int select();
