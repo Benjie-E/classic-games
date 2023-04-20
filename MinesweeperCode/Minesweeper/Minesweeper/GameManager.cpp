@@ -315,3 +315,11 @@ int GameManager::checkGameState()
 	else
 		return STILLPLAYING; // Game is still going
 }
+
+void GameManager::updateFlag(int row, int column)
+{
+	if (gameBoard[row][column].isFlagged == false && gameBoard[row][column].isRevealed == false)
+		mFlagsPlaced += 1;
+	else if (gameBoard[row][column].isFlagged == true && gameBoard[row][column].isRevealed == true)
+		mFlagsPlaced -= 1;
+}

@@ -60,6 +60,7 @@ public:
 	void setMinesAmount(int dif);
 	void setGameState(int);
 	int checkGameState();
+	void updateFlag(int row, int col);
 	
 private:
 	int mDifficulty, mTotalMines, mFlagsPlaced;

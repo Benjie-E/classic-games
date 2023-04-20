@@ -44,12 +44,9 @@ int main()
 		// Main game loops
 		while (game.getGameState() == 0)
 		{
+			game.setGameState(game.checkGameState());
 			display.updateScreen(game);
 			display.manageInput(game);
-			// Keep code below but delete this comment before release
-			//display.updateScreen(game);
-			// Movement and selecting board piece will go here
-			game.setGameState(game.checkGameState());
 		}
 
 		// checks if the player wants to play again
