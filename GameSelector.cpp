@@ -57,22 +57,30 @@ int GameSelector::start(int game)
 {
     switch (game) {
     case Hangman:
+        clear();
         HangmanNS::Hangman::Hangman();
         break;
     case Wordle:
+        clear();
         WordleGame::WordleGame();
         break;
     case TicTacToe:
+        clear();
         TTT::TTT();
         break;
     case Connect4:
+        clear();
         Connect4NS::Connect4::Connect4();
         break;
+    case Exit:
+        clear();
+        exit(0);
     default:
         mvaddstr(menuPos.getY() + size(gameList) * 2, menuPos.getX(), "Game Not Found");
         getch();
         
     }
+    noraw();
     clear();
     refresh();
     return 0;

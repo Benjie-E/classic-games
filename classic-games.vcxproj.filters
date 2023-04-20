@@ -146,25 +146,25 @@
     <ClInclude Include="common\Location.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SnakeGameManager.h">
+    <ClInclude Include="SnakeCode\SnakeGameManager.h">
       <Filter>Source Files\Snake</Filter>
     </ClInclude>
-    <ClInclude Include="SnakeScreenManager.h">
+    <ClInclude Include="SnakeCode\SnakeScreenManager.h">
       <Filter>Source Files\Snake</Filter>
     </ClInclude>
-    <ClInclude Include="Snake.h">
+    <ClInclude Include="SnakeCode\Snake.h">
       <Filter>Source Files\Snake</Filter>
     </ClInclude>
-    <ClInclude Include="Apple.h">
+    <ClInclude Include="SnakeCode\Apple.h">
       <Filter>Source Files\Snake</Filter>
     </ClInclude>
-    <ClInclude Include="SnakeLocation.h">
+    <ClInclude Include="SnakeCode\SnakeLocation.h">
       <Filter>Source Files\Snake</Filter>
     </ClInclude>
-    <ClInclude Include="Timer.h">
+    <ClInclude Include="SnakeCode\Timer.h">
       <Filter>Source Files\Snake</Filter>
     </ClInclude>
-    <ClInclude Include="SnakeGame.h">
+    <ClInclude Include="SnakeCode\SnakeGame.h">
       <Filter>Source Files\Snake</Filter>
     </ClInclude>
   </ItemGroup>

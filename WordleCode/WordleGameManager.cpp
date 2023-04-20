@@ -1,6 +1,6 @@
 #include "GameManager.h"
 #include "ScreenManager.h"
-
+#include "../path.h"
 GameManager::GameManager(int randNum)
 {
 	importWords(mWords);
@@ -18,13 +18,15 @@ GameManager::~GameManager()
 string GameManager::getWord(string words[], int randNum)
 {
 	string word = words[randNum];
+	transform(word.begin(), word.end(), word.begin(), ::toupper);
 	return word;
 }
 
 void GameManager::importWords(string words[])
 {
 	ifstream fin;
-	fin.open(this->WORD_FILENAME);
+	std::filesystem::path filePath = exePath.parent_path().parent_path().append(this->WORD_FILENAME);
+	fin.open(filePath);
 
 	if (!fin.is_open())
 	{
@@ -52,7 +54,6 @@ void GameManager::introMessage()
 	printw("Welcome to Wordle!\n");
 	printw("A random 5 letter word will be selected and it's your job to guess what it is.\n");
 	printw("You will have 5 tries and will be told what letters are right and if they are in the right position or not.\n");
-	printw("Good luck!\n");
 	refresh();
 }
 

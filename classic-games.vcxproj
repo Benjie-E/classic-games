@@ -158,11 +158,11 @@
     <ClInclude Include="HangmanCode\Hangman.h" />
     <ClInclude Include="HangmanCode\ScreenManager.h" />
     <ClInclude Include="path.h" />
-    <ClInclude Include="Snake.h" />
-    <ClInclude Include="SnakeGame.h" />
-    <ClInclude Include="SnakeGameManager.h" />
-    <ClInclude Include="SnakeLocation.h" />
-    <ClInclude Include="SnakeScreenManager.h" />
+    <ClInclude Include="SnakeCode\Snake.h" />
+    <ClInclude Include="SnakeCode\SnakeGame.h" />
+    <ClInclude Include="SnakeCode\SnakeGameManager.h" />
+    <ClInclude Include="SnakeCode\SnakeLocation.h" />
+    <ClInclude Include="SnakeCode\SnakeScreenManager.h" />
     <ClInclude Include="TicTacToeCode\ttt.h" />
     <ClInclude Include="TicTacToeCode\ttt_functions.h" />
     <ClInclude Include="Timer.h" />
