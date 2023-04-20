@@ -142,11 +142,13 @@ void DisplayManager::manageInput(GameManager& game)
 		case 88: // X
 		case 120: // x
 			game.gameBoard[mCursorRow][mCursorCol].isRevealed = true;
+			game.updateFlag(mCursorRow, mCursorCol);
 			updateScreen(game);
 			break;
 		// flag a square
 		case 90: // Z
 		case 122:
+			game.updateFlag(mCursorRow, mCursorCol);
 			game.gameBoard[mCursorRow][mCursorCol].isFlagged = true;
 			updateScreen(game);
 			return;
