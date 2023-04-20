@@ -36,7 +36,6 @@ int main()
 		int gameDiff = setDifficulty();
 		GameManager game(gameDiff);
 		DisplayManager display;
-		bool playing = true;
 
 		display.setConsoleSize(game.getDifficulty());
 
@@ -46,8 +45,6 @@ int main()
 		while (game.getGameState() == 0)
 		{
 			display.updateScreen(game);
-			//For Testing, delete before release
-			//game.setGameState(1);
 			display.manageInput(game);
 			// Keep code below but delete this comment before release
 			//display.updateScreen(game);
@@ -59,6 +56,5 @@ int main()
 		getch(); // This is so that the player can see the fully revealed board
 		playing = display.replay(game);
 	}
-	getch();
 	return 0;
 }
