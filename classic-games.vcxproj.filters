@@ -25,14 +25,14 @@
     <Filter Include="Source Files\Wordle">
       <UniqueIdentifier>{9fbc31d6-47e5-4c97-a16c-7c234720cdbd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Connect4">
-      <UniqueIdentifier>{636e74ac-87e5-439a-8dad-11605fb3720a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\common">
       <UniqueIdentifier>{59453502-430c-481d-ab19-7e441359ad71}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Snake">
       <UniqueIdentifier>{60680a58-115a-4bc8-ab3b-369fdac6ceb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Connect4">
+      <UniqueIdentifier>{636e74ac-87e5-439a-8dad-11605fb3720a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +162,9 @@
       <Filter>Source Files\Snake</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
+      <Filter>Source Files\Snake</Filter>
+    </ClInclude>
+    <ClInclude Include="SnakeGame.h">
       <Filter>Source Files\Snake</Filter>
     </ClInclude>
   </ItemGroup>

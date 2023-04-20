@@ -159,6 +159,7 @@
     <ClInclude Include="HangmanCode\ScreenManager.h" />
     <ClInclude Include="path.h" />
     <ClInclude Include="Snake.h" />
+    <ClInclude Include="SnakeGame.h" />
     <ClInclude Include="SnakeGameManager.h" />
     <ClInclude Include="SnakeLocation.h" />
     <ClInclude Include="SnakeScreenManager.h" />

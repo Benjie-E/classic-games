@@ -1,7 +1,16 @@
+#include "SnakeGame.h"
 #include "SnakeGameManager.h"
 #include "SnakeScreenManager.h"
 
-void SnakeGame()
+SnakeGame::SnakeGame()
+{
+}
+
+SnakeGame::~SnakeGame()
+{
+}
+
+void SnakeGame::GameLoop()
 {
     srand(time(NULL));
     initscr();
