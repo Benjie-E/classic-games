@@ -59,13 +59,13 @@ public:
 	int getFlagged();
 	void setMinesAmount(int dif);
 	void setGameState(int);
-	int checkGameState();
+	void checkGameState(int row, int col);
 	void updateFlag(int row, int col);
 	
 private:
 	int mDifficulty, mTotalMines, mFlagsPlaced;
 	//GameStates: 0 = normal play, 1 = player win, 2 = player lose
-	int mGameState;
+	int mGameState, mMinesFlagged;
 };
 
 int setDifficulty();

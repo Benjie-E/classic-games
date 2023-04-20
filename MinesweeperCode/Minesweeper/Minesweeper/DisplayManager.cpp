@@ -143,6 +143,7 @@ void DisplayManager::manageInput(GameManager& game)
 		case 120: // x
 			game.gameBoard[mCursorRow][mCursorCol].isRevealed = true;
 			game.updateFlag(mCursorRow, mCursorCol);
+			game.checkGameState(mCursorRow, mCursorCol);
 			updateScreen(game);
 			break;
 		// flag a square
@@ -150,6 +151,7 @@ void DisplayManager::manageInput(GameManager& game)
 		case 122:
 			game.updateFlag(mCursorRow, mCursorCol);
 			game.gameBoard[mCursorRow][mCursorCol].isFlagged = true;
+			game.checkGameState(mCursorRow, mCursorCol);
 			updateScreen(game);
 			return;
 			break;
