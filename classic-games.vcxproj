@@ -109,6 +109,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -123,6 +124,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Apple.cpp" />
     <ClCompile Include="common\Location.cpp" />
     <ClCompile Include="Connect4\connect4.cpp" />
     <ClCompile Include="Connect4\DisplayManager.cpp" />
@@ -132,17 +134,20 @@
     <ClCompile Include="HangmanCode\Hangman.cpp" />
     <ClCompile Include="HangmanCode\HangmanScreenManager.cpp" />
     <ClCompile Include="main.cpp" />
-<<<<<<< HEAD
-    <ClCompile Include="SnakeCode\Snake\Snake\Snake.cpp" />
-=======
+    <ClCompile Include="Snake.cpp" />
+    <ClCompile Include="SnakeGame.cpp" />
+    <ClCompile Include="SnakeGameManager.cpp" />
+    <ClCompile Include="SnakeLocation.cpp" />
+    <ClCompile Include="SnakeScreenManager.cpp" />
     <ClCompile Include="TicTacToeCode\ttt.cpp" />
     <ClCompile Include="TicTacToeCode\ttt_functions.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="WordleCode\WordleGameManager.cpp" />
     <ClCompile Include="WordleCode\WordleScreenManager.cpp" />
     <ClCompile Include="WordleCode\Wordle.cpp" />
->>>>>>> main
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Apple.h" />
     <ClInclude Include="arrowMove.h" />
     <ClInclude Include="common\Location.h" />
     <ClInclude Include="Connect4\connect4.h" />
@@ -152,15 +157,21 @@
     <ClInclude Include="HangmanCode\GameManager.h" />
     <ClInclude Include="HangmanCode\Hangman.h" />
     <ClInclude Include="HangmanCode\ScreenManager.h" />
+    <ClInclude Include="path.h" />
+    <ClInclude Include="Snake.h" />
+    <ClInclude Include="SnakeGameManager.h" />
+    <ClInclude Include="SnakeLocation.h" />
+    <ClInclude Include="SnakeScreenManager.h" />
     <ClInclude Include="TicTacToeCode\ttt.h" />
     <ClInclude Include="TicTacToeCode\ttt_functions.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="WordleCode\GameManager.h" />
     <ClInclude Include="WordleCode\ScreenManager.h" />
     <ClInclude Include="WordleCode\Wordle.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="HangmanCode\words.txt" />
-    <Text Include="WordleCode\words.txt" />
+    <Text Include="HangmanCode\hangmanWords.txt" />
+    <Text Include="WordleCode\wordleWords.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

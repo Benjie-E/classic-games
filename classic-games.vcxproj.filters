@@ -31,6 +31,9 @@
     <Filter Include="Source Files\common">
       <UniqueIdentifier>{59453502-430c-481d-ab19-7e441359ad71}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Snake">
+      <UniqueIdentifier>{60680a58-115a-4bc8-ab3b-369fdac6ceb8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -75,8 +78,26 @@
     <ClCompile Include="common\Location.cpp">
       <Filter>Source Files\common</Filter>
     </ClCompile>
-    <ClCompile Include="SnakeCode\Snake\Snake\Snake.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="SnakeGameManager.cpp">
+      <Filter>Source Files\Snake</Filter>
+    </ClCompile>
+    <ClCompile Include="SnakeScreenManager.cpp">
+      <Filter>Source Files\Snake</Filter>
+    </ClCompile>
+    <ClCompile Include="Snake.cpp">
+      <Filter>Source Files\Snake</Filter>
+    </ClCompile>
+    <ClCompile Include="Apple.cpp">
+      <Filter>Source Files\Snake</Filter>
+    </ClCompile>
+    <ClCompile Include="SnakeLocation.cpp">
+      <Filter>Source Files\Snake</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files\Snake</Filter>
+    </ClCompile>
+    <ClCompile Include="SnakeGame.cpp">
+      <Filter>Source Files\Snake</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -119,16 +140,37 @@
     <ClInclude Include="WordleCode\GameManager.h">
       <Filter>Source Files\Wordle</Filter>
     </ClInclude>
+    <ClInclude Include="path.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
     <ClInclude Include="common\Location.h">
-      <Filter>Source Files\common</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SnakeGameManager.h">
+      <Filter>Source Files\Snake</Filter>
+    </ClInclude>
+    <ClInclude Include="SnakeScreenManager.h">
+      <Filter>Source Files\Snake</Filter>
+    </ClInclude>
+    <ClInclude Include="Snake.h">
+      <Filter>Source Files\Snake</Filter>
+    </ClInclude>
+    <ClInclude Include="Apple.h">
+      <Filter>Source Files\Snake</Filter>
+    </ClInclude>
+    <ClInclude Include="SnakeLocation.h">
+      <Filter>Source Files\Snake</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Source Files\Snake</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="HangmanCode\words.txt">
-      <Filter>Source Files\Hangman</Filter>
-    </Text>
-    <Text Include="WordleCode\words.txt">
+    <Text Include="WordleCode\wordleWords.txt">
       <Filter>Source Files\Wordle</Filter>
+    </Text>
+    <Text Include="HangmanCode\hangmanWords.txt">
+      <Filter>Source Files\Hangman</Filter>
     </Text>
   </ItemGroup>
 </Project>
