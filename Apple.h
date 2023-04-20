@@ -16,7 +16,7 @@ public:
 	int getX() { return mLocation->getX(); }
 
 private:
-	SnakeLocation* mLocation;
+	Location* mLocation;
 
 	const int MAX_X = getmaxx(stdscr) - 2;
 	const int MAX_Y = getmaxy(stdscr) - 2;

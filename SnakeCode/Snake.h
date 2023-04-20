@@ -1,5 +1,5 @@
 #pragma once
-#include "SnakeLocation.h"
+#include "../common/Location.h"
 #include <vector>
 #include "Timer.h"
 
@@ -7,21 +7,20 @@ using namespace std;
 
 class Snake {
 public:
-	enum direction { OTHER = -1, RIGHT, DOWN, LEFT, UP };
+	enum direction {OTHER = -1, RIGHT, DOWN, LEFT, UP };
 	Snake(int x, int y);
 	void gameLoop();
 	direction getSnakeInput(); //RDLU
 	void changeDirection(direction dir);
-	SnakeLocation head;
-	std::vector<SnakeLocation> body;
+	Location head;
+	std::vector<Location> body;
 
-	vector<SnakeLocation> SnakeLocations;
+	vector<Location> locations;
 
 	void increaseSize();
 
 	direction dir;
-
+	
 private:
 	Timer clock;
 };
-

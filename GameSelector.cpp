@@ -72,6 +72,10 @@ int GameSelector::start(int game)
         clear();
         Connect4NS::Connect4::Connect4();
         break;
+    case Snake:
+        clear();
+        SnakeGame::SnakeGame();
+        break;
     case Exit:
         clear();
         exit(0);

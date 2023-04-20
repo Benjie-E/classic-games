@@ -2,7 +2,6 @@
 #include "Snake.h"
 #include <iostream>
 #include <stdlib.h>
-#include <Windows.h>
 #include <cstdlib>
 
 Snake::direction Snake::getSnakeInput() {

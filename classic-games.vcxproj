@@ -124,7 +124,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Apple.cpp" />
     <ClCompile Include="common\Location.cpp" />
     <ClCompile Include="Connect4\connect4.cpp" />
     <ClCompile Include="Connect4\DisplayManager.cpp" />
@@ -134,20 +133,19 @@
     <ClCompile Include="HangmanCode\Hangman.cpp" />
     <ClCompile Include="HangmanCode\HangmanScreenManager.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Snake.cpp" />
-    <ClCompile Include="SnakeGame.cpp" />
-    <ClCompile Include="SnakeGameManager.cpp" />
-    <ClCompile Include="SnakeLocation.cpp" />
-    <ClCompile Include="SnakeScreenManager.cpp" />
+    <ClCompile Include="SnakeCode\Apple.cpp" />
+    <ClCompile Include="SnakeCode\SnakeGame.cpp" />
+    <ClCompile Include="SnakeCode\Snake.cpp" />
+    <ClCompile Include="SnakeCode\SnakeGameManager.cpp" />
+    <ClCompile Include="SnakeCode\SnakeScreenManager.cpp" />
+    <ClCompile Include="SnakeCode\Timer.cpp" />
     <ClCompile Include="TicTacToeCode\ttt.cpp" />
     <ClCompile Include="TicTacToeCode\ttt_functions.cpp" />
-    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="WordleCode\WordleGameManager.cpp" />
     <ClCompile Include="WordleCode\WordleScreenManager.cpp" />
     <ClCompile Include="WordleCode\Wordle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Apple.h" />
     <ClInclude Include="arrowMove.h" />
     <ClInclude Include="common\Location.h" />
     <ClInclude Include="Connect4\connect4.h" />
@@ -158,14 +156,13 @@
     <ClInclude Include="HangmanCode\Hangman.h" />
     <ClInclude Include="HangmanCode\ScreenManager.h" />
     <ClInclude Include="path.h" />
+    <ClInclude Include="SnakeCode\Apple.h" />
     <ClInclude Include="SnakeCode\Snake.h" />
-    <ClInclude Include="SnakeCode\SnakeGame.h" />
     <ClInclude Include="SnakeCode\SnakeGameManager.h" />
-    <ClInclude Include="SnakeCode\SnakeLocation.h" />
     <ClInclude Include="SnakeCode\SnakeScreenManager.h" />
+    <ClInclude Include="SnakeCode\Timer.h" />
     <ClInclude Include="TicTacToeCode\ttt.h" />
     <ClInclude Include="TicTacToeCode\ttt_functions.h" />
-    <ClInclude Include="Timer.h" />
     <ClInclude Include="WordleCode\GameManager.h" />
     <ClInclude Include="WordleCode\ScreenManager.h" />
     <ClInclude Include="WordleCode\Wordle.h" />

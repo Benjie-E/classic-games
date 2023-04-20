@@ -3,7 +3,7 @@
 #include <curses.h>
 #include <random>
 #include <time.h>
-#include "Location.h"
+#include "../common/Location.h"
 
 
 class Apple
