@@ -44,7 +44,6 @@ int main()
 		// Main game loops
 		while (game.getGameState() == 0)
 		{
-			game.setGameState(game.checkGameState());
 			display.updateScreen(game);
 			display.manageInput(game);
 		}

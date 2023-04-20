@@ -74,6 +74,7 @@ GameManager::GameManager(int difficulty)
 	setMinesAmount(difficulty);
 	mFlagsPlaced = 0;
 	mGameState = 0;
+	mMinesFlagged = 0;
 
 	// dynamic allocation of 2d arrays is gross
 	gameBoard = new Square * [mDifficulty];
@@ -290,36 +291,30 @@ void GameManager::setGameState(int state)
 }
 
 
-int GameManager::checkGameState()
+void GameManager::checkGameState(int row, int col)
 {
-	int i, j, minesFlagged = 0;
+	int minesFlagged = 0, gameState = 0;
 	// Checks to see if a mine has been revealed (the player loses)
-	for (i = 0; i < mDifficulty; i++)
-	{
-		for (j = 0; j < mDifficulty; j++)
-		{
-			if (gameBoard[i][j].isRevealed == true && gameBoard[i][j].hasMine == true)
-			{
-				return PLAYERLOSE;
-			}
-			if (gameBoard[i][j].isFlagged == true && gameBoard[i][j].hasMine == true)
-			{
-				minesFlagged++;
-			}
-		}
-	}
 
+	if (gameBoard[row][col].isRevealed == true && gameBoard[row][col].hasMine == true)
+	{
+		gameState = PLAYERLOSE;
+	}
 	// Player has won, all mines have been flagged
-	if (minesFlagged == mTotalMines)
-		return PLAYERWIN;
+	else if (mMinesFlagged == mTotalMines)
+		gameState = PLAYERWIN;
 	else
-		return STILLPLAYING; // Game is still going
+		gameState = STILLPLAYING; // Game is still going
+
+	setGameState(gameState);
 }
 
 void GameManager::updateFlag(int row, int column)
 {
+	if (gameBoard[row][column].isFlagged == false && gameBoard[row][column].hasMine == true)
+		mMinesFlagged++;
 	if (gameBoard[row][column].isFlagged == false && gameBoard[row][column].isRevealed == false)
-		mFlagsPlaced += 1;
+		mFlagsPlaced++;
 	else if (gameBoard[row][column].isFlagged == true && gameBoard[row][column].isRevealed == true)
-		mFlagsPlaced -= 1;
+		mFlagsPlaced--;
 }
