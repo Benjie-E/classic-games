@@ -76,6 +76,7 @@ GameManager::GameManager(int difficulty)
 	mGameState = 0;
 	mMinesFlagged = 0;
 	mNotMined = (difficulty * difficulty) - mTotalMines;
+	mFirstMoveMade = false;
 
 	// dynamic allocation of 2d arrays is gross
 	gameBoard = new Square * [mDifficulty];
@@ -364,5 +365,29 @@ void GameManager::cording(int row, int col)
 			cording(row, rightCol);
 		}
 	}
+}
 
+
+void GameManager::firstMove()
+{
+	bool picking = true;
+	int row, col;
+
+	if (!mFirstMoveMade) //First move has not been made
+	{
+		while (picking)
+		{
+			// Picks random square and checks if it has a mine
+			row = rand() % (mDifficulty);
+			col = rand() % (mDifficulty);
+			if (!gameBoard[row][col].hasMine)
+			{
+				//If it doesn't have a mine, reveals it and makes sure this doesn't repeat.
+				gameBoard[row][col].isRevealed = true;
+				picking = false;
+				mFirstMoveMade = true;
+				refresh();
+			}
+		}
+	}
 }

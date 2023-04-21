@@ -40,6 +40,7 @@ int main()
 		display.setConsoleSize(game.getDifficulty());
 
 		game.gameBoard[0][0].isHighlighted = true;
+		game.firstMove();
 
 		// Main game loops
 		while (game.getGameState() == 0)

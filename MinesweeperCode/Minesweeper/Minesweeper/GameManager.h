@@ -53,6 +53,7 @@ public:
 	void cording(int row, int col); 
 	void placeMines();
 	void checkGameState(int row, int col);
+	void firstMove();
 
 	//Accessors
 	int getDifficulty();
@@ -71,6 +72,7 @@ private:
 	//GameStates: 0 = normal play, 1 = player win, 2 = player lose
 	int mGameState;
 	int mNumCleared, mNotMined;
+	bool mFirstMoveMade;
 };
 
 int setDifficulty();
