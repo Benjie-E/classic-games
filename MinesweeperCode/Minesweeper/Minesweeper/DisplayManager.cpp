@@ -140,12 +140,9 @@ void DisplayManager::manageInput(GameManager& game)
 		// reveal a square
 		case 88: // X
 		case 120: // x
-			if (game.gameBoard[mCursorRow][mCursorCol].surroundingMines == 0)
-				game.cording(mCursorRow, mCursorCol);
-			else
-				game.updateRevealed(mCursorRow, mCursorCol);
-			game.gameBoard[mCursorRow][mCursorCol].isRevealed = true;
-			game.updateFlag(mCursorRow, mCursorCol);
+			game.updateRevealed(mCursorRow, mCursorCol);
+			if (game.gameBoard[mCursorRow][mCursorCol].isFlagged)
+				game.updateFlag(mCursorRow, mCursorCol);
 			game.checkGameState(mCursorRow, mCursorCol);
 			updateScreen(game);
 			return;

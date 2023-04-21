@@ -68,7 +68,7 @@ public:
 	void updateRevealed(int row, int col);
 	
 private:
-	int mDifficulty, mTotalMines, mFlagsPlaced, mMinesFlagged;;
+	int mDifficulty, mTotalMines, mFlagsPlaced;
 	//GameStates: 0 = normal play, 1 = player win, 2 = player lose
 	int mGameState;
 	int mNumCleared, mNotMined;

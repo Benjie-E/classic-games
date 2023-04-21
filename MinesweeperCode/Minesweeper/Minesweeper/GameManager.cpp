@@ -74,7 +74,6 @@ GameManager::GameManager(int difficulty)
 	setMinesAmount(difficulty);
 	mFlagsPlaced = 0;
 	mGameState = 0;
-	mMinesFlagged = 0;
 	mNotMined = (difficulty * difficulty) - mTotalMines;
 	mFirstMoveMade = false;
 
@@ -308,15 +307,12 @@ void GameManager::updateFlag(int row, int column)
 	{
 		gameBoard[row][column].isFlagged = !gameBoard[row][column].isFlagged;
 
-		if (gameBoard[row][column].isFlagged && !gameBoard[row][column].hasMine)
-			mMinesFlagged++;
-
 		if (gameBoard[row][column].isFlagged)
 			mFlagsPlaced++;
-		else if (gameBoard[row][column].isFlagged) // flag got removed
+		else if (!gameBoard[row][column].isFlagged) // flag got removed
 			mFlagsPlaced--;
 	}
-	else if (gameBoard[row][column].isFlagged) // remove flag from revealed square
+	else // remove flag from revealed square
 	{
 		gameBoard[row][column].isFlagged = false;
 		mFlagsPlaced--;
@@ -326,8 +322,16 @@ void GameManager::updateFlag(int row, int column)
 
 void GameManager::updateRevealed(int row, int col)
 {
-	if (!gameBoard[row][col].isRevealed && !gameBoard[row][col].hasMine) //square isn't revealed (yet) and doesn't have a mine
+	// only update stats and trigger cording if no mine
+	if (!gameBoard[row][col].hasMine)
+	{
+		if (gameBoard[row][col].surroundingMines == 0)
+			cording(row, col);
+
 		mNumCleared++;
+	}
+
+	gameBoard[row][col].isRevealed = true;
 }
 
 
@@ -342,6 +346,9 @@ void GameManager::cording(int row, int col)
 	{
 		gameBoard[row][col].isRevealed = true;
 		mNumCleared++;
+
+		if (gameBoard[row][col].isFlagged)
+			updateFlag(row, col);
 
 		//Top
 		if (row != 0) //Doesn't go outside of the game board
@@ -384,6 +391,7 @@ void GameManager::firstMove()
 			{
 				//If it doesn't have a mine, reveals it and makes sure this doesn't repeat.
 				gameBoard[row][col].isRevealed = true;
+				mNumCleared++;
 				picking = false;
 				mFirstMoveMade = true;
 				refresh();
