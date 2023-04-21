@@ -336,8 +336,8 @@ void GameManager::updateRevealed(int row, int col)
 	{
 		if (gameBoard[row][col].surroundingMines == 0)
 			cording(row, col);
-
-		mNumCleared++;
+		else
+			mNumCleared++;
 	}
 
 	gameBoard[row][col].isRevealed = true;
