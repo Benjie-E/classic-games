@@ -322,8 +322,47 @@ void GameManager::updateFlag(int row, int column)
 	}
 }
 
+
 void GameManager::updateRevealed(int row, int col)
 {
 	if (!gameBoard[row][col].isRevealed && !gameBoard[row][col].hasMine) //square isn't revealed (yet) and doesn't have a mine
 		mNumCleared++;
+}
+
+
+void GameManager::cording(int row, int col)
+{
+	int topRow = row - 1;
+	int botRow = row + 1;
+	int leftCol = col - 1;
+	int rightCol = col + 1;
+
+	if (!gameBoard[row][col].isRevealed && gameBoard[row][col].surroundingMines == 0)
+	{
+		gameBoard[row][col].isRevealed = true;
+		mNumCleared++;
+
+		//Top
+		if (row != 0) //Doesn't go outside of the game board
+		{
+			cording(topRow, col);
+		}
+
+		//Bottom
+		if (row != mDifficulty - 1)
+		{
+			cording(botRow, col);
+		}
+		//Left
+		if (col != 0)
+		{
+			cording(row, leftCol);
+		}
+		//Right
+		if (col != mDifficulty - 1)
+		{
+			cording(row, rightCol);
+		}
+	}
+
 }

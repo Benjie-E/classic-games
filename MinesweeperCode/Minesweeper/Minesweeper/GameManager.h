@@ -50,16 +50,19 @@ public:
 	Square** gameBoard;
 
 	void calcSurroundingMines();
+	void cording(int row, int col); 
 	void placeMines();
+	void checkGameState(int row, int col);
 
 	//Accessors
 	int getDifficulty();
 	int getGameState();
 	int getTotalMines();
 	int getFlagged();
+
+	//Mutators
 	void setMinesAmount(int dif);
 	void setGameState(int);
-	void checkGameState(int row, int col);
 	void updateFlag(int row, int col);
 	void updateRevealed(int row, int col);
 	
