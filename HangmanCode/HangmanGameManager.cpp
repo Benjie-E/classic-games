@@ -66,7 +66,7 @@ std::string GameManager::getWord()
 void GameManager::importWords(std::string words[])
 {
 	std::ifstream fin;
-	std::filesystem::path filePath = exePath.parent_path().parent_path().append(this->WORD_FILENAME);
+	std::filesystem::path filePath = exePath.parent_path().append(this->WORD_FILENAME);
 	fin.open(filePath);
 	
 	if (!fin.is_open())

@@ -25,7 +25,7 @@ string GameManager::getWord(string words[], int randNum)
 void GameManager::importWords(string words[])
 {
 	ifstream fin;
-	std::filesystem::path filePath = exePath.parent_path().parent_path().append(this->WORD_FILENAME);
+	std::filesystem::path filePath = exePath.parent_path().append(this->WORD_FILENAME);
 	fin.open(filePath);
 
 	if (!fin.is_open())
