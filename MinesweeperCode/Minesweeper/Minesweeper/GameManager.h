@@ -61,11 +61,13 @@ public:
 	void setGameState(int);
 	void checkGameState(int row, int col);
 	void updateFlag(int row, int col);
+	void updateRevealed(int row, int col);
 	
 private:
-	int mDifficulty, mTotalMines, mFlagsPlaced;
+	int mDifficulty, mTotalMines, mFlagsPlaced, mMinesFlagged;;
 	//GameStates: 0 = normal play, 1 = player win, 2 = player lose
-	int mGameState, mMinesFlagged;
+	int mGameState;
+	int mNumCleared, mNotMined;
 };
 
 int setDifficulty();

@@ -140,6 +140,7 @@ void DisplayManager::manageInput(GameManager& game)
 		// reveal a square
 		case 88: // X
 		case 120: // x
+			game.updateRevealed(mCursorRow, mCursorCol);
 			game.gameBoard[mCursorRow][mCursorCol].isRevealed = true;
 			game.updateFlag(mCursorRow, mCursorCol);
 			game.checkGameState(mCursorRow, mCursorCol);
