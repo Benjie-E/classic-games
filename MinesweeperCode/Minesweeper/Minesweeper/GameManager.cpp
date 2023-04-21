@@ -75,6 +75,7 @@ GameManager::GameManager(int difficulty)
 	mFlagsPlaced = 0;
 	mGameState = 0;
 	mMinesFlagged = 0;
+	mNotMined = (difficulty * difficulty) - mTotalMines;
 
 	// dynamic allocation of 2d arrays is gross
 	gameBoard = new Square * [mDifficulty];
@@ -291,8 +292,8 @@ void GameManager::checkGameState(int row, int col)
 	{
 		gameState = PLAYERLOSE;
 	}
-	// Player has won, all mines have been flagged
-	else if (mMinesFlagged == mTotalMines)
+	// Player has won, all non mine spaces have been revealed
+	else if (mNumCleared == mNotMined)
 		gameState = PLAYERWIN;
 	else
 		gameState = STILLPLAYING; // Game is still going
@@ -319,4 +320,10 @@ void GameManager::updateFlag(int row, int column)
 		gameBoard[row][column].isFlagged = false;
 		mFlagsPlaced--;
 	}
+}
+
+void GameManager::updateRevealed(int row, int col)
+{
+	if (!gameBoard[row][col].isRevealed && !gameBoard[row][col].hasMine) //square isn't revealed (yet) and doesn't have a mine
+		mNumCleared++;
 }
