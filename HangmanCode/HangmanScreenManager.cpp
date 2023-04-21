@@ -75,6 +75,7 @@ const char* HANGMANPICS[7] = {R"(
  / \  |
       |
 ========= )"};
+std::string wordMessage = "The word was: ";
 ScreenManager::ScreenManager()
 {
     WINDOW *window = initscr();
@@ -128,18 +129,26 @@ void ScreenManager::updateWord(int index, char letter)
     refresh();
 }
 
-void ScreenManager::win()
+void ScreenManager::win(std::string word)
 {
     clear();
     move(hangmanPos.getY(), hangmanPos.getX());
     addstr(WINTEXT);
+    move(wordPos.getY(), hangmanPos.getX());
+    std::string winMessage = wordMessage;
+    winMessage.append(word);
+    addstr(winMessage.c_str());
     refresh();
 }
 
-void ScreenManager::lose()
+void ScreenManager::lose(std::string word)
 {
     clear();
     move(hangmanPos.getY(), hangmanPos.getX());
     addstr(LOSETEXT);
+    move(wordPos.getY(), hangmanPos.getX());
+    std::string loseMessage = wordMessage;
+    loseMessage.append(word);
+    addstr(loseMessage.c_str());
     refresh();
 }
