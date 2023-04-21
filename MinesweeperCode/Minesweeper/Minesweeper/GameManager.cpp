@@ -25,14 +25,23 @@ void Square::printSquare()
 			printw("XX");
 			attroff(COLOR_PAIR(3));
 		}
-		else // if (!hasMine)
+		else
 		{
-			attron(COLOR_PAIR(surroundingMines));
-			printw("%d ", surroundingMines);
-			attroff(COLOR_PAIR(surroundingMines));
+			if (!isHighlighted)
+			{
+				attron(COLOR_PAIR(surroundingMines));
+				printw("%d ", surroundingMines);
+				attroff(COLOR_PAIR(surroundingMines));
+			}
+			else // if highlighted
+			{
+				attron(COLOR_PAIR(6));
+				printw("%d ", surroundingMines);
+				attroff(COLOR_PAIR(6));
+			}
 		}
 	}
-	else // if (!isRevealed)
+	else // if not revealed
 	{
 		if (isFlagged)
 		{
@@ -384,14 +393,14 @@ void GameManager::firstMove()
 	{
 		while (picking)
 		{
-			// Picks random square and checks if it has a mine
+			// Picks random square with 0 surrounding mines
 			row = rand() % (mDifficulty);
 			col = rand() % (mDifficulty);
-			if (!gameBoard[row][col].hasMine)
+			if (!gameBoard[row][col].hasMine 
+				&& gameBoard[row][col].surroundingMines == 0)
 			{
 				//If it doesn't have a mine, reveals it and makes sure this doesn't repeat.
-				gameBoard[row][col].isRevealed = true;
-				mNumCleared++;
+				updateRevealed(row, col);
 				picking = false;
 				mFirstMoveMade = true;
 				refresh();
