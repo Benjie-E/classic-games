@@ -68,12 +68,12 @@ void DisplayManager::displayStats(int difficulty, GameManager& game)
 	if (game.getGameState() == 1)
 	{
 		move(0, titleY - 5);
-		printw("YOU WON IN MINESWEEPER!");
+		printw("YOU WON! [X] to continue");
 	}
 	else if (game.getGameState() == 2)
 	{
 		move(0, titleY - 6);
-		printw("YOU LOST IN MINESWEEPER!");
+		printw("YOU LOST! [X] to continue");
 	}
 	else
 	{
@@ -136,7 +136,6 @@ void DisplayManager::manageInput(GameManager& game)
 			mCursorRow = (mCursorRow + 1) % size;
 			game.gameBoard[mCursorRow][mCursorCol].isHighlighted = true;
 			updateScreen(game);
-			return;
 			break;
 		// reveal a square
 		case 88: // X
@@ -145,12 +144,12 @@ void DisplayManager::manageInput(GameManager& game)
 			game.updateFlag(mCursorRow, mCursorCol);
 			game.checkGameState(mCursorRow, mCursorCol);
 			updateScreen(game);
+			return;
 			break;
 		// flag a square
 		case 90: // Z
 		case 122:
 			game.updateFlag(mCursorRow, mCursorCol);
-			game.gameBoard[mCursorRow][mCursorCol].isFlagged = true;
 			game.checkGameState(mCursorRow, mCursorCol);
 			updateScreen(game);
 			return;
@@ -224,6 +223,7 @@ bool DisplayManager::replay(GameManager &game)
 	{
 		// clears screen and prints menu
 		clear();
+		mvprintw(0, 0, "[ENTER] or [X] to select.");
 		for (i = 0; i <= 1; i++)
 		{
 			if (i == selected)
@@ -252,24 +252,16 @@ bool DisplayManager::replay(GameManager &game)
 				selected = (selected + 1) % 2;
 				break;
 			case 10:
-				if (selected == 0)
-					replay = true;
-				else
-					replay = false;
-				break;
 			case 32:
+			case 88:
+			case 120:
 				if (selected == 0)
-					replay = true;
+					return true;
 				else
-					replay = false;
+					return false;
 				break;
 			default:
 				break;
 		}
-		
-		if (choice == 10 || choice == 32)
-			break;
 	}
-
-	return replay;
 }

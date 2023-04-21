@@ -222,7 +222,6 @@ int setDifficulty()
 {
 	// Basic menu for the player to input if they want to replay
 	int choice = 0, numChoices = 3, selected = 0, diffNum = 0, i;
-	bool replay = false;
 	string options[] = { "Easy (9x9)", "Medium (16x16)", "Hard (22x22)", "> Easy(9x9)", "> Medium (16x16)", "> Hard (22x22)"};
 	keypad(stdscr, true);
 
@@ -230,6 +229,7 @@ int setDifficulty()
 	{
 		// clears screen and prints menu
 		clear();
+		mvprintw(0, 0, "[ENTER] or [X] to select.");
 		for (i = 0; i < numChoices; i++)
 		{
 			if (i == selected)
@@ -258,31 +258,22 @@ int setDifficulty()
 			selected = (selected + 1) % numChoices;
 			break;
 		case 10: //Enter: Returns selected
-			if (selected == 0)
-				diffNum = EASY;
-			else if (selected == 1)
-				diffNum = MEDIUM;
-			else
-				diffNum = HARD;
-			break;
 		case 32:
+		case 88: // X also returns selected
+		case 120:
+			clear();
 			if (selected == 0)
-				diffNum = EASY;
+				return EASY;
 			else if (selected == 1)
-				diffNum = MEDIUM;
+				return MEDIUM;
 			else
-				diffNum = HARD;
+				return HARD;
 			break;
 		default:
 			break;
 		}
-
-		if (choice == 10 || choice == 32)
-			break;
 	}
-	clear();
-	return diffNum;
-};
+}
 
 
 void GameManager::setGameState(int state)
@@ -311,10 +302,21 @@ void GameManager::checkGameState(int row, int col)
 
 void GameManager::updateFlag(int row, int column)
 {
-	if (gameBoard[row][column].isFlagged == false && gameBoard[row][column].hasMine == true)
-		mMinesFlagged++;
-	if (gameBoard[row][column].isFlagged == false && gameBoard[row][column].isRevealed == false)
-		mFlagsPlaced++;
-	else if (gameBoard[row][column].isFlagged == true && gameBoard[row][column].isRevealed == true)
+	if (!gameBoard[row][column].isRevealed) // do nothing to revealed squares
+	{
+		gameBoard[row][column].isFlagged = !gameBoard[row][column].isFlagged;
+
+		if (gameBoard[row][column].isFlagged && !gameBoard[row][column].hasMine)
+			mMinesFlagged++;
+
+		if (gameBoard[row][column].isFlagged)
+			mFlagsPlaced++;
+		else if (gameBoard[row][column].isFlagged) // flag got removed
+			mFlagsPlaced--;
+	}
+	else if (gameBoard[row][column].isFlagged) // remove flag from revealed square
+	{
+		gameBoard[row][column].isFlagged = false;
 		mFlagsPlaced--;
+	}
 }
