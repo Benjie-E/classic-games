@@ -44,7 +44,7 @@ TTT::TTT()
 				moveMade = ttt.setChar(pMove);
 				if (moveMade == false)
 				{
-					move(9, 5);
+					move(9, 3);
 					printw("Invalid Move! Please enter a valid move.");
 					refresh();
 					getch();
