@@ -25,6 +25,9 @@ SnakeCode/SnakeGame.cpp
 SnakeCode/SnakeGameManager.cpp
 SnakeCode/SnakeScreenManager.cpp
 SnakeCode/Timer.cpp
+MinesweeperCode/MinesweeperDisplayManager.cpp
+MinesweeperCode/MinesweeperGameManager.cpp
+MinesweeperCode/minesweeper.cpp
 )
 
 # add .h files
@@ -42,7 +45,10 @@ SnakeCode/Snake.h
 SnakeCode/SnakeGame.h
 SnakeCode/SnakeGameManager.h
 SnakeCode/SnakeScreenManager.h
-SnakeCode/Timer.h)
+SnakeCode/Timer.h
+MinesweeperCode/MinesweeperDisplayManager.h
+MinesweeperCode/MinesweeperGameManager.h
+MinesweeperCode/minesweeper.h)
 
 # Add executable target with source files listed in SOURCE_FILES variable
 add_executable(ClassicGames ${SOURCE_FILES})

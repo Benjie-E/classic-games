@@ -133,6 +133,9 @@
     <ClCompile Include="HangmanCode\Hangman.cpp" />
     <ClCompile Include="HangmanCode\HangmanScreenManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MinesweeperCode\MinesweeperDisplayManager.cpp" />
+    <ClCompile Include="MinesweeperCode\MinesweeperGameManager.cpp" />
+    <ClCompile Include="MinesweeperCode\minesweeper.cpp" />
     <ClCompile Include="SnakeCode\Apple.cpp" />
     <ClCompile Include="SnakeCode\SnakeGame.cpp" />
     <ClCompile Include="SnakeCode\Snake.cpp" />
@@ -155,6 +158,9 @@
     <ClInclude Include="HangmanCode\GameManager.h" />
     <ClInclude Include="HangmanCode\Hangman.h" />
     <ClInclude Include="HangmanCode\ScreenManager.h" />
+    <ClInclude Include="MinesweeperCode\minesweeper.h" />
+    <ClInclude Include="MinesweeperCode\MinesweeperDisplayManager.h" />
+    <ClInclude Include="MinesweeperCode\MinesweeperGameManager.h" />
     <ClInclude Include="path.h" />
     <ClInclude Include="SnakeCode\Apple.h" />
     <ClInclude Include="SnakeCode\Snake.h" />

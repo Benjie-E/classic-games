@@ -7,12 +7,13 @@
 #include <string>
 #include "common/Location.h"
 #include "SnakeCode/SnakeGame.h"
+#include "MinesweeperCode/minesweeper.h"
 class GameSelector
 {
 public:
 	Location menuPos;
-	std::string gameList[6] = {"Hangman","TicTacToe","Wordle","Connect4","Snake","Exit"};
-	enum gameList {Hangman,TicTacToe,Wordle,Connect4,Snake,Exit};
+	std::string gameList[7] = {"Hangman","TicTacToe","Wordle","Connect4","Snake","Minesweeper","Exit"};
+	enum gameList {Hangman,TicTacToe,Wordle,Connect4,Snake,Minesweeper,Exit};
 	GameSelector();
 	bool updateSelector(int game);
 	int select();
