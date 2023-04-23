@@ -76,9 +76,14 @@ int GameSelector::start(int game)
         clear();
         SnakeGame::SnakeGame();
         break;
+    case Minesweeper:
+        clear();
+        MinesweeperNS::Minesweeper::Minesweeper();
+        break;
     case Exit:
         clear();
         exit(0);
+        break;
     default:
         mvaddstr(menuPos.getY() + size(gameList) * 2, menuPos.getX(), "Game Not Found");
         getch();

@@ -1,7 +1,7 @@
-#include "DisplayManager.h"
+#include "MinesweeperDisplayManager.h"
 
 using namespace std;
-
+using namespace MinesweeperNS;
 DisplayManager::DisplayManager()
 {
 	mCursorRow = 0;

@@ -1,7 +1,8 @@
-#include "DisplayManager.h"
-#include "GameManager.h"
-
-int main()
+#include "MinesweeperDisplayManager.h"
+#include "MinesweeperGameManager.h"
+#include "minesweeper.h"
+using namespace MinesweeperNS;
+Minesweeper::Minesweeper()
 {
 	// seed the RNG (it's a surprise tool that will help us later)
 	srand(time(NULL));
@@ -62,5 +63,5 @@ int main()
 		// checks if the player wants to play again
 		playing = display.replay(game);
 	}
-	return 0;
+	return;
 }

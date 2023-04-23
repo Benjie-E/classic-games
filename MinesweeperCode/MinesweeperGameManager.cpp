@@ -1,10 +1,10 @@
-#include "GameManager.h"
+#include "MinesweeperGameManager.h"
 #include <string>
 #include <vector>
 #include <ctime>
 
 using namespace std;
-
+using namespace MinesweeperNS;
 
 Square::Square()
 {
