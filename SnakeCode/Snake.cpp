@@ -29,6 +29,14 @@ void Snake::changeDirection(direction dir)
     {
         return;
     }
+    else if (this->dir == RIGHT && dir == LEFT || this->dir == LEFT && dir == RIGHT)
+    {
+        return;
+    }
+    else if (this->dir == UP && dir == DOWN || this->dir == DOWN && dir == UP)
+    {
+        return;
+    }
     else
     {
         this->dir = dir;
