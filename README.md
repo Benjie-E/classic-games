@@ -18,3 +18,7 @@
    - Nicole: Connect 4
    - Ben: Tic-Tac-Toe
    - Benjie: Hangman
+
+# Second Games:
+   - Benjie and John: Snake
+   - Nicole and Ben: Minesweeper
