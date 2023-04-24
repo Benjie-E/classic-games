@@ -14,7 +14,7 @@ public:
 	void changeDirection(direction dir);
 	Location head;
 	std::vector<Location> body;
-
+	void updateBody();
 	vector<Location> locations;
 
 	void increaseSize();
