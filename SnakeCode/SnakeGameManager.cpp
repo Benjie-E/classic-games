@@ -64,6 +64,12 @@ void SnakeGameManager::checkForCollisions()
 		isGameOver = true;
 		nodelay(stdscr, false);
 	}
+	for (Location b : getBodyLocations()) {
+		if (getHeadLocation().getX() == b.getX() && getHeadLocation().getY() == b.getY()) {
+			isGameOver = true;
+			nodelay(stdscr, false);
+		}
+	}
 }
 
 void SnakeGameManager::newGame()

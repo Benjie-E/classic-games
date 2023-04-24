@@ -46,8 +46,8 @@ void SnakeScreenManager::printBody()
 {
     for (int i = 0; i < SnakeGameManager::getInstance()->getBodyLocations().size(); i++)
     {
-        move(SnakeGameManager::getInstance()->getBodyLocations()[i].getX(), SnakeGameManager::getInstance()->getBodyLocations()[i].getY());
-        addch('|');
+        move(SnakeGameManager::getInstance()->getBodyLocations()[i].getY(), SnakeGameManager::getInstance()->getBodyLocations()[i].getX());
+        addch('o');
     }
 }
 

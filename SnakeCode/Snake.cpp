@@ -43,6 +43,17 @@ void Snake::changeDirection(direction dir)
     }
 }
 
+void Snake::updateBody()
+{
+    if (!body.empty()) {
+
+        for (int i = body.size()-1;i > 0; i--) {
+            body[i] = body[i - 1];
+        }
+        body[0] = head;
+    }
+}
+
 Snake::Snake(int x, int y)
 {
     Location newLocation(y, x);
@@ -53,6 +64,7 @@ Snake::Snake(int x, int y)
 void Snake::gameLoop() 
 {
     clock.start();
+    updateBody();
     if (dir == UP)
     {
         head = Location(head.getY() - 1, head.getX());
@@ -102,11 +114,8 @@ void Snake::increaseSize()
     }
     else
     {
-        for (int i = 0; i < vecSize; i++)
-        {
-            Location newBody(head.getY() - i, head.getX() - i);
+            Location newBody(-1,-1);
             body.push_back(newBody);
-        }
     }
 }
 
